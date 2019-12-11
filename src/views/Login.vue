@@ -15,7 +15,7 @@
                 transition="scale-transition">
                 {{ translateEntity('message', message) }}
               </v-alert>
-              <v-toolbar dark color="teal">
+              <v-toolbar dark color="primary">
                 <v-toolbar-title>{{ translateEntity('LOGIN',
                 'loginTitle') }}</v-toolbar-title>
                 <v-spacer></v-spacer>
@@ -42,7 +42,7 @@
               <v-card-actions>
                 <v-spacer />
                 <v-btn
-                  color="teal"
+                  color="primary"
                   type="submit"
                   :dark="dark"
                   :disabled="loading"
