@@ -28,7 +28,11 @@ import Vuetify, {
   VDivider,
   VCardActions,
   VSpacer,
-  VBtn
+  VBtn,
+  VListItem,
+  VListItemContent,
+  VListItemTitle
+
 } from 'vuetify/lib'
 Vue.use(Vuetify, {
   components: {
@@ -43,7 +47,10 @@ Vue.use(Vuetify, {
     VDivider,
     VCardActions,
     VSpacer,
-    VBtn
+    VBtn,
+    'v-list-item': VListItem,
+    'v-list-item-content': VListItemContent,
+    'v-list-item-title': VListItemTitle
   }
 })
 

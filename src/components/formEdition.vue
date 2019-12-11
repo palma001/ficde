@@ -31,29 +31,26 @@ export default {
           if (element['edition'] && element['edition']['header']) {
             let propTag = element.edition['propTag']
             header.push(
-              createElement('v-list-item',
+              createElement('v-toolbar',
                 {
                   props: {
-                    color: 'teal'
+                    color: 'primary',
+                    dark: true
                   },
                   class: {
                     'three-line': true
                   }
                 },
                 [
-                  createElement('v-list-item-content',
+                  createElement('v-toolbar-title',
+                    {
+                      class: {
+                        'headline': true,
+                        'mb-1': true
+                      }
+                    },
                     [
-                      createElement('v-list-item-title',
-                        {
-                          class: {
-                            'headline': true,
-                            'mb-1': true
-                          }
-                        },
-                        [
-                          self.propsPanelEdition['data'][0][propTag]
-                        ]
-                      )
+                      self.propsPanelEdition['data'][0][propTag]
                     ]
                   )
                 ]

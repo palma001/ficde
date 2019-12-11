@@ -38,7 +38,7 @@ export const usersConfig = [
         edition: {
           propTag: 'documents',
           editable: true,
-          header: true,
+          header: false,
           type: 'String',
           visibleLabel: true,
           component: {
@@ -186,15 +186,14 @@ export const usersConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'number',
+              type: 'text',
               'prepend-icon': 'person'
             },
             directives: [
               {
                 name: 'validate',
                 value: {
-                  required: true,
-                  numeric: true
+                  required: true
                 }
               }
             ]

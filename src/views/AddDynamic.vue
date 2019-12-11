@@ -95,15 +95,17 @@ export default {
      */
     addData (data) {
       this.$services.postData([this.microservices, this.entity], data)
-        .then(res => {
-          if (res.status) {
+        .then(response => {
+          if (response.res.status === 200) {
             this.dialog = true
           } else {
-            this.$notify({
-              title: this.translateEntity('users', 'tileErrorServices'),
-              message: this.translateEntity('users', 'errorServices'),
-              type: 'error',
-              duration: 5000
+            response.res.data.map(elemenet => {
+              this.$notify({
+                title: this.translateEntity('users', 'tileErrorServices'),
+                message: this.translateEntity('message', elemenet.replace('.', '')),
+                type: 'error',
+                duration: 5000
+              })
             })
           }
         })

@@ -62,8 +62,8 @@ export default {
         meta: 'Apellido'
       },
       documents: {
-        label: 'Documento',
-        meta: 'Documento'
+        label: 'Dni',
+        meta: 'Dni'
       },
       state: {
         label: 'Estado',
@@ -78,8 +78,8 @@ export default {
         meta: 'Correo electronico'
       },
       emailOrDocument: {
-        label: 'Documento o correo electronico',
-        meta: 'Documento o correo electronico'
+        label: 'Dni o correo electronico',
+        meta: 'Dni o correo electronico'
       },
       usersAdd: {
         label: 'Agregar Usuario',
@@ -145,6 +145,14 @@ export default {
       }
     },
     message: {
+      'The email has already been taken': {
+        label: 'El correo ya existe',
+        meta: 'El correo ya existe'
+      },
+      'The password must be at least 8 characters': {
+        label: 'La contraseña debe tener al menos 8 caracteres',
+        meta: 'La contraseña debe tener al menos 8 caracteres'
+      },
       'user not register': {
         label: 'Usuarrio no esta registrado',
         meta: 'Usuarrio no esta registrado'
