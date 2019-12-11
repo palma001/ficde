@@ -5,7 +5,7 @@
       fab
       bottom
       right
-      color="teal"
+      color="primary"
       dark
       fixed
       @click="addDynamic">

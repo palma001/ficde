@@ -5,8 +5,8 @@ export default {
       meta: 'Paginación'
     },
     titleApp: {
-      label: 'Condominio',
-      meta: 'Condominio'
+      label: 'FICDE',
+      meta: 'FICDE'
     },
     add: {
       label: 'Agregar',

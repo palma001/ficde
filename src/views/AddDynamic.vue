@@ -18,12 +18,12 @@
       </v-card>
     </v-dialog>
     <DynamicForm
-    :config="configData"
-    :tabs="tabsConfig"
-    :entity="entity"
-    :microservices="addMicroservices"
-    :primaryKey="primaryKey"
-    @save="addData"/>
+      :config="configData"
+      :tabs="tabsConfig"
+      :entity="entity"
+      :microservices="addMicroservices"
+      :primaryKey="primaryKey"
+      @save="addData"/>
   </div>
 </template>
 <script>

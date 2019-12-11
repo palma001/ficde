@@ -20,7 +20,7 @@
       app
       width="300">
       <v-card
-        color="teal"
+        color="primary"
         dark>
         <v-card-text fixed>
           {{ translateEntity('users', 'loading') }}
@@ -36,7 +36,7 @@
       fab
       bottom
       right
-      color="teal"
+      color="primary"
       dark
       fixed
       @click="addDynamic">

@@ -58,7 +58,7 @@
             :length="lengthPage"
             :total-visible="7"
             :circle="circle"
-            color="teal"
+            color="primary"
             @input="changePerPage"
           ></v-pagination>
         </div>

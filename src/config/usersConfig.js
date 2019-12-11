@@ -338,7 +338,7 @@ export const tabsCofig = {
       },
       props: {
         dark: true,
-        color: 'teal'
+        color: 'primary'
       }
     }
   ]

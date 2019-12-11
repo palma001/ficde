@@ -44,7 +44,7 @@ export default {
               {
                 props: {
                   dark: true,
-                  color: 'teal'
+                  color: 'primary'
                 }
               },
               [

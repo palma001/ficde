@@ -63,7 +63,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar
-      color="teal"
+      color="primary"
       dark
       app
       :clipped-left="$vuetify.breakpoint.mdAndUp"
