@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    token: localStorage.getItem('access_token') || null
+    token: localStorage.getItem('access_token') || null,
+    route: null
   },
   mutations: {
     retrieveToken (state, token) {
@@ -13,6 +14,9 @@ export default new Vuex.Store({
     },
     removeToken (state) {
       state.token = null
+    },
+    routeChange (state, route) {
+      state.route = route.route
     }
   },
   actions: {
@@ -48,6 +52,9 @@ export default new Vuex.Store({
           resolve()
         }
       })
+    },
+    routeChange (context, params) {
+      context.commit('routeChange', params)
     }
   }
 })

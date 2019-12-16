@@ -51,6 +51,7 @@ export default {
        */
       items: [
         { icon: 'contacts', text: 'users', router: 'users' },
+        { icon: 'contacts', text: 'students', router: 'students' },
         { icon: 'help', text: 'about', router: 'about' },
         { icon: 'logout', text: 'logout', router: 'logout' }
         // { icon: 'content_copy', text: 'Duplicates' },
@@ -133,6 +134,7 @@ export default {
       if (data !== 'logout') {
         this.$router.push({ name: data })
         this.links(this.$route.path.split('/'))
+        this.$emit('routeChange', { route: data })
       } else {
         this.$store.dispatch('logout')
           .then(() => {

@@ -1,9 +1,9 @@
-export const usersConfig = [
+export const studentsConfig = [
   {
     classTag: 'infoUsers',
     index: 0,
     children: [
-      /* documents */
+      /* dni */
       {
         addible: {
           propTag: 'dni',
@@ -87,10 +87,34 @@ export const usersConfig = [
           type: String,
           sortable: true,
           fixed: false,
-          visible: false,
+          visible: true,
           align: 'left'
+        },
+        edition: {
+          propTag: 'nombre',
+          editable: true,
+          type: 'String',
+          header: true,
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              'prepend-icon': 'person'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true,
+                  numeric: true
+                }
+              }
+            ]
+          }
         }
       },
+
       /* apellido */
       {
         addible: {
@@ -146,60 +170,6 @@ export const usersConfig = [
           }
         }
       },
-      /* lastname */
-      {
-        addible: {
-          addible: true,
-          propTag: 'rol',
-          type: String,
-          visibleLabel: true,
-          component: {
-            name: 'v-text-field',
-            props: {
-              type: 'text',
-              'prepend-icon': 'person'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        },
-        tabulated: {
-          propTag: 'rol',
-          sortable: true,
-          type: String,
-          fixed: false,
-          visible: true,
-          align: 'left'
-        },
-        edition: {
-          propTag: 'rol',
-          editable: true,
-          header: true,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-text-field',
-            props: {
-              type: 'text',
-              'prepend-icon': 'person'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        }
-      },
       /** email */
       {
         addible: {
@@ -233,7 +203,7 @@ export const usersConfig = [
           align: 'left'
         }
       },
-      /* phone */
+      /* telefono */
       {
         addible: {
           propTag: 'telefono',
@@ -244,7 +214,7 @@ export const usersConfig = [
             name: 'v-text-field',
             props: {
               type: 'number',
-              'prepend-icon': 'phone'
+              'prepend-icon': 'telefono'
             },
             directives: [
               {
@@ -265,17 +235,17 @@ export const usersConfig = [
           align: 'left'
         }
       },
-      /* user */
+      /* direccion */
       {
         addible: {
-          propTag: 'user',
+          propTag: 'direccion',
           addible: true,
           type: 'String',
           visibleLabel: true,
           component: {
             name: 'v-text-field',
             props: {
-              type: 'user',
+              type: 'text',
               'prepend-icon': 'person'
             },
             directives: [
@@ -289,84 +259,43 @@ export const usersConfig = [
           }
         },
         tabulated: {
-          propTag: 'user',
-          sortable: true,
+          propTag: 'direccion',
           type: String,
+          sortable: true,
           fixed: false,
           visible: true,
           align: 'left'
-        }
-      },
-      /* password */
-      {
-        addible: {
-          propTag: 'pass',
-          addible: true,
+        },
+        edition: {
+          propTag: 'direccion',
+          editable: true,
           type: 'String',
+          header: true,
           visibleLabel: true,
           component: {
             name: 'v-text-field',
             props: {
-              type: 'pass',
-              'prepend-icon': 'lock'
+              type: 'text',
+              'prepend-icon': 'person'
             },
             directives: [
               {
                 name: 'validate',
                 value: {
-                  required: true
+                  required: true,
+                  numeric: true
                 }
               }
             ]
           }
-        },
-        tabulated: {
-          propTag: 'pass',
-          sortable: true,
-          type: String,
-          fixed: false,
-          visible: false,
-          align: 'left'
-        }
-      },
-      /* direccion */
-      {
-        addible: {
-          propTag: 'direccion',
-          addible: true,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-text-field',
-            props: {
-              type: 'map',
-              'prepend-icon': 'map'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        },
-        tabulated: {
-          propTag: 'direccion',
-          sortable: true,
-          type: String,
-          fixed: false,
-          visible: false,
-          align: 'left'
         }
       }
     ]
   }
 ]
 
-export const tabsCofig = {
-  titleAdd: 'usersAdd',
+export const tabsCofigStudents = {
+  titleAdd: 'studentsAdd',
   buttons: [
     {
       name: 'cancel',

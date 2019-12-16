@@ -69,7 +69,7 @@ Vue.use(mockData, {
 })
 
 Vue.use(services, {
-  baseUrl: 'https://swagger-demo-style.herokuapp.com'
+  baseUrl: 'https://ficde.herokuapp.com'
 })
 
 Vue.config.productionTip = false

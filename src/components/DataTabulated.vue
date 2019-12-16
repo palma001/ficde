@@ -45,7 +45,7 @@
         v-for="header in headersData"
         :key="header.propTag"
         :prop="header.propTag"
-        :label="translateEntity('users', header.propTag)"
+        :label="translateEntity(entity, header.propTag)"
         :fixed="header.fixed"
         :align="header.align"
         :sortable="header.sortable"/>
@@ -78,6 +78,14 @@ export default {
      */
     circle: {
       type: Boolean,
+      default: false
+    },
+    /**
+     * Entity table
+     * @type {Boolean}
+     */
+    entity: {
+      type: String,
       default: false
     },
     /**

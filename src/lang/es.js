@@ -32,7 +32,7 @@ export default {
       label: 'Bienvenidos',
       meta: 'Bienvenidos'
     },
-    users: {
+    usuarios: {
       tileErrorServices: {
         label: 'Error',
         meta: 'Error'
@@ -53,23 +53,19 @@ export default {
         label: 'Información adicional',
         meta: 'Información adicional'
       },
-      name: {
+      nombre: {
         label: 'Nombre',
         meta: 'Nombre'
       },
-      lastname: {
+      apellido: {
         label: 'Apellido',
         meta: 'Apellido'
       },
-      documents: {
+      dni: {
         label: 'Dni',
         meta: 'Dni'
       },
-      state: {
-        label: 'Estado',
-        meta: 'Estado'
-      },
-      phone: {
+      telefono: {
         label: 'Telefono',
         meta: 'Telefono'
       },
@@ -85,9 +81,87 @@ export default {
         label: 'Agregar Usuario',
         meta: 'Agregar Usuario'
       },
-      password: {
+      pass: {
         label: 'Contraseña',
         meta: 'Contraseña'
+      },
+      direccion: {
+        label: 'Direccion',
+        meta: 'Direccion'
+      },
+      rol: {
+        label: 'Rols',
+        meta: 'Rols'
+      },
+      user: {
+        label: 'Usuario',
+        meta: 'Usuario'
+      }
+    },
+    estudiantes: {
+      tileErrorServices: {
+        label: 'Error',
+        meta: 'Error'
+      },
+      errorServices: {
+        label: 'Error con el servidor',
+        meta: 'Error con el servidor'
+      },
+      infoUsers: {
+        label: 'Información general',
+        meta: 'Información general'
+      },
+      loading: {
+        label: 'Cargando...',
+        meta: 'Cargando...'
+      },
+      infoAdi: {
+        label: 'Información adicional',
+        meta: 'Información adicional'
+      },
+      nombre: {
+        label: 'Nombre',
+        meta: 'Nombre'
+      },
+      apellido: {
+        label: 'Apellido',
+        meta: 'Apellido'
+      },
+      dni: {
+        label: 'Dni',
+        meta: 'Dni'
+      },
+      telefono: {
+        label: 'Telefono',
+        meta: 'Telefono'
+      },
+      email: {
+        label: 'Correo electronico',
+        meta: 'Correo electronico'
+      },
+      emailOrDocument: {
+        label: 'Dni o correo electronico',
+        meta: 'Dni o correo electronico'
+      },
+      studentsAdd: {
+        label: 'Agregar Estudiantes',
+        meta: 'Agregar Estudiantes'
+      },
+      pass: {
+        label: 'Contraseña',
+        meta: 'Contraseña'
+      },
+      direccion: {
+        label: 'Direccion',
+        meta: 'Direccion'
+      },
+      rol: {
+        label: 'Rols',
+        meta: 'Rols'
+      },
+      user: {
+        label: 'Usuario',
+        meta: 'Usuario'
       }
     },
     about: {
@@ -112,6 +186,10 @@ export default {
       users: {
         label: 'Usuarios',
         meta: 'Usuarios'
+      },
+      students: {
+        label: 'Estudiantes',
+        meta: 'Estudiantes'
       },
       about: {
         label: 'Acerca de',
@@ -156,6 +234,10 @@ export default {
       'user not register': {
         label: 'Usuarrio no esta registrado',
         meta: 'Usuarrio no esta registrado'
+      },
+      'The user has already been taken': {
+        label: 'Ya esxiste un usuario con este nombre',
+        meta: 'Ya esxiste un usuario con este nombre'
       },
       'Network Error': {
         label: 'Error en el servidor',

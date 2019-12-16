@@ -1,8 +1,8 @@
 <template>
   <div>
     <Metadata
-      route="users"
-      :config="usersConfig"
+      route="students"
+      :config="studentsConfig"
       :params="params"
       :entity="entity"
       :search="search"/>
@@ -10,15 +10,15 @@
 </template>
 <script>
 import Metadata from './Metadata.vue'
-import { usersConfig } from '../config/usersConfig'
+import { studentsConfig } from '../config/studentsConfig'
 export default {
-  name: 'Users',
+  name: 'Students',
   components: {
     Metadata
   },
   data () {
     return {
-      entity: 'usuarios',
+      entity: 'estudiantes',
       /***
        * parameters of micreoservices request
        * @type {Object} parameters request
@@ -59,7 +59,7 @@ export default {
        * Configurations table
        * @type {Object}
        */
-      usersConfig,
+      studentsConfig,
       /**
        * Paramaters for search
        * @type {Array}

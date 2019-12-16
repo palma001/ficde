@@ -20,7 +20,7 @@
     <DynamicForm
       :config="configData"
       :tabs="tabsConfig"
-      :entity="entity"
+      :entity="entityMicroservices"
       :microservices="addMicroservices"
       :primaryKey="primaryKey"
       @save="addData"/>
@@ -58,6 +58,10 @@ export default {
        */
       entity: this.$route.path.split('/')[3],
       /**
+       *
+       */
+      entityMicroservices: '',
+      /**
        * [tabsConfig description]
        * @type {Object}
        */
@@ -66,7 +70,7 @@ export default {
        * Name microservices
        * @type {String}
        */
-      microservices: 'condominiums',
+      microservices: 'ficde',
       /**
        * primary keys microservices
        * @type {String}
@@ -80,6 +84,7 @@ export default {
     }
   },
   created () {
+    console.log(this.entity)
     this.setConfig(this.entity)
   },
   methods: {
@@ -94,14 +99,14 @@ export default {
      * @param {Object} data data of users
      */
     addData (data) {
-      this.$services.postData([this.microservices, this.entity], data)
+      this.$services.postData([this.microservices, this.entityMicroservices], data)
         .then(response => {
           if (response.res.status === 200) {
             this.dialog = true
           } else {
             response.res.data.map(elemenet => {
               this.$notify({
-                title: this.translateEntity('users', 'tileErrorServices'),
+                title: this.translateEntity(this.entityMicroservices, 'tileErrorServices'),
                 message: this.translateEntity('message', elemenet.replace('.', '')),
                 type: 'error',
                 duration: 5000
@@ -131,6 +136,7 @@ export default {
           this.tabsConfig = config.tabsCofig
           this.entity = config.entity.toLowerCase()
           this.primaryKey = config.primaryKey
+          this.entityMicroservices = config.entityMicroservices
           this.addMicroservices = config.microservices
         }
       })
