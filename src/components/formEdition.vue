@@ -34,11 +34,11 @@ export default {
               createElement('v-toolbar',
                 {
                   props: {
-                    dark: true,
-                    color: 'dark'
+                    flat: true
                   },
                   class: {
-                    'three-line': true
+                    'three-line': true,
+                    transparent: true
                   }
                 },
                 [

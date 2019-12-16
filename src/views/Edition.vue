@@ -14,6 +14,7 @@
       absolute
       right
       hide-overlay
+      dark
       stateless
     >
       <formEdition
