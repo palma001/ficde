@@ -44,8 +44,7 @@ export const usersConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'number',
-              'prepend-icon': 'person'
+              type: 'number'
             },
             directives: [
               {
@@ -89,6 +88,28 @@ export const usersConfig = [
           fixed: false,
           visible: false,
           align: 'left'
+        },
+        edition: {
+          propTag: 'nombre',
+          editable: true,
+          header: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true,
+                  numeric: true
+                }
+              }
+            ]
+          }
         }
       },
       /* apellido */
@@ -131,8 +152,7 @@ export const usersConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'text',
-              'prepend-icon': 'person'
+              type: 'text'
             },
             directives: [
               {
@@ -146,7 +166,7 @@ export const usersConfig = [
           }
         }
       },
-      /* lastname */
+      /* rol */
       {
         addible: {
           addible: true,
@@ -180,14 +200,13 @@ export const usersConfig = [
         edition: {
           propTag: 'rol',
           editable: true,
-          header: true,
+          header: false,
           type: 'String',
           visibleLabel: true,
           component: {
             name: 'v-text-field',
             props: {
-              type: 'text',
-              'prepend-icon': 'person'
+              type: 'text'
             },
             directives: [
               {

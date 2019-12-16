@@ -34,8 +34,8 @@ export default {
               createElement('v-toolbar',
                 {
                   props: {
-                    color: 'primary',
-                    dark: true
+                    dark: true,
+                    color: 'dark'
                   },
                   class: {
                     'three-line': true
@@ -166,7 +166,7 @@ export default {
   },
   render: function (createElement) {
     let self = this
-    return createElement('v-container',
+    return createElement('div',
       [
         createElement('v-layout',
           {

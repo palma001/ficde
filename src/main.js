@@ -29,10 +29,10 @@ import Vuetify, {
   VCardActions,
   VSpacer,
   VBtn,
-  VListItem,
-  VListItemContent,
-  VListItemTitle
-
+  VNavigationDrawer,
+  VList,
+  VListTileContent,
+  VListTileTitle
 } from 'vuetify/lib'
 Vue.use(Vuetify, {
   components: {
@@ -48,9 +48,10 @@ Vue.use(Vuetify, {
     VCardActions,
     VSpacer,
     VBtn,
-    'v-list-item': VListItem,
-    'v-list-item-content': VListItemContent,
-    'v-list-item-title': VListItemTitle
+    VNavigationDrawer,
+    VList,
+    VListTileContent,
+    VListTileTitle
   }
 })
 
