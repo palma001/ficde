@@ -12,7 +12,6 @@
       v-loading="loading"
       :clipped="$vuetify.breakpoint.lgAndUp">
       <formEdition
-        style="position: fixed"
         entity="usuarios"
         :config="config"
         :propsPanelEdition="propsPanelEdition"

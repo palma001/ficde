@@ -40,18 +40,7 @@ export default {
     getHeader (createElement, config, self) {
       let header = []
       header.push(
-        createElement('v-toolbar',
-          {
-            props: {
-              flat: true
-            },
-            class: {
-              transparent: true
-            },
-            style: {
-              padding: '0px'
-            }
-          },
+        createElement('v-list',
           [
             self.propsPanelEdition['buttonsTop'].map(button => {
               return createElement('v-btn',
@@ -64,6 +53,22 @@ export default {
                   },
                   style: {
                     'margin-left': '25px'
+                  },
+                  on: {
+                    click: function () {
+                      switch (button['action'].toLowerCase()) {
+                        case 'update':
+                          self.update(self.objectToBind)
+                          break
+                        case 'delete':
+                          self.delete(self.objectToBind)
+                          break
+                        case 'restore':
+                          self.restore()
+                          break
+                        default:
+                      }
+                    }
                   }
                 },
                 button['name']
@@ -73,26 +78,14 @@ export default {
         )
       )
       config.map(children => {
-        header.push(
-          createElement('v-divider')
-        )
         children.children.map(element => {
           if (element['edition'] && element['edition']['header']) {
             let propTag = element.edition['propTag']
             header.push(
-              createElement('v-toolbar',
+              createElement('v-list',
                 {
-                  props: {
-                    flat: true,
-                    color: 'red'
-                  },
-                  class: {
-                    'three-line': true,
-                    transparent: true
-                  },
                   style: {
-                    padding: '0px',
-                    background: 'red'
+                    padding: '0px'
                   }
                 },
                 [
@@ -117,14 +110,22 @@ export default {
       )
       return header
     },
-    createButtonTop () {
-
+    update (data) {
+      data = Object.assign(this.propsPanelEdition['data'], data)
+      this.validateBeforeSubmit()
+        .then(res => {
+          if (res) {
+            this.$emit('update', data)
+          }
+        })
+    },
+    delete (data) {
+      console.log(data)
     },
     createContainer (createElement, config, self) {
       return createElement('div',
         [
           self.getHeader(createElement, config, self),
-          self.createButtonTop(createElement, config, self),
           createElement('v-container',
             [
               createElement('v-form',
@@ -178,6 +179,7 @@ export default {
                     on: {
                       input: function (value) {
                         self.objectToBind[propTag] = value
+                        console.log(value, propTag)
                       },
                       select: function (value) {
                         self.objectToBind[propTag] = value
