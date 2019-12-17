@@ -73,6 +73,10 @@ export default {
       type: String,
       requered: true
     },
+    loading: {
+      type: Boolean,
+      requered: true
+    },
     search: {
       type: Object,
       requered: true
@@ -80,6 +84,11 @@ export default {
   },
   created () {
     this.getData()
+  },
+  watch: {
+    loading (val) {
+      this.getData()
+    }
   },
   data () {
     return {
@@ -131,14 +140,13 @@ export default {
         .then((response) => {
           this.dataTable = response.res.data.data
           this.params.totalField = response.res.data.meta.total
-          this.$emit('dataSelected', response.res.data.data[0])
           this.loadingTable = false
           this.loadingDialog = false
         }).catch((err) => {
           this.dataTable = []
           this.$notify({
-            title: this.translateEntity(this.route, 'tileErrorServices'),
-            message: this.translateEntity(this.route, 'errorServices'),
+            title: this.translateEntity(this.entity, 'tileErrorServices'),
+            message: this.translateEntity(this.entity, 'errorServices'),
             type: 'error',
             duration: 1000
           })

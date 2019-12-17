@@ -37,6 +37,18 @@ export default {
         label: 'Error',
         meta: 'Error'
       },
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      messageUpdateSeccess: {
+        label: 'Usuario modificado exitosamente',
+        meta: 'Usuario modificado exitosamente'
+      },
+      status: {
+        label: 'Activo y/n',
+        meta: 'Activo y/n'
+      },
       errorServices: {
         label: 'Error con el servidor',
         meta: 'Error con el servidor'

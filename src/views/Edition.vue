@@ -15,6 +15,8 @@
         entity="usuarios"
         :config="config"
         :propsPanelEdition="propsPanelEdition"
+        @deleteData="deleteData"
+        @update="update"
       />
     </v-navigation-drawer>
     <v-navigation-drawer
@@ -104,6 +106,20 @@ export default {
      */
     eventPanel (status) {
       this.$emit('eventPanel', status)
+    },
+    /**
+     * Emit event panel
+     * @param  {Object} data
+     */
+    update (data) {
+      this.$emit('update', data)
+    },
+    /**
+     * Emit event panel
+     * @param  {Object} data
+     */
+    deleteData (data) {
+      this.$emit('deleteData', data)
     }
   }
 }

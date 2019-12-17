@@ -86,7 +86,7 @@ export const usersConfig = [
           type: String,
           sortable: true,
           fixed: false,
-          visible: false,
+          visible: true,
           align: 'left'
         },
         edition: {
@@ -104,8 +104,7 @@ export const usersConfig = [
               {
                 name: 'validate',
                 value: {
-                  required: true,
-                  numeric: true
+                  required: true
                 }
               }
             ]
@@ -158,8 +157,7 @@ export const usersConfig = [
               {
                 name: 'validate',
                 value: {
-                  required: true,
-                  numeric: true
+                  required: true
                 }
               }
             ]
@@ -248,7 +246,7 @@ export const usersConfig = [
           sortable: true,
           type: String,
           fixed: false,
-          visible: true,
+          visible: false,
           align: 'left'
         },
         edition: {
@@ -301,7 +299,7 @@ export const usersConfig = [
           sortable: true,
           type: String,
           fixed: false,
-          visible: true,
+          visible: false,
           align: 'left'
         },
         edition: {
@@ -357,6 +355,27 @@ export const usersConfig = [
           fixed: false,
           visible: true,
           align: 'left'
+        },
+        edition: {
+          propTag: 'user',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
         }
       },
       /* password */
@@ -405,7 +424,7 @@ export const usersConfig = [
               {
                 name: 'validate',
                 value: {
-                  required: true
+                  required: false
                 }
               }
             ]
@@ -451,6 +470,114 @@ export const usersConfig = [
           visibleLabel: true,
           component: {
             name: 'v-textarea',
+            props: {
+              type: 'text'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* status */
+      {
+        addible: {
+          propTag: 'status',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'status',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'status',
+          editable: false,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* status */
+      {
+        addible: {
+          propTag: 'user_r',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'user_r',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'user_r',
+          editable: false,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
             props: {
               type: 'text'
             },

@@ -111,17 +111,29 @@ export default {
       return header
     },
     update (data) {
-      data = Object.assign(this.propsPanelEdition['data'], data)
       this.validateBeforeSubmit()
         .then(res => {
           if (res) {
+            data = Object.assign(this.propsPanelEdition['data'], data)
             this.$emit('update', data)
           }
         })
     },
+    /**
+     * Delete data
+     * @param  {Object} data
+     */
     delete (data) {
-      console.log(data)
+      data = Object.assign(this.propsPanelEdition['data'], data)
+      this.$emit('deleteData', data)
     },
+    /**
+     * [createContainer description]
+     * @param  {[type]} createElement [description]
+     * @param  {[type]} config        [description]
+     * @param  {[type]} self          [description]
+     * @return {[type]}               [description]
+     */
     createContainer (createElement, config, self) {
       return createElement('div',
         [
@@ -179,7 +191,6 @@ export default {
                     on: {
                       input: function (value) {
                         self.objectToBind[propTag] = value
-                        console.log(value, propTag)
                       },
                       select: function (value) {
                         self.objectToBind[propTag] = value

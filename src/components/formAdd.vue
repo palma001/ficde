@@ -163,7 +163,7 @@ export default {
         createInputDynamic.push(element.children.map(prop => {
           if (prop['addible'] && prop['addible']['addible']) {
             let propTag = prop.addible['propTag']
-            prop['addible']['component']['props']['value'] = self.objectToBind[propTag]
+            prop['addible']['component']['props']['value'] = (prop['addible']['component']['props']['defaultValue']) ? prop['addible']['component']['props']['defaultValue'] : self.objectToBind[propTag]
             return createElement('v-flex',
               [
                 createElement(prop['addible']['component']['name'],
