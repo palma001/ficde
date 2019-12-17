@@ -23,7 +23,7 @@
               <v-card-text>
                   <v-text-field
                     prepend-icon="person"
-                    name="email"
+                    name="dni"
                     v-model="dni"
                     type="text"
                     v-validate="'required'"
