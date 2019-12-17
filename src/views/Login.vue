@@ -85,7 +85,7 @@ export default {
       email: '',
       password: '',
       entity: 'authenticate',
-      microservices: 'condominiums',
+      microservices: 'ficde',
       alert: false,
       message: 'error',
       loading: false,
