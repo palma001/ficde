@@ -24,7 +24,7 @@
                   <v-text-field
                     prepend-icon="person"
                     name="email"
-                    v-model="email"
+                    v-model="text"
                     type="text"
                     v-validate="'required'"
                     :error-messages="this.errors.first('email')"
@@ -82,7 +82,7 @@ export default {
   data () {
     return {
       drawer: null,
-      email: '',
+      text: '',
       password: '',
       entity: 'authenticate',
       microservices: 'ficde',
