@@ -28,7 +28,7 @@
                     type="text"
                     v-validate="'required'"
                     :error-messages="this.errors.first('email')"
-                    :label="translateEntity('users', 'emailOrDocument')" />
+                    :label="translateEntity('usuarios', 'emailOrDocument')" />
                   <v-text-field
                     id="password"
                     prepend-icon="lock"
@@ -37,7 +37,7 @@
                     type="password"
                     v-validate="'required'"
                     :error-messages="this.errors.first('password')"
-                    :label="translateEntity('users', 'password')"/>
+                    :label="translateEntity('usuarios', 'pass')"/>
               </v-card-text>
               <v-card-actions>
                 <v-spacer />
@@ -58,7 +58,7 @@
                   <span
                   style="margin-left: 5px;"
                   v-if="loading">
-                      {{ translateEntity('users', 'loading') }}
+                      {{ translateEntity('usuarios', 'loading') }}
                   </span>
                 </v-btn>
               </v-card-actions>
