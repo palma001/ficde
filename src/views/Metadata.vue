@@ -12,7 +12,7 @@
       :circle="true"
       :entity="entity"
       :options="[5, 20, 50, 100]"
-      @on-load-data="getUsers"
+      @on-load-data="getData"
       @search-data="eventSearch"
       @selectRow="selectRow"
     />
@@ -79,7 +79,7 @@ export default {
     }
   },
   created () {
-    this.getUsers()
+    this.getData()
   },
   data () {
     return {
@@ -116,7 +116,7 @@ export default {
      * gets users
      * @param  {Object} data parmas table
      */
-    getUsers (data) {
+    getData (data) {
       data = Object.assign(this.params, data)
       let params = {
         paginate: true,
@@ -131,6 +131,7 @@ export default {
         .then((response) => {
           this.dataTable = response.res.data.data
           this.params.totalField = response.res.data.meta.total
+          this.$emit('dataSelected', response.res.data.data[0])
           this.loadingTable = false
           this.loadingDialog = false
         }).catch((err) => {
@@ -157,8 +158,12 @@ export default {
       }
       this.params.page = 1
       this.params.search = this.search
-      this.getUsers(this.params)
+      this.getData(this.params)
     },
+    /**
+     * Emit event selectRow
+     * @param  {Object} data selected
+     */
     selectRow (data) {
       this.$emit('selectRow', data)
     },

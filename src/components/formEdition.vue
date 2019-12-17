@@ -83,19 +83,23 @@ export default {
               createElement('v-toolbar',
                 {
                   props: {
-                    flat: true
+                    flat: true,
+                    color: 'red'
                   },
                   class: {
                     'three-line': true,
                     transparent: true
+                  },
+                  style: {
+                    padding: '0px',
+                    background: 'red'
                   }
                 },
                 [
                   createElement('v-toolbar-title',
                     {
                       class: {
-                        'headline': true,
-                        'mb-1': true
+                        'headline': true
                       }
                     },
                     [

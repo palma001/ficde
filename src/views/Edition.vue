@@ -1,20 +1,51 @@
-<template>
+<template
+>
    <v-layout
+    dark
     wrap>
     <v-navigation-drawer
-      v-model="drawerDefined"
+      app
       right
       dark
-      app
       stateless
+      v-model="drawerDefined"
       v-loading="loading"
-      :clipped="$vuetify.breakpoint.lgAndUp"
-    >
+      :clipped="$vuetify.breakpoint.lgAndUp">
       <formEdition
+        style="position: fixed"
         entity="usuarios"
         :config="config"
         :propsPanelEdition="propsPanelEdition"
       />
+    </v-navigation-drawer>
+    <v-navigation-drawer
+      right
+      stateless
+      absolute
+      v-model="drawerDefinedIcon"
+      :mini-variant="true"
+      mini-variant-width="14px">
+      <v-list-tile-action>
+        <v-btn
+          icon
+          absolute
+          style="left: -4px"
+          @click="eventPanel(!drawer)"
+        >
+          <v-icon
+            color="primary"
+            style="font-weight: bold; font-size: 32px"
+            v-if="drawer">
+            chevron_right
+          </v-icon>
+          <v-icon
+            color="primary"
+            style="font-weight: bold; font-size: 32px"
+            v-else-if="!drawer">
+            chevron_left
+          </v-icon>
+        </v-btn>
+      </v-list-tile-action>
     </v-navigation-drawer>
   </v-layout>
 </template>
@@ -50,7 +81,30 @@ export default {
   },
   data () {
     return {
-      drawerDefined: false
+      /**
+       * Stastus panel
+       * @type {Boolean}
+       */
+      drawerDefined: false,
+      /**
+       * Mini panel
+       * @type {Boolean}
+       */
+      mini: true,
+      /**
+       * Status icon
+       * @type {Boolean}
+       */
+      drawerDefinedIcon: true
+    }
+  },
+  methods: {
+    /**
+     * Emit event panel
+     * @param  {Boolean} status
+     */
+    eventPanel (status) {
+      this.$emit('eventPanel', status)
     }
   }
 }

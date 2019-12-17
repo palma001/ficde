@@ -6,12 +6,15 @@
       :params="params"
       :entity="entity"
       :search="search"
-      @selectRow="selectRow"/>
+      @selectRow="selectRow"
+      @dataSelected="dataSelected"/>
     <panelEdition
       :config="usersConfig"
       :propsPanelEdition="propsPanelEdition"
       :loading="loading"
-      :drawer="drawer"/>
+      :drawer="drawer"
+      @eventPanel="eventPanel">
+    </panelEdition>
   </div>
 </template>
 <script>
@@ -85,10 +88,15 @@ export default {
        * @type {Object}
        */
       propsPanelEdition,
-      loading: true
+      loading: false
     }
   },
   methods: {
+    /**
+     * Select data
+     * @param  {[type]} data [description]
+     * @return {[type]}      [description]
+     */
     selectRow (data) {
       this.loading = true
       this.drawer = true
@@ -96,6 +104,12 @@ export default {
         this.propsPanelEdition.data = data
         this.loading = false
       }, 500)
+    },
+    dataSelected (data) {
+      this.propsPanelEdition.data = data
+    },
+    eventPanel (status) {
+      this.drawer = status
     }
   }
 }
