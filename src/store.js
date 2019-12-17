@@ -25,7 +25,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         self.$services.postData([self.microservices, self.entity],
           {
-            email: self.text,
+            email: self.dni,
             password: self.password
           }
         )
