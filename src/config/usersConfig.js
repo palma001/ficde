@@ -250,6 +250,27 @@ export const usersConfig = [
           fixed: false,
           visible: true,
           align: 'left'
+        },
+        edition: {
+          propTag: 'email',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'email'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
         }
       },
       /* phone */
@@ -282,6 +303,28 @@ export const usersConfig = [
           fixed: false,
           visible: true,
           align: 'left'
+        },
+        edition: {
+          propTag: 'telefono',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'number'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true,
+                  numeric: true
+                }
+              }
+            ]
+          }
         }
       },
       /* user */
@@ -346,6 +389,27 @@ export const usersConfig = [
           fixed: false,
           visible: false,
           align: 'left'
+        },
+        edition: {
+          propTag: 'pass',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'password'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
         }
       },
       /* direccion */
@@ -378,6 +442,27 @@ export const usersConfig = [
           fixed: false,
           visible: false,
           align: 'left'
+        },
+        edition: {
+          propTag: 'direccion',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-textarea',
+            props: {
+              type: 'text'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
         }
       }
     ]
@@ -420,6 +505,39 @@ export const tabsCofig = {
       },
       props: {
         dark: true,
+        color: 'primary'
+      }
+    }
+  ]
+}
+
+export const propsPanelEdition = {
+  data: {
+    dni: '26720270',
+    apellido: 'luis',
+    rol: 'admin',
+    nombre: 'luis'
+  },
+  buttonsTop: [
+    {
+      name: 'delete',
+      action: 'delete',
+      label: true,
+      icon: {
+        icon: false
+      },
+      props: {
+        color: 'error'
+      }
+    },
+    {
+      name: 'update',
+      action: 'update',
+      label: true,
+      icon: {
+        icon: false
+      },
+      props: {
         color: 'primary'
       }
     }

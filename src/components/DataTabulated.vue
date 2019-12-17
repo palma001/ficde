@@ -86,7 +86,6 @@ export default {
      */
     entity: {
       type: String,
-      default: false
     },
     /**
      * Values of the pagination

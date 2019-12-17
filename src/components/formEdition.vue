@@ -1,18 +1,31 @@
 <script>
+
 import { mixins } from '../mixins'
 export default {
   mixins: [mixins.containerMixin],
   name: 'formEdition',
   props: {
+    /**
+     * File configurations
+     * @type {Object}
+     */
     config: {
       type: Array,
       required: true,
       default: null
     },
+    /**
+     * Entity
+     * @type {Object}
+     */
     entity: {
       type: String,
       required: true
     },
+    /**
+     * Props configurations
+     * @type {Object}
+     */
     propsPanelEdition: {
       type: Object,
       required: true
@@ -26,7 +39,43 @@ export default {
   methods: {
     getHeader (createElement, config, self) {
       let header = []
+      header.push(
+        createElement('v-toolbar',
+          {
+            props: {
+              flat: true
+            },
+            class: {
+              transparent: true
+            },
+            style: {
+              padding: '0px'
+            }
+          },
+          [
+            self.propsPanelEdition['buttonsTop'].map(button => {
+              return createElement('v-btn',
+                {
+                  class: {
+                    ...button['class']
+                  },
+                  props: {
+                    ...button['props']
+                  },
+                  style: {
+                    'margin-left': '25px'
+                  }
+                },
+                button['name']
+              )
+            })
+          ]
+        )
+      )
       config.map(children => {
+        header.push(
+          createElement('v-divider')
+        )
         children.children.map(element => {
           if (element['edition'] && element['edition']['header']) {
             let propTag = element.edition['propTag']
@@ -50,7 +99,7 @@ export default {
                       }
                     },
                     [
-                      self.propsPanelEdition['data'][0][propTag]
+                      self.propsPanelEdition['data'][propTag]
                     ]
                   )
                 ]
@@ -59,13 +108,16 @@ export default {
           }
         })
       })
+      header.push(
+        createElement('v-divider')
+      )
       return header
     },
     createButtonTop () {
 
     },
     createContainer (createElement, config, self) {
-      return createElement('v-card',
+      return createElement('div',
         [
           self.getHeader(createElement, config, self),
           self.createButtonTop(createElement, config, self),
@@ -75,8 +127,7 @@ export default {
                 {
                   ref: 'from',
                   style: {
-                    width: '90%',
-                    margin: 'auto'
+                    width: '100%'
                   }
                 },
                 [
@@ -99,7 +150,7 @@ export default {
         createInputDynamic.push(element.children.map(prop => {
           if (prop['edition'] && prop['edition']['editable']) {
             let propTag = prop.edition['propTag']
-            prop['edition']['component']['props']['value'] = self.propsPanelEdition.data[0][propTag]
+            prop['edition']['component']['props']['value'] = self.propsPanelEdition.data[propTag]
             return createElement('v-flex',
               [
                 createElement(prop['edition']['component']['name'],
@@ -167,12 +218,16 @@ export default {
   render: function (createElement) {
     let self = this
     return createElement('div',
+      {
+        class: {
+          'text-xs-center': true
+        }
+      },
       [
         createElement('v-layout',
           {
             props: {
-              row: true,
-              wrap: true
+              'justify-center': true
             }
           }
         ),

@@ -32,10 +32,13 @@ import Vuetify, {
   VNavigationDrawer,
   VList,
   VListTileContent,
-  VListTileTitle
+  VListTileTitle,
+  VTextarea
 } from 'vuetify/lib'
+
 Vue.use(Vuetify, {
   components: {
+    VTextarea,
     VLayout,
     VCard,
     VToolbar,

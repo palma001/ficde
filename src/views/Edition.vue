@@ -1,25 +1,18 @@
 <template>
    <v-layout
-    wrap
-    style="height: 200px;">
-    <v-btn
-        color="pink"
-        dark
-        @click.stop="drawer = !drawer"
-      >
-        Toggle
-    </v-btn>
+    wrap>
     <v-navigation-drawer
-      v-model="drawer"
-      absolute
+      v-model="drawerDefined"
       right
-      hide-overlay
       dark
+      app
       stateless
+      v-loading="loading"
+      :clipped="$vuetify.breakpoint.lgAndUp"
     >
       <formEdition
         entity="usuarios"
-        :config="usersConfig"
+        :config="config"
         :propsPanelEdition="propsPanelEdition"
       />
     </v-navigation-drawer>
@@ -27,39 +20,37 @@
 </template>
 <script>
 import formEdition from '../components/formEdition'
-import { usersConfig } from '../config/usersConfig'
 export default {
-  name: 'Edition',
+  name: 'panelEdition',
   components: {
     formEdition
   },
+  props: {
+    config: {
+      type: Array,
+      requered: true
+    },
+    propsPanelEdition: {
+      type: Object,
+      requered: true
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    drawer: {
+      type: Boolean,
+      requered: true
+    }
+  },
+  watch: {
+    drawer (val) {
+      this.drawerDefined = val
+    }
+  },
   data () {
     return {
-      usersConfig,
-      drawer: false,
-      propsPanelEdition: {
-        data: [
-          {
-            dni: '26720270',
-            apellido: 'luis',
-            rol: 'admin',
-            nombre: 'luis'
-          }
-        ],
-        buttonsTop: [
-          {
-            name: 'delete',
-            action: 'delete',
-            label: true,
-            icon: {
-              icon: false
-            },
-            props: {
-              color: 'error'
-            }
-          }
-        ]
-      }
+      drawerDefined: false
     }
   }
 }

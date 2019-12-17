@@ -5,16 +5,24 @@
       :config="usersConfig"
       :params="params"
       :entity="entity"
-      :search="search"/>
+      :search="search"
+      @selectRow="selectRow"/>
+    <panelEdition
+      :config="usersConfig"
+      :propsPanelEdition="propsPanelEdition"
+      :loading="loading"
+      :drawer="drawer"/>
   </div>
 </template>
 <script>
 import Metadata from './Metadata.vue'
-import { usersConfig } from '../config/usersConfig'
+import panelEdition from './Edition.vue'
+import { usersConfig, propsPanelEdition } from '../config/usersConfig'
 export default {
   name: 'Users',
   components: {
-    Metadata
+    Metadata,
+    panelEdition
   },
   data () {
     return {
@@ -70,11 +78,25 @@ export default {
         dni: '',
         email: '',
         telefono: ''
-      }
+      },
+      drawer: false,
+      /**
+       * Props panel
+       * @type {Object}
+       */
+      propsPanelEdition,
+      loading: true
+    }
+  },
+  methods: {
+    selectRow (data) {
+      this.loading = true
+      this.drawer = true
+      setTimeout(() => {
+        this.propsPanelEdition.data = data
+        this.loading = false
+      }, 500)
     }
   }
 }
 </script>
-
-  <style lang="css" scoped>
-  </style>

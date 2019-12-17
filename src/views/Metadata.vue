@@ -14,6 +14,7 @@
       :options="[5, 20, 50, 100]"
       @on-load-data="getUsers"
       @search-data="eventSearch"
+      @selectRow="selectRow"
     />
     <v-dialog
       v-model="loadingDialog"
@@ -157,6 +158,9 @@ export default {
       this.params.page = 1
       this.params.search = this.search
       this.getUsers(this.params)
+    },
+    selectRow (data) {
+      this.$emit('selectRow', data)
     },
     /**
      * Route add dynamic
