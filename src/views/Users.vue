@@ -15,6 +15,7 @@
       :propsPanelEdition="propsPanelEdition"
       :loading="loading"
       :drawer="drawer"
+      :entity="entity"
       @deleteData="deleteData"
       @update="updateUsers"
       @eventPanel="eventPanel">
