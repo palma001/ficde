@@ -229,7 +229,7 @@ export const subjectsConfig = [
 ]
 
 export const tabsSubjectsCofig = {
-  titleAdd: 'usersAdd',
+  titleAdd: 'subjectsAdd',
   buttons: [
     {
       name: 'cancel',

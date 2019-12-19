@@ -119,6 +119,18 @@ export default {
       }
     },
     estudiantes: {
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      messageUpdateSeccess: {
+        label: 'Estudiante modificado exitosamente',
+        meta: 'Estudiante modificado exitosamente'
+      },
+      messageDeleteSeccess: {
+        label: 'Estudiante eliminado exitosamente',
+        meta: 'Estudiante eliminado exitosamente'
+      },
       tileErrorServices: {
         label: 'Error',
         meta: 'Error'
@@ -188,6 +200,10 @@ export default {
       tileErrorServices: {
         label: 'Error',
         meta: 'Error'
+      },
+      subjectsAdd: {
+        label: 'Agregar Asignatura',
+        meta: 'Agregar Asignatura'
       },
       titleUpdateSeccess: {
         label: 'Exito',

@@ -9,14 +9,16 @@ export const configData = [
     microservices: 'ficde',
     primaryKey: ['dni'],
     config: usersConfig,
-    tabsCofig: tabsCofig
+    tabsCofig: tabsCofig,
+    relationalData: null
   },
   {
     entity: 'about',
     microservices: 'ficde',
     primaryKey: ['title'],
     config: aboutConfig,
-    tabsCofig: aboutTabsCofig
+    tabsCofig: aboutTabsCofig,
+    relationalData: null
   },
   {
     entity: 'students',
@@ -24,7 +26,8 @@ export const configData = [
     microservices: 'ficde',
     primaryKey: ['dni'],
     config: studentsConfig,
-    tabsCofig: tabsCofigStudents
+    tabsCofig: tabsCofigStudents,
+    relationalData: null
   },
   {
     entity: 'subjects',

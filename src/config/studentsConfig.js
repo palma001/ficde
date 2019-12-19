@@ -14,7 +14,7 @@ export const studentsConfig = [
             name: 'v-text-field',
             props: {
               type: 'number',
-              'prepend-icon': 'person'
+              'prepend-icon': ''
             },
             directives: [
               {
@@ -37,15 +37,15 @@ export const studentsConfig = [
         },
         edition: {
           propTag: 'dni',
-          editable: true,
-          header: false,
+          editable: false,
+          header: true,
           type: 'String',
           visibleLabel: true,
           component: {
             name: 'v-text-field',
             props: {
-              type: 'number',
-              'prepend-icon': 'person'
+              type: 'text',
+              'prepend-icon': ''
             },
             directives: [
               {
@@ -70,7 +70,7 @@ export const studentsConfig = [
             name: 'v-text-field',
             props: {
               type: 'text',
-              'prepend-icon': 'person'
+              'prepend-icon': ''
             },
             directives: [
               {
@@ -94,20 +94,19 @@ export const studentsConfig = [
           propTag: 'nombre',
           editable: true,
           type: 'String',
-          header: true,
+          header: false,
           visibleLabel: true,
           component: {
             name: 'v-text-field',
             props: {
               type: 'text',
-              'prepend-icon': 'person'
+              'prepend-icon': ''
             },
             directives: [
               {
                 name: 'validate',
                 value: {
-                  required: true,
-                  numeric: true
+                  required: true
                 }
               }
             ]
@@ -126,7 +125,7 @@ export const studentsConfig = [
             name: 'v-text-field',
             props: {
               type: 'text',
-              'prepend-icon': 'person'
+              'prepend-icon': ''
             },
             directives: [
               {
@@ -150,20 +149,19 @@ export const studentsConfig = [
           propTag: 'apellido',
           editable: true,
           type: 'String',
-          header: true,
+          header: false,
           visibleLabel: true,
           component: {
             name: 'v-text-field',
             props: {
               type: 'text',
-              'prepend-icon': 'person'
+              'prepend-icon': ''
             },
             directives: [
               {
                 name: 'validate',
                 value: {
-                  required: true,
-                  numeric: true
+                  required: true
                 }
               }
             ]
@@ -201,6 +199,29 @@ export const studentsConfig = [
           fixed: false,
           visible: true,
           align: 'left'
+        },
+        edition: {
+          propTag: 'email',
+          editable: true,
+          type: 'String',
+          header: false,
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'email',
+              'prepend-icon': ''
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true,
+                  email: true
+                }
+              }
+            ]
+          }
         }
       },
       /* telefono */
@@ -231,8 +252,30 @@ export const studentsConfig = [
           sortable: true,
           type: String,
           fixed: false,
-          visible: true,
+          visible: false,
           align: 'left'
+        },
+        edition: {
+          propTag: 'telefono',
+          editable: true,
+          type: 'String',
+          header: false,
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              'prepend-icon': ''
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
         }
       },
       /* direccion */
@@ -246,7 +289,7 @@ export const studentsConfig = [
             name: 'v-text-field',
             props: {
               type: 'text',
-              'prepend-icon': 'person'
+              'prepend-icon': ''
             },
             directives: [
               {
@@ -263,27 +306,26 @@ export const studentsConfig = [
           type: String,
           sortable: true,
           fixed: false,
-          visible: true,
+          visible: false,
           align: 'left'
         },
         edition: {
           propTag: 'direccion',
           editable: true,
           type: 'String',
-          header: true,
+          header: false,
           visibleLabel: true,
           component: {
-            name: 'v-text-field',
+            name: 'v-textarea',
             props: {
               type: 'text',
-              'prepend-icon': 'person'
+              'prepend-icon': ''
             },
             directives: [
               {
                 name: 'validate',
                 value: {
-                  required: true,
-                  numeric: true
+                  required: true
                 }
               }
             ]
@@ -331,6 +373,43 @@ export const tabsCofigStudents = {
       props: {
         dark: true,
         color: 'primary'
+      }
+    }
+  ]
+}
+
+export const propsPanelEdition = {
+  data: {},
+  buttonsTop: [
+    {
+      name: 'delete',
+      action: 'delete',
+      label: false,
+      icon: {
+        icon: true,
+        iconName: 'far fa-trash-alt'
+      },
+      props: {
+        color: 'error'
+      },
+      style: {
+        'border-radius': '50px',
+        'margin-left': '25px'
+      }
+    },
+    {
+      name: 'update',
+      action: 'update',
+      label: false,
+      icon: {
+        icon: true,
+        iconName: 'fas fa-pencil-alt'
+      },
+      props: {
+        color: 'primary'
+      },
+      style: {
+        'border-radius': '50px'
       }
     }
   ]

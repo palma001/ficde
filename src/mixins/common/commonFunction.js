@@ -47,24 +47,26 @@ export const setRelationalData = (
   vueInstance,
   callback = () => {}
 ) => {
-  entityConfig.relationalData.forEach(dataConfig => {
-    vueInstance.$services
-      .getData(
-        [dataConfig.microservice, dataConfig.entity],
-        dataConfig.petitionParams
-      )
-      .then(apiResponse => {
-        toRelationalData = []
-        toRelationalData = toRelationalData.concat(apiResponse.res.data)
-        assignRelationalData(
-          entityConfig.config,
-          dataConfig.targetPropTag,
-          dataConfig.propData,
-          toRelationalData
+  if (entityConfig) {
+    entityConfig.relationalData.forEach(dataConfig => {
+      vueInstance.$services
+        .getData(
+          [dataConfig.microservice, dataConfig.entity],
+          dataConfig.petitionParams
         )
-        callback(apiResponse, toRelationalData)
-      })
-  })
+        .then(apiResponse => {
+          toRelationalData = []
+          toRelationalData = toRelationalData.concat(apiResponse.res.data)
+          assignRelationalData(
+            entityConfig.config,
+            dataConfig.targetPropTag,
+            dataConfig.propData,
+            toRelationalData
+          )
+          callback(apiResponse, toRelationalData)
+        })
+    })
+  }
 }
 export const methods = {
   translateEntity,

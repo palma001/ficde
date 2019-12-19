@@ -4,20 +4,40 @@
       route="students"
       :config="studentsConfig"
       :params="params"
+      :loading="loadingTable"
       :entity="entity"
-      :search="search"/>
+      :search="search"
+      @selectRow="selectRow"/>
+      <panelEdition
+        :config="studentsConfig"
+        :propsPanelEdition="propsPanelEdition"
+        :loading="loading"
+        :drawer="drawer"
+        :entity="entity"
+        @deleteData="deleteData"
+        @update="updateUsers"
+        @eventPanel="eventPanel">
+      </panelEdition>
   </div>
 </template>
 <script>
 import Metadata from './Metadata.vue'
-import { studentsConfig } from '../config/studentsConfig'
+import panelEdition from './Edition.vue'
+import { studentsConfig, propsPanelEdition } from '../config/studentsConfig'
+import { mixins } from '../mixins'
 export default {
+  mixins: [mixins.containerMixin],
   name: 'Students',
   components: {
-    Metadata
+    Metadata,
+    panelEdition
   },
   data () {
     return {
+      /**
+       * Entity students
+       * @type {String}
+       */
       entity: 'estudiantes',
       /***
        * parameters of micreoservices request
@@ -70,6 +90,110 @@ export default {
         dni: '',
         email: '',
         telefono: ''
+      },
+      /**
+       * Status panel left
+       * @type {Boolean}
+       */
+      drawer: false,
+      /**
+       * Props panel
+       * @type {Object}
+       */
+      propsPanelEdition,
+      /**
+       * loadding panel
+       * @type {Boolean}
+       */
+      loading: false,
+      /**
+       * loading table
+       * @type {Boolean}
+       */
+      loadingTable: false,
+      /**
+       * Data selected
+       * @type {Object}
+       */
+      selected: {}
+    }
+  },
+  methods: {
+    /**
+     * Select data
+     * @param  {Object} data students
+     */
+    selectRow (data) {
+      this.loading = true
+      this.drawer = true
+      setTimeout(() => {
+        this.propsPanelEdition.data = data
+        this.loading = false
+      }, 500)
+    },
+
+    /**
+     * event panel
+     * @param  {Boolean} status panel
+     */
+    eventPanel (status) {
+      this.drawer = status
+    },
+    /**
+     * update students
+     * @param  {Object} data students
+     */
+    async updateUsers (data) {
+      this.loading = true
+      this.loadingTable = true
+      try {
+        let response = await this.$services.putData(['ficde', 'estudiantes', data.dni], data)
+        if (response.res.data === 1) {
+          this.$notify({
+            title: this.translateEntity('estudiantes', 'titleUpdateSeccess'),
+            message: this.translateEntity('estudiantes', 'messageUpdateSeccess'),
+            type: 'success',
+            duration: 1000
+          })
+          this.loading = false
+          this.loadingTable = false
+        }
+      } catch (e) {
+        this.$notify({
+          title: this.translateEntity('estudiantes', 'tileErrorServices'),
+          message: this.translateEntity('estudiantes', 'errorServices'),
+          type: 'error',
+          duration: 1000
+        })
+      }
+    },
+    /**
+     * update students
+     * @param  {Object} data students
+     */
+    async deleteData (data) {
+      this.loading = true
+      this.loadingTable = true
+      try {
+        let res = await this.$services.deleteData(['ficde', 'estudiantes', data.dni])
+        if (!res.status) throw new Error(res['response']['response']['data']['message'])
+        this.$notify({
+          title: this.translateEntity('estudiantes', 'titleUpdateSeccess'),
+          message: this.translateEntity('estudiantes', 'messageDeleteSeccess'),
+          type: 'success',
+          duration: 1000
+        })
+        this.loading = false
+        this.loadingTable = false
+      } catch (e) {
+        this.$notify({
+          title: this.translateEntity('usuarios', 'tileErrorServices'),
+          message: this.translateEntity('message', e.message),
+          type: 'error',
+          duration: 1000
+        })
+        this.loading = false
+        this.loadingTable = false
       }
     }
   }
