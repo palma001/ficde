@@ -1,8 +1,8 @@
 <template>
   <div>
     <Metadata
-      route="users"
-      :config="usersConfig"
+      route="subjects"
+      :config="subjectsConfig"
       :params="params"
       :entity="entity"
       :search="search"
@@ -11,10 +11,11 @@
       @selectedData="selectedData"
       @dataSelected="dataSelected"/>
     <panelEdition
-      :config="usersConfig"
+      :config="subjectsConfig"
       :propsPanelEdition="propsPanelEdition"
       :loading="loading"
       :drawer="drawer"
+      :entity="entity"
       @deleteData="deleteData"
       @update="updateUsers"
       @eventPanel="eventPanel">
@@ -24,18 +25,19 @@
 <script>
 import Metadata from './Metadata.vue'
 import panelEdition from './Edition.vue'
-import { usersConfig, propsPanelEdition } from '../config/usersConfig'
+import { subjectsConfig, propsPanelEdition, subjectsServices } from '../config/subjectsConfig'
 import { mixins } from '../mixins'
 export default {
   mixins: [mixins.containerMixin],
-  name: 'Users',
+  name: 'Subjects',
   components: {
     Metadata,
     panelEdition
   },
   data () {
     return {
-      entity: 'usuarios',
+      subjectsServices,
+      entity: 'materias',
       /***
        * parameters of micreoservices request
        * @type {Object} parameters request
@@ -55,7 +57,7 @@ export default {
          * name of field order
          * @type {String} name field
          */
-        sortField: 'nombre',
+        sortField: 'materia',
         /**
          * type of order
          * @type {String} type order
@@ -76,17 +78,15 @@ export default {
        * Configurations table
        * @type {Object}
        */
-      usersConfig,
+      subjectsConfig,
       /**
        * Paramaters for search
        * @type {Array}
        */
       search: {
-        nombre: '',
-        apellido: '',
-        dni: '',
-        email: '',
-        telefono: ''
+        cod_curso: '',
+        materia: '',
+        descripcion: ''
       },
       drawer: false,
       /**
@@ -110,6 +110,9 @@ export default {
        */
       selected: {}
     }
+  },
+  created () {
+    this.setRelationalData(this.subjectsServices, [], this)
   },
   methods: {
     /**
@@ -137,7 +140,6 @@ export default {
      * @param  {Object} data selected
      */
     dataSelected (data) {
-      console.log(data)
       this.propsPanelEdition.data = data
     },
     /**
@@ -155,7 +157,7 @@ export default {
       this.loading = true
       this.loadingTable = true
       try {
-        let response = await this.$services.putData(['ficde', 'usuarios', data.dni], data)
+        let response = await this.$services.putData(['ficde', 'materias', data.cod_materia], data)
         if (response.res.data === 1) {
           this.$notify({
             title: this.translateEntity('usuarios', 'titleUpdateSeccess'),
@@ -183,7 +185,7 @@ export default {
       this.loading = true
       this.loadingTable = true
       try {
-        let res = await this.$services.deleteData(['ficde', 'usuarios', data.dni])
+        let res = await this.$services.deleteData(['ficde', 'materias', data.cod_materia])
         if (!res.status) throw new Error(res['response']['response']['data']['message'])
         this.$notify({
           title: this.translateEntity('usuarios', 'titleUpdateSeccess'),

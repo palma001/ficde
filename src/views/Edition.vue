@@ -12,7 +12,7 @@
       v-loading="loading"
       :clipped="$vuetify.breakpoint.lgAndUp">
       <formEdition
-        entity="usuarios"
+        :entity="entity"
         :config="config"
         :propsPanelEdition="propsPanelEdition"
         @deleteData="deleteData"
@@ -58,6 +58,10 @@ export default {
     formEdition
   },
   props: {
+    entity: {
+      type: String,
+      requered: true
+    },
     config: {
       type: Array,
       requered: true

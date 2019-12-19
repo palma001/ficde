@@ -3,7 +3,7 @@ export const usersConfig = [
     classTag: 'infoUsers',
     index: 0,
     children: [
-      /* documents */
+      /* dni */
       {
         addible: {
           propTag: 'dni',
@@ -13,7 +13,7 @@ export const usersConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'number',
+              type: 'text',
               'prepend-icon': 'person'
             },
             directives: [
@@ -37,14 +37,14 @@ export const usersConfig = [
         },
         edition: {
           propTag: 'dni',
-          editable: true,
-          header: false,
+          editable: false,
+          header: true,
           type: 'String',
           visibleLabel: true,
           component: {
             name: 'v-text-field',
             props: {
-              type: 'number'
+              type: 'text'
             },
             directives: [
               {
@@ -92,7 +92,7 @@ export const usersConfig = [
         edition: {
           propTag: 'nombre',
           editable: true,
-          header: true,
+          header: false,
           type: 'String',
           visibleLabel: true,
           component: {
@@ -146,7 +146,7 @@ export const usersConfig = [
           propTag: 'apellido',
           editable: true,
           type: 'String',
-          header: true,
+          header: false,
           visibleLabel: true,
           component: {
             name: 'v-text-field',
@@ -281,7 +281,7 @@ export const usersConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'number',
+              type: 'text',
               'prepend-icon': 'phone'
             },
             directives: [
@@ -311,14 +311,13 @@ export const usersConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'number'
+              type: 'text'
             },
             directives: [
               {
                 name: 'validate',
                 value: {
-                  required: true,
-                  numeric: true
+                  required: true
                 }
               }
             ]
@@ -388,7 +387,7 @@ export const usersConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'pass',
+              type: 'password',
               'prepend-icon': 'lock'
             },
             directives: [
@@ -439,9 +438,9 @@ export const usersConfig = [
           type: 'String',
           visibleLabel: true,
           component: {
-            name: 'v-text-field',
+            name: 'v-textarea',
             props: {
-              type: 'map',
+              type: 'text',
               'prepend-icon': 'map'
             },
             directives: [
@@ -513,7 +512,7 @@ export const usersConfig = [
           sortable: true,
           type: String,
           fixed: false,
-          visible: true,
+          visible: false,
           align: 'left'
         },
         edition: {
@@ -639,33 +638,37 @@ export const tabsCofig = {
 }
 
 export const propsPanelEdition = {
-  data: {
-    dni: '26720270',
-    apellido: 'luis',
-    rol: 'admin',
-    nombre: 'luis'
-  },
+  data: {},
   buttonsTop: [
     {
       name: 'delete',
       action: 'delete',
-      label: true,
+      label: false,
       icon: {
-        icon: false
+        icon: true,
+        iconName: 'far fa-trash-alt'
       },
       props: {
         color: 'error'
+      },
+      style: {
+        'border-radius': '50px',
+        'margin-left': '25px'
       }
     },
     {
       name: 'update',
       action: 'update',
-      label: true,
+      label: false,
       icon: {
-        icon: false
+        icon: true,
+        iconName: 'fas fa-pencil-alt'
       },
       props: {
         color: 'primary'
+      },
+      style: {
+        'border-radius': '50px'
       }
     }
   ]

@@ -50,10 +50,39 @@ export default {
        * @type {Array}
        */
       items: [
-        { icon: 'contacts', text: 'users', router: 'users' },
-        { icon: 'contacts', text: 'students', router: 'students' },
-        { icon: 'help', text: 'about', router: 'about' },
-        { icon: 'logout', text: 'logout', router: 'logout' }
+        {
+          icon: 'contacts',
+          text: 'users',
+          router: 'users'
+        },
+        {
+          icon: 'contacts',
+          text: 'students',
+          router: 'students'
+        },
+        {
+          icon: 'keyboard_arrow_up',
+          'icon-alt': 'keyboard_arrow_down',
+          text: 'metadata',
+          model: false,
+          children: [
+            {
+              icon: 'fas fa-table',
+              text: 'subjects',
+              router: 'subjects'
+            }
+          ]
+        },
+        {
+          icon: 'help',
+          text: 'about',
+          router: 'about'
+        },
+        {
+          icon: 'logout',
+          text: 'logout',
+          router: 'logout'
+        }
         // { icon: 'content_copy', text: 'Duplicates' },
         // {
         //   icon: 'keyboard_arrow_up',

@@ -10,7 +10,6 @@
           <v-layout
             row
             v-if="item.heading"
-            align-center
             :key="item.heading">
             <v-flex xs6>
               <v-subheader v-if="item.heading">
@@ -37,6 +36,7 @@
             <v-list-tile
               v-for="(child, i) in item.children"
               :key="i"
+              style="margin-left: 20px;"
               @click="chageRoute(child.router)">
               <v-list-tile-action v-if="child.icon">
                 <v-icon>{{ child.icon }}</v-icon>

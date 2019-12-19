@@ -52,7 +52,7 @@ export default {
                     ...button['props']
                   },
                   style: {
-                    'margin-left': '25px'
+                    ...button['style']
                   },
                   on: {
                     click: function () {
@@ -71,7 +71,10 @@ export default {
                     }
                   }
                 },
-                button['name']
+                [
+                  (button['label']) ? self.translateLabel(button['name']) : '',
+                  (button['icon']['icon']) ? self.createIcon(createElement, button['icon']['iconName']) : ''
+                ]
               )
             })
           ]
@@ -96,7 +99,7 @@ export default {
                       }
                     },
                     [
-                      self.propsPanelEdition['data'][propTag]
+                      (self.propsPanelEdition['data'][propTag]) ? self.propsPanelEdition['data'][propTag].toUpperCase() : self.propsPanelEdition['data'][propTag]
                     ]
                   )
                 ]
@@ -110,14 +113,34 @@ export default {
       )
       return header
     },
+    createIcon (createElement, iconName) {
+      return createElement('v-icon', iconName)
+    },
+    /**
+     * Update data users
+     * @param  {Object} data  users
+     */
     update (data) {
       this.validateBeforeSubmit()
         .then(res => {
           if (res) {
-            data = Object.assign(this.propsPanelEdition['data'], data)
-            this.$emit('update', data)
+            let datas = this.objectToBindS(this.propsPanelEdition['data'], data)
+            this.$emit('update', datas)
           }
         })
+    },
+    /**
+     * Assign data object
+     * @param  {Object} dataOld data selected
+     * @param  {Object} value data
+     * @return {Object} new data
+     */
+    objectToBindS (dataOld, value) {
+      let transform = {}
+      for (let datasOld in dataOld) {
+        transform[datasOld] = (value[datasOld]) ? value[datasOld] : dataOld[datasOld]
+      }
+      return transform
     },
     /**
      * Delete data
@@ -213,6 +236,11 @@ export default {
       })
       return createInputDynamic
     },
+    /**
+     * Error validations
+     * @param  {String} propTag name
+     * @return {String} error message
+     */
     errorValidation (propTag) {
       if (this.errors.has(propTag)) {
         return this.errors.first(propTag)

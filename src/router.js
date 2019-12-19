@@ -6,7 +6,7 @@ import About from './views/About'
 import Login from './views/Login'
 import AddDynamic from './views/AddDynamic'
 import store from './store'
-import Edition from './views/Edition'
+import Subjects from './views/SubjectsView.vue'
 import Students from './views/StudentsViews'
 Vue.use(Router)
 
@@ -44,9 +44,9 @@ const router = new Router({
           component: Students
         },
         {
-          path: 'edition',
-          name: 'edition',
-          component: Edition
+          path: 'subjects',
+          name: 'subjects',
+          component: Subjects
         },
         {
           path: 'about',

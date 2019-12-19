@@ -80,12 +80,17 @@ export default {
        * Primary keys
        * @type {Array}
        */
-      primaryKey: []
+      primaryKey: [],
+      /**
+       * [relationalData description]
+       * @type {Object}
+       */
+      relationalData: {}
     }
   },
   created () {
-    console.log(this.entity)
     this.setConfig(this.entity)
+    this.setRelationalData(this.relationalData, [], this)
   },
   methods: {
     /**
@@ -99,23 +104,21 @@ export default {
      * @param {Object} data data of users
      */
     addData (data) {
+      data.user_r = 'luis palma'
       this.$services.postData([this.microservices, this.entityMicroservices], data)
         .then(response => {
-          if (response.res.status === 200) {
-            this.dialog = true
-          } else {
-            response.res.data.map(elemenet => {
-              this.$notify({
-                title: this.translateEntity(this.entityMicroservices, 'tileErrorServices'),
-                message: this.translateEntity('message', elemenet.replace('.', '')),
-                type: 'error',
-                duration: 5000
-              })
-            })
-          }
+          if (!response.status) throw response
+          this.dialog = true
         })
         .catch(err => {
-          console.log(err)
+          err.response.response.data.map(elemenet => {
+            this.$notify({
+              title: this.translateEntity(this.entityMicroservices, 'tileErrorServices'),
+              message: this.translateEntity('message', elemenet.replace('.', '')),
+              type: 'error',
+              duration: 5000
+            })
+          })
         })
     },
     /**
@@ -138,6 +141,7 @@ export default {
           this.primaryKey = config.primaryKey
           this.entityMicroservices = config.entityMicroservices
           this.addMicroservices = config.microservices
+          this.relationalData = config.relationalData
         }
       })
     }

@@ -4,6 +4,14 @@ export default {
       label: 'Paginación',
       meta: 'Paginación'
     },
+    delete: {
+      label: 'Eliminar',
+      meta: 'Eliminar'
+    },
+    update: {
+      label: 'Modificar',
+      meta: 'Modificar'
+    },
     titleApp: {
       label: 'FICDE',
       meta: 'FICDE'
@@ -176,6 +184,52 @@ export default {
         meta: 'Usuario'
       }
     },
+    materias: {
+      tileErrorServices: {
+        label: 'Error',
+        meta: 'Error'
+      },
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      messageUpdateSeccess: {
+        label: 'Materias modificado exitosamente',
+        meta: 'Materias modificado exitosamente'
+      },
+      status: {
+        label: 'Activo y/n',
+        meta: 'Activo y/n'
+      },
+      errorServices: {
+        label: 'Error con el servidor',
+        meta: 'Error con el servidor'
+      },
+      infoUsers: {
+        label: 'Información general',
+        meta: 'Información general'
+      },
+      loading: {
+        label: 'Cargando...',
+        meta: 'Cargando...'
+      },
+      infoAdi: {
+        label: 'Información adicional',
+        meta: 'Información adicional'
+      },
+      cod_curso: {
+        label: 'Curso',
+        meta: 'Curso'
+      },
+      materia: {
+        label: 'Materia',
+        meta: 'Materias'
+      },
+      descripcion: {
+        label: 'Descripción',
+        meta: 'Descripción'
+      }
+    },
     about: {
       aboutAdd: {
         label: 'Agregar acerca de',
@@ -191,6 +245,14 @@ export default {
       }
     },
     ROUTE: {
+      metadata: {
+        label: 'Metadata',
+        meta: 'Metadata'
+      },
+      subjects: {
+        label: 'Materias',
+        meta: 'Materias'
+      },
       edition: {
         label: 'Editar',
         meta: 'Editar'
@@ -238,6 +300,10 @@ export default {
       'The email has already been taken': {
         label: 'El correo ya existe',
         meta: 'El correo ya existe'
+      },
+      'usuario not inscrito': {
+        label: 'Usuario no existe',
+        meta: 'Usuario no existe'
       },
       'The password must be at least 8 characters': {
         label: 'La contraseña debe tener al menos 8 caracteres',

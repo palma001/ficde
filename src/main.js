@@ -33,11 +33,14 @@ import Vuetify, {
   VList,
   VListTileContent,
   VListTileTitle,
-  VTextarea
+  VTextarea,
+  VIcon,
+  VAutocomplete
 } from 'vuetify/lib'
 
 Vue.use(Vuetify, {
   components: {
+    VAutocomplete,
     VTextarea,
     VLayout,
     VCard,
@@ -50,6 +53,7 @@ Vue.use(Vuetify, {
     VDivider,
     VCardActions,
     VSpacer,
+    VIcon,
     VBtn,
     VNavigationDrawer,
     VList,

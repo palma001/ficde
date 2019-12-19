@@ -129,16 +129,20 @@ export default {
      *
      */
     getPrimaryKey (data) {
-      this.$services.getDataParams(
-        [this.microservices, this.entity],
-        data[this.primaryKey[0]])
+      this.$services.getOneData(
+        [
+          this.microservices,
+          this.entity,
+          data[this.primaryKey[0]]
+        ])
         .then(res => {
           if (res.res.status === 200) {
             this.invalidateKey = true
             this.errorValidation(this.primaryKey[0])
-          } else {
-            this.invalidateKey = false
           }
+        })
+        .catch(() => {
+          this.invalidateKey = false
         })
     },
     /**

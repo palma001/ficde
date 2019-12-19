@@ -11,8 +11,8 @@ export const getData = function (url, params) {
       }
     })
 }
-export const getDataParams = function (url, params) {
-  return axiosInstance.get(`${url[0]}/${url[1]}/${params}`)
+export const getOneData = function (url) {
+  return axiosInstance.get(`${url[0]}/${url[1]}/${url[2]}`)
     .then((res) => {
       return { 'status': true, 'res': res }
     })
@@ -65,7 +65,7 @@ const services = {
       postData,
       putData,
       deleteData,
-      getDataParams,
+      getOneData,
       updateAxiosInstance,
       setAxiosHeader,
       config
