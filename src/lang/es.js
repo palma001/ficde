@@ -246,12 +246,12 @@ export default {
     },
     ROUTE: {
       metadata: {
-        label: 'Metadata',
-        meta: 'Metadata'
+        label: 'Administración',
+        meta: 'Administración'
       },
       subjects: {
-        label: 'Materias',
-        meta: 'Materias'
+        label: 'Asignatura',
+        meta: 'Asignatura'
       },
       edition: {
         label: 'Editar',

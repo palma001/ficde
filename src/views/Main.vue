@@ -51,16 +51,6 @@ export default {
        */
       items: [
         {
-          icon: 'contacts',
-          text: 'users',
-          router: 'users'
-        },
-        {
-          icon: 'contacts',
-          text: 'students',
-          router: 'students'
-        },
-        {
           icon: 'keyboard_arrow_up',
           'icon-alt': 'keyboard_arrow_down',
           text: 'metadata',
@@ -70,6 +60,16 @@ export default {
               icon: 'fas fa-table',
               text: 'subjects',
               router: 'subjects'
+            },
+            {
+              icon: 'far fa-user',
+              text: 'students',
+              router: 'students'
+            },
+            {
+              icon: 'contacts',
+              text: 'users',
+              router: 'users'
             }
           ]
         },
