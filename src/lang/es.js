@@ -118,6 +118,52 @@ export default {
         meta: 'Usuario'
       }
     },
+    cursos: {
+      curso: {
+        label: 'Cursos',
+        meta: 'Cursos'
+      },
+      descripcion: {
+        label: 'Descripción',
+        meta: 'Descripción'
+      },
+      tileErrorServices: {
+        label: 'Error',
+        meta: 'Error'
+      },
+      cursoAdd: {
+        label: 'Agregar curso',
+        meta: 'Agregar curso'
+      },
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      messageUpdateSeccess: {
+        label: 'Curso modificado exitosamente',
+        meta: 'Curso modificado exitosamente'
+      },
+      status: {
+        label: 'Activo y/n',
+        meta: 'Activo y/n'
+      },
+      errorServices: {
+        label: 'Error con el servidor',
+        meta: 'Error con el servidor'
+      },
+      infoUsers: {
+        label: 'Información general',
+        meta: 'Información general'
+      },
+      loading: {
+        label: 'Cargando...',
+        meta: 'Cargando...'
+      },
+      infoAdi: {
+        label: 'Información adicional',
+        meta: 'Información adicional'
+      }
+    },
     estudiantes: {
       titleUpdateSeccess: {
         label: 'Exito',
@@ -261,6 +307,10 @@ export default {
       }
     },
     ROUTE: {
+      courses: {
+        label: 'Cursos',
+        meta: 'Cursos'
+      },
       metadata: {
         label: 'Administración',
         meta: 'Administración'

@@ -537,7 +537,7 @@ export const usersConfig = [
           }
         }
       },
-      /* status */
+      /* user_r */
       {
         addible: {
           propTag: 'user_r',
