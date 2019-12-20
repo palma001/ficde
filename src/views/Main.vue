@@ -57,6 +57,11 @@ export default {
           model: false,
           children: [
             {
+              icon: 'fas fa-university',
+              text: 'headquarters',
+              router: 'headquarters'
+            },
+            {
               icon: 'fas fa-book',
               text: 'courses',
               router: 'courses'

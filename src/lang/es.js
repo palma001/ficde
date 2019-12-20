@@ -310,10 +310,72 @@ export default {
         meta: 'Descripción'
       }
     },
+    sedes: {
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      headquartersAdd: {
+        label: 'Agregar sede',
+        meta: 'Agregar sede'
+      },
+      messageUpdateSeccess: {
+        label: 'Sede modificado exitosamente',
+        meta: 'Sede modificado exitosamente'
+      },
+      messageDeleteSeccess: {
+        label: 'Sede eliminado exitosamente',
+        meta: 'Sede eliminado exitosamente'
+      },
+      tileErrorServices: {
+        label: 'Error',
+        meta: 'Error'
+      },
+      errorServices: {
+        label: 'Error con el servidor',
+        meta: 'Error con el servidor'
+      },
+      infoUsers: {
+        label: 'Información general',
+        meta: 'Información general'
+      },
+      loading: {
+        label: 'Cargando...',
+        meta: 'Cargando...'
+      },
+      infoAdi: {
+        label: 'Información adicional',
+        meta: 'Información adicional'
+      },
+      nombre: {
+        label: 'Nombre',
+        meta: 'Nombre'
+      },
+      institucion: {
+        label: 'Institución',
+        meta: 'Institución'
+      },
+      cod_institucion: {
+        label: 'Institución',
+        meta: 'Institución'
+      },
+      direccion: {
+        label: 'Dirección',
+        meta: 'Dirección'
+      },
+      telefono: {
+        label: 'telefono',
+        meta: 'telefono'
+      }
+    },
     ROUTE: {
       courses: {
         label: 'Cursos',
         meta: 'Cursos'
+      },
+      headquarters: {
+        label: 'Sedes',
+        meta: 'Sedes'
       },
       metadata: {
         label: 'Administración',

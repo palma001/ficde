@@ -9,6 +9,7 @@ import store from './store'
 import Subjects from './views/SubjectsView.vue'
 import Students from './views/StudentsView'
 import Courses from './views/CoursesView'
+import Headquarters from './views/HeadquartersView'
 Vue.use(Router)
 
 const router = new Router({
@@ -43,6 +44,11 @@ const router = new Router({
           path: 'students',
           name: 'students',
           component: Students
+        },
+        {
+          path: 'headquarters',
+          name: 'headquarters',
+          component: Headquarters
         },
         {
           path: 'courses',

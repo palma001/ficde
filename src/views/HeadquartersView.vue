@@ -1,8 +1,8 @@
 <template>
   <div>
     <Metadata
-      route="courses"
-      :config="courseConfig"
+      route="headquarters"
+      :config="headquartersConfig"
       :params="params"
       :entity="entity"
       :search="search"
@@ -11,7 +11,7 @@
       @selectedData="selectedData"
       @dataSelected="dataSelected"/>
     <panelEdition
-      :config="courseConfig"
+      :config="headquartersConfig"
       :propsPanelEdition="propsPanelEdition"
       :loading="loading"
       :drawer="drawer"
@@ -25,18 +25,19 @@
 <script>
 import Metadata from './Metadata.vue'
 import panelEdition from './Edition.vue'
-import { courseConfig, propsPanelEdition } from '../config/courseConfig'
+import { headquartersConfig, propsPanelEdition, headquartersServices } from '../config/headquartersConfig'
 import { mixins } from '../mixins'
 export default {
   mixins: [mixins.containerMixin],
-  name: 'Courses',
+  name: 'Subjects',
   components: {
     Metadata,
     panelEdition
   },
   data () {
     return {
-      entity: 'cursos',
+      headquartersServices,
+      entity: 'sedes',
       /***
        * parameters of micreoservices request
        * @type {Object} parameters request
@@ -56,7 +57,7 @@ export default {
          * name of field order
          * @type {String} name field
          */
-        sortField: 'curso',
+        sortField: 'nombre',
         /**
          * type of order
          * @type {String} type order
@@ -77,14 +78,15 @@ export default {
        * Configurations table
        * @type {Object}
        */
-      courseConfig,
+      headquartersConfig,
       /**
        * Paramaters for search
        * @type {Array}
        */
       search: {
-        curso: '',
-        descripcion: ''
+        direccion: '',
+        nombre: '',
+        telefono: ''
       },
       drawer: false,
       /**
@@ -108,6 +110,9 @@ export default {
        */
       selected: {}
     }
+  },
+  created () {
+    this.setRelationalData(this.headquartersServices, [], this)
   },
   methods: {
     /**
@@ -152,11 +157,11 @@ export default {
       this.loading = true
       this.loadingTable = true
       try {
-        let response = await this.$services.putData(['ficde', 'cursos', data.cod_curso], data)
+        let response = await this.$services.putData(['ficde', 'sedes', data.cod_sede], data)
         if (response.res.data === 1) {
           this.$notify({
-            title: this.translateEntity('cursos', 'titleUpdateSeccess'),
-            message: this.translateEntity('cursos', 'messageUpdateSeccess'),
+            title: this.translateEntity('usuarios', 'titleUpdateSeccess'),
+            message: this.translateEntity('usuarios', 'messageUpdateSeccess'),
             type: 'success',
             duration: 1000
           })
@@ -165,8 +170,8 @@ export default {
         }
       } catch (e) {
         this.$notify({
-          title: this.translateEntity('cursos', 'tileErrorServices'),
-          message: this.translateEntity('cursos', 'errorServices'),
+          title: this.translateEntity('usuarios', 'tileErrorServices'),
+          message: this.translateEntity('usuarios', 'errorServices'),
           type: 'error',
           duration: 1000
         })
@@ -180,11 +185,11 @@ export default {
       this.loading = true
       this.loadingTable = true
       try {
-        let res = await this.$services.deleteData(['ficde', 'cursos', data.cod_curso])
+        let res = await this.$services.deleteData(['ficde', 'sedes', data.cod_sede])
         if (!res.status) throw new Error(res['response']['response']['data']['message'])
         this.$notify({
-          title: this.translateEntity('cursos', 'titleUpdateSeccess'),
-          message: this.translateEntity('cursos', 'messageUpdateSeccess'),
+          title: this.translateEntity('usuarios', 'titleUpdateSeccess'),
+          message: this.translateEntity('usuarios', 'messageUpdateSeccess'),
           type: 'success',
           duration: 1000
         })
@@ -192,7 +197,7 @@ export default {
         this.loadingTable = false
       } catch (e) {
         this.$notify({
-          title: this.translateEntity('cursos', 'tileErrorServices'),
+          title: this.translateEntity('usuarios', 'tileErrorServices'),
           message: this.translateEntity('message', e.message),
           type: 'error',
           duration: 1000
