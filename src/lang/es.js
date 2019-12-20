@@ -259,6 +259,10 @@ export default {
         label: 'Materias modificado exitosamente',
         meta: 'Materias modificado exitosamente'
       },
+      curso: {
+        label: 'Curso',
+        meta: 'Curso'
+      },
       status: {
         label: 'Activo y/n',
         meta: 'Activo y/n'

@@ -13,7 +13,6 @@ export const subjectsConfig = [
           component: {
             name: 'v-autocomplete',
             props: {
-              type: 'text',
               items: [],
               'item-text': 'curso',
               'item-value': 'cod_curso',
@@ -30,7 +29,7 @@ export const subjectsConfig = [
           }
         },
         tabulated: {
-          propTag: 'cod_curso',
+          propTag: 'curso',
           sortable: true,
           type: Number,
           fixed: false,
@@ -46,7 +45,6 @@ export const subjectsConfig = [
           component: {
             name: 'v-autocomplete',
             props: {
-              type: 'text',
               items: [],
               'item-text': 'curso',
               'item-value': 'cod_curso',
