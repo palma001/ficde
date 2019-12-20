@@ -423,6 +423,63 @@ export default {
         meta: 'telefono'
       }
     },
+    turnos: {
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      updated_at: {
+        label: 'Fecha de modificacion'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
+      },
+      headquartersAdd: {
+        label: 'Agregar sede',
+        meta: 'Agregar sede'
+      },
+      messageUpdateSeccess: {
+        label: 'Sede modificado exitosamente',
+        meta: 'Sede modificado exitosamente'
+      },
+      messageDeleteSeccess: {
+        label: 'Sede eliminado exitosamente',
+        meta: 'Sede eliminado exitosamente'
+      },
+      tileErrorServices: {
+        label: 'Error',
+        meta: 'Error'
+      },
+      errorServices: {
+        label: 'Error con el servidor',
+        meta: 'Error con el servidor'
+      },
+      infoUsers: {
+        label: 'Información general',
+        meta: 'Información general'
+      },
+      loading: {
+        label: 'Cargando...',
+        meta: 'Cargando...'
+      },
+      infoAdi: {
+        label: 'Información adicional',
+        meta: 'Información adicional'
+      },
+      turno: {
+        label: 'Turno',
+        meta: 'Turno'
+      },
+      hora: {
+        label: 'Hora',
+        meta: 'Hora'
+      }
+    },
     ROUTE: {
       turn: {
         label: 'Turno',

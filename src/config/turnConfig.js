@@ -1,4 +1,4 @@
-export const courseConfig = [
+export const turnConfig = [
   {
     classTag: 'infoUsers',
     index: 0,
@@ -6,7 +6,7 @@ export const courseConfig = [
       /* curso */
       {
         addible: {
-          propTag: 'curso',
+          propTag: 'turno',
           addible: true,
           type: 'String',
           visibleLabel: true,
@@ -27,7 +27,7 @@ export const courseConfig = [
           }
         },
         tabulated: {
-          propTag: 'curso',
+          propTag: 'turno',
           sortable: true,
           type: Number,
           fixed: false,
@@ -35,7 +35,7 @@ export const courseConfig = [
           align: 'left'
         },
         edition: {
-          propTag: 'curso',
+          propTag: 'turno',
           editable: true,
           header: false,
           type: 'String',
@@ -56,18 +56,18 @@ export const courseConfig = [
           }
         }
       },
-      /* descripcion */
+      /* hora */
       {
         addible: {
-          propTag: 'descripcion',
+          propTag: 'hora',
           addible: true,
           type: 'String',
           visibleLabel: true,
           component: {
-            name: 'v-textarea',
+            name: 'v-text-field',
             props: {
               type: 'text',
-              'prepend-icon': 'fas fa-book-open'
+              'prepend-icon': 'fas fa-clock'
             },
             directives: [
               {
@@ -80,7 +80,7 @@ export const courseConfig = [
           }
         },
         tabulated: {
-          propTag: 'descripcion',
+          propTag: 'hora',
           type: String,
           sortable: true,
           fixed: false,
@@ -88,13 +88,13 @@ export const courseConfig = [
           align: 'left'
         },
         edition: {
-          propTag: 'descripcion',
+          propTag: 'hora',
           editable: true,
           header: true,
           type: 'String',
           visibleLabel: true,
           component: {
-            name: 'v-textarea',
+            name: 'v-text-field',
             props: {
               type: 'text'
             },
@@ -332,7 +332,7 @@ export const courseConfig = [
   }
 ]
 
-export const tabsCourseCofig = {
+export const tabsTurnCofig = {
   titleAdd: 'cursoAdd',
   buttons: [
     {

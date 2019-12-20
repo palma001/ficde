@@ -36,7 +36,7 @@ export default {
   },
   data () {
     return {
-      entity: 'turno',
+      entity: 'turnos',
       /***
        * parameters of micreoservices request
        * @type {Object} parameters request
@@ -56,7 +56,7 @@ export default {
          * name of field order
          * @type {String} name field
          */
-        sortField: 'curso',
+        sortField: 'turno',
         /**
          * type of order
          * @type {String} type order
@@ -83,8 +83,8 @@ export default {
        * @type {Array}
        */
       search: {
-        curso: '',
-        descripcion: ''
+        turno: '',
+        hora: ''
       },
       /**
        * status panel
@@ -156,11 +156,11 @@ export default {
       this.loading = true
       this.loadingTable = true
       try {
-        let response = await this.$services.putData(['ficde', 'cursos', data.cod_curso], data)
+        let response = await this.$services.putData(['ficde', 'turnos', data.cod_turno], data)
         if (response.res.data === 1) {
           this.$notify({
-            title: this.translateEntity('cursos', 'titleUpdateSeccess'),
-            message: this.translateEntity('cursos', 'messageUpdateSeccess'),
+            title: this.translateEntity('turnos', 'titleUpdateSeccess'),
+            message: this.translateEntity('turnos', 'messageUpdateSeccess'),
             type: 'success',
             duration: 1000
           })
@@ -169,8 +169,8 @@ export default {
         }
       } catch (e) {
         this.$notify({
-          title: this.translateEntity('cursos', 'tileErrorServices'),
-          message: this.translateEntity('cursos', 'errorServices'),
+          title: this.translateEntity('turnos', 'tileErrorServices'),
+          message: this.translateEntity('turnos', 'errorServices'),
           type: 'error',
           duration: 1000
         })
@@ -184,11 +184,11 @@ export default {
       this.loading = true
       this.loadingTable = true
       try {
-        let res = await this.$services.deleteData(['ficde', 'cursos', data.cod_curso])
+        let res = await this.$services.deleteData(['ficde', 'turnos', data.cod_turno])
         if (!res.status) throw new Error(res['response']['response']['data']['message'])
         this.$notify({
-          title: this.translateEntity('cursos', 'titleUpdateSeccess'),
-          message: this.translateEntity('cursos', 'messageUpdateSeccess'),
+          title: this.translateEntity('turnos', 'titleUpdateSeccess'),
+          message: this.translateEntity('turnos', 'messageUpdateSeccess'),
           type: 'success',
           duration: 1000
         })
