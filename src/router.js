@@ -57,8 +57,8 @@ const router = new Router({
           component: Courses
         },
         {
-          path: 'trun',
-          name: 'trun',
+          path: 'turn',
+          name: 'turn',
           component: Turn
         },
         {

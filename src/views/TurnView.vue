@@ -1,8 +1,8 @@
 <template>
   <div>
     <Metadata
-      route="courses"
-      :config="courseConfig"
+      route="turn"
+      :config="turnConfig"
       :params="params"
       :entity="entity"
       :search="search"
@@ -11,7 +11,7 @@
       @selectedData="selectedData"
       @dataSelected="dataSelected"/>
     <panelEdition
-      :config="courseConfig"
+      :config="turnConfig"
       :propsPanelEdition="propsPanelEdition"
       :loading="loading"
       :drawer="drawer"
@@ -25,7 +25,7 @@
 <script>
 import Metadata from './Metadata.vue'
 import panelEdition from './Edition.vue'
-import { courseConfig, propsPanelEdition } from '../config/courseConfig'
+import { turnConfig, propsPanelEdition } from '../config/turnConfig'
 import { mixins } from '../mixins'
 export default {
   mixins: [mixins.containerMixin],
@@ -36,7 +36,7 @@ export default {
   },
   data () {
     return {
-      entity: 'cursos',
+      entity: 'turno',
       /***
        * parameters of micreoservices request
        * @type {Object} parameters request
@@ -77,7 +77,7 @@ export default {
        * Configurations table
        * @type {Object}
        */
-      courseConfig,
+      turnConfig,
       /**
        * Paramaters for search
        * @type {Array}
@@ -86,6 +86,10 @@ export default {
         curso: '',
         descripcion: ''
       },
+      /**
+       * status panel
+       * @type {Boolean}
+       */
       drawer: false,
       /**
        * Props panel
