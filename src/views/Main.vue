@@ -80,6 +80,11 @@ export default {
               icon: 'contacts',
               text: 'users',
               router: 'users'
+            },
+            {
+              icon: 'fas fa-clock',
+              text: 'turn',
+              router: 'turn'
             }
           ]
         },

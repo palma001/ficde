@@ -10,6 +10,7 @@ import Subjects from './views/SubjectsView.vue'
 import Students from './views/StudentsView'
 import Courses from './views/CoursesView'
 import Headquarters from './views/HeadquartersView'
+import Turn from './views/TurnView'
 Vue.use(Router)
 
 const router = new Router({
@@ -54,6 +55,11 @@ const router = new Router({
           path: 'courses',
           name: 'courses',
           component: Courses
+        },
+        {
+          path: 'trun',
+          name: 'trun',
+          component: Turn
         },
         {
           path: 'subjects',

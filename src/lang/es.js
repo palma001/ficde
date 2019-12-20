@@ -424,6 +424,10 @@ export default {
       }
     },
     ROUTE: {
+      turn: {
+        label: 'Turno',
+        meta: 'Turno'
+      },
       courses: {
         label: 'Cursos',
         meta: 'Cursos'
