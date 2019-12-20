@@ -67,7 +67,7 @@ export default {
               router: 'courses'
             },
             {
-              icon: 'fas fa-table',
+              icon: 'fas fa-book-reader',
               text: 'subjects',
               router: 'subjects'
             },

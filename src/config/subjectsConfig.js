@@ -16,7 +16,7 @@ export const subjectsConfig = [
               items: [],
               'item-text': 'curso',
               'item-value': 'cod_curso',
-              'prepend-icon': 'person'
+              'prepend-icon': 'fas fa-book'
             },
             directives: [
               {
@@ -62,7 +62,7 @@ export const subjectsConfig = [
           }
         }
       },
-      /* nombre */
+      /* materia */
       {
         addible: {
           propTag: 'materia',
@@ -73,7 +73,7 @@ export const subjectsConfig = [
             name: 'v-text-field',
             props: {
               type: 'text',
-              'prepend-icon': 'person'
+              'prepend-icon': 'fas fa-book-reader'
             },
             directives: [
               {
@@ -126,7 +126,7 @@ export const subjectsConfig = [
             name: 'v-textarea',
             props: {
               type: 'text',
-              'prepend-icon': 'person'
+              'prepend-icon': 'fas fa-book-open'
             },
             directives: [
               {
@@ -210,6 +210,171 @@ export const subjectsConfig = [
             name: 'v-text-field',
             props: {
               type: 'text'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* user_r */
+      {
+        addible: {
+          propTag: 'user_r',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'user_r',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'user_r',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* created_at */
+      {
+        addible: {
+          propTag: 'created_at',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'created_at',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'created_at',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* update_at */
+      {
+        addible: {
+          propTag: 'updated_at',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'updated_at',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'updated_at',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
             },
             directives: [
               {

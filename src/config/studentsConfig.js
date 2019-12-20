@@ -13,15 +13,14 @@ export const studentsConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'number',
-              'prepend-icon': ''
+              type: 'text',
+              'prepend-icon': 'fas fa-address-card'
             },
             directives: [
               {
                 name: 'validate',
                 value: {
-                  required: true,
-                  numeric: true
+                  required: true
                 }
               }
             ]
@@ -70,7 +69,7 @@ export const studentsConfig = [
             name: 'v-text-field',
             props: {
               type: 'text',
-              'prepend-icon': ''
+              'prepend-icon': 'fas fa-user'
             },
             directives: [
               {
@@ -125,7 +124,7 @@ export const studentsConfig = [
             name: 'v-text-field',
             props: {
               type: 'text',
-              'prepend-icon': ''
+              'prepend-icon': 'fas fa-user'
             },
             directives: [
               {
@@ -179,7 +178,7 @@ export const studentsConfig = [
             name: 'v-text-field',
             props: {
               type: 'email',
-              'prepend-icon': 'email'
+              'prepend-icon': 'fas fa-envelope'
             },
             directives: [
               {
@@ -235,7 +234,7 @@ export const studentsConfig = [
             name: 'v-text-field',
             props: {
               type: 'number',
-              'prepend-icon': 'telefono'
+              'prepend-icon': 'fas fa-mobile-alt'
             },
             directives: [
               {
@@ -286,10 +285,10 @@ export const studentsConfig = [
           type: 'String',
           visibleLabel: true,
           component: {
-            name: 'v-text-field',
+            name: 'v-textarea',
             props: {
               type: 'text',
-              'prepend-icon': ''
+              'prepend-icon': 'fas fa-route'
             },
             directives: [
               {
@@ -326,6 +325,171 @@ export const studentsConfig = [
                 name: 'validate',
                 value: {
                   required: true
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* user_r */
+      {
+        addible: {
+          propTag: 'user_r',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'user_r',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'user_r',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* created_at */
+      {
+        addible: {
+          propTag: 'created_at',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'created_at',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'created_at',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* update_at */
+      {
+        addible: {
+          propTag: 'updated_at',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'updated_at',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'updated_at',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
                 }
               }
             ]

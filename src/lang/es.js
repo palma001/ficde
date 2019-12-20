@@ -41,6 +41,17 @@ export default {
       meta: 'Bienvenidos'
     },
     usuarios: {
+      updated_at: {
+        label: 'Fecha de modificacion'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
+      },
       tileErrorServices: {
         label: 'Error',
         meta: 'Error'
@@ -139,6 +150,17 @@ export default {
         label: 'Exito',
         meta: 'Exito'
       },
+      updated_at: {
+        label: 'Fecha de modificacion'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
+      },
       messageUpdateSeccess: {
         label: 'Curso modificado exitosamente',
         meta: 'Curso modificado exitosamente'
@@ -165,6 +187,17 @@ export default {
       }
     },
     estudiantes: {
+      updated_at: {
+        label: 'Fecha de modificacion'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
+      },
       titleUpdateSeccess: {
         label: 'Exito',
         meta: 'Exito'
@@ -243,6 +276,17 @@ export default {
       }
     },
     materias: {
+      updated_at: {
+        label: 'Fecha de modificacion'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
+      },
       tileErrorServices: {
         label: 'Error',
         meta: 'Error'
@@ -288,8 +332,8 @@ export default {
         meta: 'Curso'
       },
       materia: {
-        label: 'Materia',
-        meta: 'Materias'
+        label: 'Asignatura',
+        meta: 'Asignatura'
       },
       descripcion: {
         label: 'Descripción',
@@ -314,6 +358,17 @@ export default {
       titleUpdateSeccess: {
         label: 'Exito',
         meta: 'Exito'
+      },
+      updated_at: {
+        label: 'Fecha de modificacion'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
       },
       headquartersAdd: {
         label: 'Agregar sede',
