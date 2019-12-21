@@ -333,7 +333,7 @@ export const turnConfig = [
 ]
 
 export const tabsTurnCofig = {
-  titleAdd: 'cursoAdd',
+  titleAdd: 'turnAdd',
   buttons: [
     {
       name: 'cancel',
