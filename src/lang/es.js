@@ -428,6 +428,10 @@ export default {
         label: 'Exito',
         meta: 'Exito'
       },
+      turnAdd: {
+        label: 'Agregar turno',
+        meta: 'Agregar turno'
+      },
       updated_at: {
         label: 'Fecha de modificacion'
       },
