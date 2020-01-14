@@ -99,7 +99,7 @@ export default {
                       }
                     },
                     [
-                      (self.propsPanelEdition['data'][propTag]) ? self.propsPanelEdition['data'][propTag].toUpperCase() : self.propsPanelEdition['data'][propTag]
+                      (typeof self.propsPanelEdition['data'][propTag] === 'string') ? self.propsPanelEdition['data'][propTag].toUpperCase() : self.propsPanelEdition['data'][propTag]
                     ]
                   )
                 ]

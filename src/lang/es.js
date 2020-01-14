@@ -484,10 +484,92 @@ export default {
         meta: 'Hora'
       }
     },
+    notas: {
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      notesAdd: {
+        label: 'Agregar nota',
+        meta: 'Agregar nota'
+      },
+      updated_at: {
+        label: 'Fecha de modificación',
+        meta: 'Fecha de modificación'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
+      },
+      id_em: {
+        label: 'Asignatura',
+        meta: 'Asignatura'
+      },
+      nombre: {
+        label: 'Nombre',
+        meta: 'Nombre'
+      },
+      apellido: {
+        label: 'Apellido',
+        meta: 'Apellido'
+      },
+      dni: {
+        label: 'Dni',
+        meta: 'Dni'
+      },
+      id_estudiante: {
+        label: 'Estudiantes',
+        meta: 'Estudiantes'
+      },
+      nota: {
+        label: 'Notas',
+        meta: 'Notas'
+      },
+      messageUpdateSeccess: {
+        label: 'Nota modificado exitosamente',
+        meta: 'Nota modificado exitosamente'
+      },
+      messageDeleteSeccess: {
+        label: 'Nota eliminado exitosamente',
+        meta: 'Nota eliminado exitosamente'
+      },
+      tileErrorServices: {
+        label: 'Error',
+        meta: 'Error'
+      },
+      errorServices: {
+        label: 'Error con el servidor',
+        meta: 'Error con el servidor'
+      },
+      infoUsers: {
+        label: 'Información general',
+        meta: 'Información general'
+      },
+      loading: {
+        label: 'Cargando...',
+        meta: 'Cargando...'
+      },
+      infoAdi: {
+        label: 'Información adicional',
+        meta: 'Información adicional'
+      }
+    },
     ROUTE: {
       turn: {
         label: 'Turno',
         meta: 'Turno'
+      },
+      notes: {
+        label: 'Notas',
+        meta: 'Notas'
+      },
+      teachers: {
+        label: 'Profesores',
+        meta: 'Profesores'
       },
       courses: {
         label: 'Cursos',

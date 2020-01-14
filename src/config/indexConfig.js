@@ -5,6 +5,8 @@ import { subjectsConfig, tabsSubjectsCofig, subjectsServices } from '../config/s
 import { courseConfig, tabsCourseCofig } from '../config/courseConfig'
 import { headquartersConfig, tabsHeadquartersConfig, headquartersServices } from '../config/headquartersConfig'
 import { turnConfig, tabsTurnCofig } from '../config/turnConfig'
+import { notesConfig, notesTabs, notesServices } from '../config/notes'
+
 export const configData = [
   {
     entity: 'users',
@@ -14,6 +16,15 @@ export const configData = [
     config: usersConfig,
     tabsCofig: tabsCofig,
     relationalData: null
+  },
+  {
+    entity: 'notes',
+    entityMicroservices: 'notas',
+    microservices: 'ficde',
+    primaryKey: [''],
+    config: notesConfig,
+    tabsCofig: notesTabs,
+    relationalData: notesServices
   },
   {
     entity: 'about',

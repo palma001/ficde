@@ -89,9 +89,17 @@ export default {
           ]
         },
         {
-          icon: 'help',
-          text: 'about',
-          router: 'about'
+          icon: 'keyboard_arrow_up',
+          'icon-alt': 'keyboard_arrow_down',
+          text: 'teachers',
+          model: false,
+          children: [
+            {
+              icon: 'fas fa-sticky-note',
+              text: 'notes',
+              router: 'notes'
+            }
+          ]
         },
         {
           icon: 'logout',
