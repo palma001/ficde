@@ -12,6 +12,7 @@ import Courses from './views/CoursesView'
 import Headquarters from './views/HeadquartersView'
 import Turn from './views/TurnView'
 import Notes from './views/Notes'
+import Classrooms from './views/Classrooms'
 Vue.use(Router)
 
 const router = new Router({
@@ -41,6 +42,11 @@ const router = new Router({
           path: 'users',
           name: 'users',
           component: Users
+        },
+        {
+          path: 'classrooms',
+          name: 'classrooms',
+          component: Classrooms
         },
         {
           path: 'notes',

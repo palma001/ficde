@@ -1,8 +1,8 @@
 <template>
   <div>
     <Metadata
-      route="notes"
-      :config="notesConfig"
+      route="classrooms"
+      :config="classRoomsConfig"
       :params="params"
       :entity="entity"
       :search="search"
@@ -11,7 +11,7 @@
       @selectedData="selectedData"
       @dataSelected="dataSelected"/>
     <panelEdition
-      :config="notesConfig"
+      :config="classRoomsConfig"
       :propsPanelEdition="propsPanelEdition"
       :loading="loading"
       :drawer="drawer"
@@ -25,19 +25,19 @@
 <script>
 import Metadata from './Metadata.vue'
 import panelEdition from './Edition.vue'
-import { notesConfig, propsPanelEdition, notesServices } from '../config/notes'
+import { classRoomsConfig, propsPanelEdition, classRoomsServices } from '../config/classrooms'
 import { mixins } from '../mixins'
 export default {
   mixins: [mixins.containerMixin],
-  name: 'Notes',
+  name: 'Classrooms',
   components: {
     Metadata,
     panelEdition
   },
   data () {
     return {
-      notesServices,
-      entity: 'notas',
+      classRoomsServices,
+      entity: 'aulas',
       /***
        * parameters of micreoservices request
        * @type {Object} parameters request
@@ -57,7 +57,7 @@ export default {
          * name of field order
          * @type {String} name field
          */
-        sortField: 'id_estudiante',
+        sortField: 'turno',
         /**
          * type of order
          * @type {String} type order
@@ -78,14 +78,14 @@ export default {
        * Configurations table
        * @type {Object}
        */
-      notesConfig,
+      classRoomsConfig,
       /**
        * Paramaters for search
        * @type {Array}
        */
       search: {
-        id_em: '',
-        id_estudiante: ''
+        turno: '',
+        hora: ''
       },
       /**
        * status panel
@@ -115,7 +115,7 @@ export default {
     }
   },
   created () {
-    this.setRelationalData(this.notesServices, [], this)
+    this.setRelationalData(this.classRoomsServices, [], this)
   },
   methods: {
     /**

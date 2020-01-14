@@ -484,6 +484,67 @@ export default {
         meta: 'Hora'
       }
     },
+    aulas: {
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      cod_sede: {
+        label: 'Sede',
+        meta: 'Sede'
+      },
+      classroomsAdd: {
+        label: 'Agregar turno',
+        meta: 'Agregar turno'
+      },
+      updated_at: {
+        label: 'Fecha de modificacion'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
+      },
+      nombre: {
+        label: 'Nombre',
+        meta: 'Nombre'
+      },
+      messageUpdateSeccess: {
+        label: 'Sede modificado exitosamente',
+        meta: 'Sede modificado exitosamente'
+      },
+      messageDeleteSeccess: {
+        label: 'Sede eliminado exitosamente',
+        meta: 'Sede eliminado exitosamente'
+      },
+      tileErrorServices: {
+        label: 'Error',
+        meta: 'Error'
+      },
+      errorServices: {
+        label: 'Error con el servidor',
+        meta: 'Error con el servidor'
+      },
+      infoUsers: {
+        label: 'Información general',
+        meta: 'Información general'
+      },
+      loading: {
+        label: 'Cargando...',
+        meta: 'Cargando...'
+      },
+      infoAdi: {
+        label: 'Información adicional',
+        meta: 'Información adicional'
+      },
+      capacidad: {
+        label: 'Capacidad',
+        meta: 'Capacidad'
+      }
+    },
     notas: {
       titleUpdateSeccess: {
         label: 'Exito',
@@ -559,6 +620,10 @@ export default {
       }
     },
     ROUTE: {
+      classrooms: {
+        label: 'Aulas',
+        meta: 'Aulas'
+      },
       turn: {
         label: 'Turno',
         meta: 'Turno'

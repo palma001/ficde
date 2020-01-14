@@ -62,6 +62,11 @@ export default {
               router: 'headquarters'
             },
             {
+              icon: 'fas fa-chalkboard-teacher',
+              text: 'classrooms',
+              router: 'classrooms'
+            },
+            {
               icon: 'fas fa-book',
               text: 'courses',
               router: 'courses'
