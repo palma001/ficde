@@ -48,7 +48,19 @@
         :label="translateEntity(entity, header.propTag)"
         :fixed="header.fixed"
         :align="header.align"
-        :sortable="header.sortable"/>
+        :sortable="header.sortable">
+        <template
+          slot-scope="scope"
+          v-if="header.tag">
+          <el-tag
+            :type="header.functionClass(scope.row[header['propTag']])"
+            disable-transitions>
+            {{
+              header.functionValue(scope.row[header['propTag']])
+            }}
+          </el-tag>
+        </template>
+      </el-table-column>
     </el-table>
     <v-card-actions>
       <template>
@@ -85,7 +97,7 @@ export default {
      * @type {Boolean}
      */
     entity: {
-      type: String,
+      type: String
     },
     /**
      * Values of the pagination

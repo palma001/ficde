@@ -15,6 +15,7 @@ import Notes from './views/NotesView'
 import Classrooms from './views/ClassroomsView'
 import Modalities from './views/ModalitiesView'
 import Semester from './views/SemesterView'
+import Assists from './views/AssistsView'
 Vue.use(Router)
 
 const router = new Router({
@@ -49,6 +50,11 @@ const router = new Router({
           path: 'classrooms',
           name: 'classrooms',
           component: Classrooms
+        },
+        {
+          path: 'assists',
+          name: 'assists',
+          component: Assists
         },
         {
           path: 'semesters',

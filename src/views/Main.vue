@@ -113,6 +113,11 @@ export default {
               icon: 'fas fa-sticky-note',
               text: 'notes',
               router: 'notes'
+            },
+            {
+              icon: 'fas fa-users',
+              text: 'assists',
+              router: 'assists'
             }
           ]
         },
