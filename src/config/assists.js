@@ -223,7 +223,7 @@ export const assistsConfig = [
           propTag: 'estatus',
           editable: true,
           header: false,
-          type: 'String',
+          type: 'Boolean',
           visibleLabel: true,
           component: {
             name: 'v-autocomplete',
@@ -231,13 +231,11 @@ export const assistsConfig = [
               items: [
                 {
                   name: 'Asistio',
-                  valueAssits: 'true',
-                  value: true
+                  value: 'true'
                 },
                 {
                   name: 'Ausente',
-                  valueAssits: 'false',
-                  value: false
+                  value: 'false'
                 }
               ],
               'item-text': 'name',

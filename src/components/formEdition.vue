@@ -190,7 +190,7 @@ export default {
         createInputDynamic.push(element.children.map(prop => {
           if (prop['edition'] && prop['edition']['editable']) {
             let propTag = prop.edition['propTag']
-            prop['edition']['component']['props']['value'] = self.propsPanelEdition.data[propTag]
+            prop['edition']['component']['props']['value'] = (typeof self.propsPanelEdition.data[propTag] !== 'boolean') ? self.propsPanelEdition.data[propTag] : String(self.propsPanelEdition.data[propTag])
             return createElement('v-flex',
               [
                 createElement(prop['edition']['component']['name'],

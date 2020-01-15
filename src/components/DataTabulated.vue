@@ -50,9 +50,12 @@
         :align="header.align"
         :sortable="header.sortable">
         <template
-          slot-scope="scope"
-          v-if="header.tag">
+          slot-scope="scope">
+          {{
+            (!header.tag) ? scope.row[header['propTag']] : ''
+          }}
           <el-tag
+            v-if="header.tag"
             :type="header.functionClass(scope.row[header['propTag']])"
             disable-transitions>
             {{
