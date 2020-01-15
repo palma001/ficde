@@ -150,6 +150,10 @@ export default {
         label: 'Exito',
         meta: 'Exito'
       },
+      messageDeleteSeccess: {
+        label: 'Curso eliminado exitosamente',
+        meta: 'Curso eliminado exitosamente'
+      },
       updated_at: {
         label: 'Fecha de modificacion'
       },
@@ -279,6 +283,10 @@ export default {
       updated_at: {
         label: 'Fecha de modificacion'
       },
+      messageDeleteSeccess: {
+        label: 'Materia eliminado exitosamente',
+        meta: 'Materia eliminado exitosamente'
+      },
       created_at: {
         label: 'Fecha de creación',
         meta: 'Fecha de creación'
@@ -359,6 +367,10 @@ export default {
         label: 'Exito',
         meta: 'Exito'
       },
+      messageDeleteSeccess: {
+        label: 'Sede eliminado exitosamente',
+        meta: 'Sede eliminado exitosamente'
+      },
       updated_at: {
         label: 'Fecha de modificacion'
       },
@@ -377,10 +389,6 @@ export default {
       messageUpdateSeccess: {
         label: 'Sede modificado exitosamente',
         meta: 'Sede modificado exitosamente'
-      },
-      messageDeleteSeccess: {
-        label: 'Sede eliminado exitosamente',
-        meta: 'Sede eliminado exitosamente'
       },
       tileErrorServices: {
         label: 'Error',
@@ -443,17 +451,13 @@ export default {
         label: 'Agregado y modificado por:',
         meta: 'Agregado y modificado por:'
       },
-      headquartersAdd: {
-        label: 'Agregar sede',
-        meta: 'Agregar sede'
-      },
       messageUpdateSeccess: {
-        label: 'Sede modificado exitosamente',
-        meta: 'Sede modificado exitosamente'
+        label: 'Turno modificado exitosamente',
+        meta: 'Turno modificado exitosamente'
       },
       messageDeleteSeccess: {
-        label: 'Sede eliminado exitosamente',
-        meta: 'Sede eliminado exitosamente'
+        label: 'Turno eliminado exitosamente',
+        meta: 'Turno eliminado exitosamente'
       },
       tileErrorServices: {
         label: 'Error',

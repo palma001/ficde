@@ -66,7 +66,7 @@ export const turnConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'text',
+              type: 'time',
               'prepend-icon': 'fas fa-clock'
             },
             directives: [
@@ -96,7 +96,7 @@ export const turnConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'text'
+              type: 'time'
             },
             directives: [
               {

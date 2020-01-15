@@ -192,7 +192,7 @@ export default {
         if (!res.status) throw new Error(res['response']['response']['data']['message'])
         this.$notify({
           title: this.translateEntity('notas', 'titleUpdateSeccess'),
-          message: this.translateEntity('notas', 'messageUpdateSeccess'),
+          message: this.translateEntity('notas', 'messageDeleteSeccess'),
           type: 'success',
           duration: 1000
         })

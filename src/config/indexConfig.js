@@ -113,7 +113,7 @@ export const configData = [
     entity: 'turn',
     entityMicroservices: 'turnos',
     microservices: 'ficde',
-    primaryKey: ['nombre'],
+    primaryKey: ['turno'],
     config: turnConfig,
     tabsCofig: tabsTurnCofig,
     relationalData: null

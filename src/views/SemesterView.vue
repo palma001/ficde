@@ -29,7 +29,7 @@ import { semestersConfig, propsPanelEdition } from '../config/semesters'
 import { mixins } from '../mixins'
 export default {
   mixins: [mixins.containerMixin],
-  name: 'Notes',
+  name: 'Semesters',
   components: {
     Metadata,
     panelEdition
@@ -188,7 +188,7 @@ export default {
         if (!res.status) throw new Error(res['response']['response']['data']['message'])
         this.$notify({
           title: this.translateEntity(this.entity, 'titleUpdateSeccess'),
-          message: this.translateEntity(this.entity, 'messageUpdateSeccess'),
+          message: this.translateEntity(this.entity, 'messageDeleteSeccess'),
           type: 'success',
           duration: 1000
         })

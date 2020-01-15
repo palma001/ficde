@@ -188,7 +188,7 @@ export default {
         if (!res.status) throw new Error(res['response']['response']['data']['message'])
         this.$notify({
           title: this.translateEntity('turnos', 'titleUpdateSeccess'),
-          message: this.translateEntity('turnos', 'messageUpdateSeccess'),
+          message: this.translateEntity('turnos', 'messageDeleteSeccess'),
           type: 'success',
           duration: 1000
         })

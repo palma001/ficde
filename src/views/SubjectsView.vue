@@ -160,8 +160,8 @@ export default {
         let response = await this.$services.putData(['ficde', 'materias', data.cod_materia], data)
         if (response.res.data === 1) {
           this.$notify({
-            title: this.translateEntity('usuarios', 'titleUpdateSeccess'),
-            message: this.translateEntity('usuarios', 'messageUpdateSeccess'),
+            title: this.translateEntity('materias', 'titleUpdateSeccess'),
+            message: this.translateEntity('materias', 'messageUpdateSeccess'),
             type: 'success',
             duration: 1000
           })
@@ -170,8 +170,8 @@ export default {
         }
       } catch (e) {
         this.$notify({
-          title: this.translateEntity('usuarios', 'tileErrorServices'),
-          message: this.translateEntity('usuarios', 'errorServices'),
+          title: this.translateEntity('materias', 'tileErrorServices'),
+          message: this.translateEntity('materias', 'errorServices'),
           type: 'error',
           duration: 1000
         })
@@ -188,8 +188,8 @@ export default {
         let res = await this.$services.deleteData(['ficde', 'materias', data.cod_materia])
         if (!res.status) throw new Error(res['response']['response']['data']['message'])
         this.$notify({
-          title: this.translateEntity('usuarios', 'titleUpdateSeccess'),
-          message: this.translateEntity('usuarios', 'messageUpdateSeccess'),
+          title: this.translateEntity('materias', 'titleUpdateSeccess'),
+          message: this.translateEntity('materias', 'messageDeleteSeccess'),
           type: 'success',
           duration: 1000
         })
@@ -197,7 +197,7 @@ export default {
         this.loadingTable = false
       } catch (e) {
         this.$notify({
-          title: this.translateEntity('usuarios', 'tileErrorServices'),
+          title: this.translateEntity('materias', 'tileErrorServices'),
           message: this.translateEntity('message', e.message),
           type: 'error',
           duration: 1000
