@@ -67,6 +67,11 @@ export default {
               router: 'classrooms'
             },
             {
+              icon: 'fas fa-universal-access',
+              text: 'modalities',
+              router: 'modalities'
+            },
+            {
               icon: 'fas fa-book',
               text: 'courses',
               router: 'courses'

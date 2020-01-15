@@ -623,7 +623,65 @@ export default {
         meta: 'Información adicional'
       }
     },
+    modalidades: {
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      modalitiesAdd: {
+        label: 'Agregar modalidad',
+        meta: 'Agregar modalidad'
+      },
+      updated_at: {
+        label: 'Fecha de modificación',
+        meta: 'Fecha de modificación'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
+      },
+      modalidad: {
+        label: 'Modalidad',
+        meta: 'Modalidad'
+      },
+      messageUpdateSeccess: {
+        label: 'Modalidad modificado exitosamente',
+        meta: 'Modalidad modificado exitosamente'
+      },
+      messageDeleteSeccess: {
+        label: 'Modalidad eliminado exitosamente',
+        meta: 'Modalidad eliminado exitosamente'
+      },
+      tileErrorServices: {
+        label: 'Error',
+        meta: 'Error'
+      },
+      errorServices: {
+        label: 'Error con el servidor',
+        meta: 'Error con el servidor'
+      },
+      infoUsers: {
+        label: 'Información general',
+        meta: 'Información general'
+      },
+      loading: {
+        label: 'Cargando...',
+        meta: 'Cargando...'
+      },
+      infoAdi: {
+        label: 'Información adicional',
+        meta: 'Información adicional'
+      }
+    },
     ROUTE: {
+      modalities: {
+        label: 'Modalidades',
+        meta: 'Modalidades'
+      },
       classrooms: {
         label: 'Aulas',
         meta: 'Aulas'
