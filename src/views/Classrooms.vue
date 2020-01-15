@@ -157,14 +157,19 @@ export default {
      * @param  {Object} data user
      */
     async updateNotes (data) {
-      this.loading = true
-      this.loadingTable = true
       try {
-        let response = await this.$services.putData(['ficde', 'notas', data.cod_nota], data)
+        this.loading = true
+        this.loadingTable = true
+        let response = await this.$services.putData(
+          [
+            'ficde',
+            'aulas',
+            data.cod_aula
+          ], data)
         if (response.res.data === 1) {
           this.$notify({
-            title: this.translateEntity('notas', 'titleUpdateSeccess'),
-            message: this.translateEntity('notas', 'messageUpdateSeccess'),
+            title: this.translateEntity('aulas', 'titleUpdateSeccess'),
+            message: this.translateEntity('aulas', 'messageUpdateSeccess'),
             type: 'success',
             duration: 1000
           })
@@ -173,11 +178,13 @@ export default {
         }
       } catch (e) {
         this.$notify({
-          title: this.translateEntity('notas', 'tileErrorServices'),
-          message: this.translateEntity('notas', 'errorServices'),
+          title: this.translateEntity('aulas', 'tileErrorServices'),
+          message: this.translateEntity('aulas', 'errorServices'),
           type: 'error',
           duration: 1000
         })
+        this.loading = false
+        this.loadingTable = false
       }
     },
     /**
@@ -185,14 +192,14 @@ export default {
      * @param  {Object} data user
      */
     async deleteData (data) {
-      this.loading = true
-      this.loadingTable = true
       try {
-        let res = await this.$services.deleteData(['ficde', 'notas', data.cod_nota])
+        this.loading = true
+        this.loadingTable = true
+        let res = await this.$services.deleteData(['ficde', 'aulas', data.cod_aula])
         if (!res.status) throw new Error(res['response']['response']['data']['message'])
         this.$notify({
-          title: this.translateEntity('notas', 'titleUpdateSeccess'),
-          message: this.translateEntity('notas', 'messageUpdateSeccess'),
+          title: this.translateEntity('aulas', 'titleUpdateSeccess'),
+          message: this.translateEntity('aulas', 'messageUpdateSeccess'),
           type: 'success',
           duration: 1000
         })

@@ -485,6 +485,10 @@ export default {
       }
     },
     aulas: {
+      nombreSede: {
+        label: 'Sede',
+        meta: 'Sede'
+      },
       titleUpdateSeccess: {
         label: 'Exito',
         meta: 'Exito'
@@ -493,7 +497,7 @@ export default {
         label: 'Sede',
         meta: 'Sede'
       },
-      classroomsAdd: {
+      classroomAdd: {
         label: 'Agregar turno',
         meta: 'Agregar turno'
       },
@@ -513,12 +517,12 @@ export default {
         meta: 'Nombre'
       },
       messageUpdateSeccess: {
-        label: 'Sede modificado exitosamente',
-        meta: 'Sede modificado exitosamente'
+        label: 'Aula modificado exitosamente',
+        meta: 'Aula modificado exitosamente'
       },
       messageDeleteSeccess: {
-        label: 'Sede eliminado exitosamente',
-        meta: 'Sede eliminado exitosamente'
+        label: 'Aula eliminado exitosamente',
+        meta: 'Aula eliminado exitosamente'
       },
       tileErrorServices: {
         label: 'Error',

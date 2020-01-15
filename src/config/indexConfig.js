@@ -6,7 +6,7 @@ import { courseConfig, tabsCourseCofig } from '../config/courseConfig'
 import { headquartersConfig, tabsHeadquartersConfig, headquartersServices } from '../config/headquartersConfig'
 import { turnConfig, tabsTurnCofig } from '../config/turnConfig'
 import { notesConfig, notesTabs, notesServices } from '../config/notes'
-import { classRoomsConfig, classRoomsServices, tabsClassRoomsCofig } from '../config/classrooms';
+import { classRoomsConfig, classRoomsServices, tabsClassRoomsCofig } from '../config/classrooms'
 export const configData = [
   {
     entity: 'classrooms',

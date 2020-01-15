@@ -86,7 +86,7 @@ export const classRoomsConfig = [
           type: String,
           sortable: true,
           fixed: false,
-          visible: true,
+          visible: false,
           align: 'left'
         },
         edition: {
@@ -101,6 +101,59 @@ export const classRoomsConfig = [
               items: [],
               'item-text': 'nombre',
               'item-value': 'cod_sede'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* nombreSede */
+      {
+        addible: {
+          propTag: 'nombreSede',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              'prepend-icon': 'fas fa-book-open'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'nombreSede',
+          type: String,
+          sortable: true,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'nombreSede',
+          editable: false,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text'
             },
             directives: [
               {
@@ -442,7 +495,7 @@ export const classRoomsConfig = [
   }
 ]
 export const tabsClassRoomsCofig = {
-  titleAdd: 'cursoAdd',
+  titleAdd: 'classroomAdd',
   buttons: [
     {
       name: 'cancel',
