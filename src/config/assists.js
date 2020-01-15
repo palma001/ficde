@@ -170,15 +170,177 @@ export const assistsConfig = [
           }
         }
       },
-      /* estatus */
+      /* dni */
       {
         addible: {
-          propTag: 'estatus',
+          propTag: 'dni',
           addible: false,
           type: 'String',
           visibleLabel: true,
           component: {
             name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'dni',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'dni',
+          editable: false,
+          header: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* nombreEstudiante */
+      {
+        addible: {
+          propTag: 'nombreEstudiante',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'nombreEstudiante',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'nombreEstudiante',
+          editable: false,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* apellidoEstudiante */
+      {
+        addible: {
+          propTag: 'apellidoEstudiante',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'apellidoEstudiante',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'apellidoEstudiante',
+          editable: false,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* estatus */
+      {
+        addible: {
+          propTag: 'estatus',
+          addible: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
             props: {
               items: [
                 {
@@ -190,9 +352,9 @@ export const assistsConfig = [
                   value: false
                 }
               ],
-              'item-text': 'id_semestre',
-              'item-value': 'cod_em',
-              'prepend-icon': 'fas fa-book'
+              'item-text': 'label',
+              'item-value': 'value',
+              'prepend-icon': 'fas fa-signature'
             },
             directives: [
               {
@@ -213,7 +375,7 @@ export const assistsConfig = [
           align: 'left',
           tag: true,
           functionValue: value => {
-            return value ? 'Asistio' : 'Ausente'
+            return value ? 'Asistió' : 'Ausente'
           },
           functionClass: value => {
             return value ? 'success' : 'danger'
@@ -230,7 +392,7 @@ export const assistsConfig = [
             props: {
               items: [
                 {
-                  name: 'Asistio',
+                  name: 'Asistió',
                   value: 'true'
                 },
                 {

@@ -9,6 +9,7 @@ import { notesConfig, notesTabs, notesServices } from '../config/notes'
 import { classRoomsConfig, classRoomsServices, tabsClassRoomsCofig } from '../config/classrooms'
 import { modalitiesConfig, modalitiesTabs } from './modalities'
 import { semestersConfig, tabsSemestersCofig } from './semesters'
+import { assistsConfig, tabsAssistsCofig, assistsServices } from './assists'
 export const configData = [
   {
     entity: 'classrooms',
@@ -18,6 +19,15 @@ export const configData = [
     config: classRoomsConfig,
     tabsCofig: tabsClassRoomsCofig,
     relationalData: classRoomsServices
+  },
+  {
+    entity: 'assists',
+    entityMicroservices: 'asistencias',
+    microservices: 'ficde',
+    primaryKey: [''],
+    config: assistsConfig,
+    tabsCofig: tabsAssistsCofig,
+    relationalData: assistsServices
   },
   {
     entity: 'semesters',

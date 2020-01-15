@@ -736,6 +736,18 @@ export default {
       }
     },
     asistencias: {
+      dni: {
+        label: 'Dni',
+        meta: 'Dni'
+      },
+      nombreEstudiante: {
+        label: 'Nombre',
+        meta: 'Nombre'
+      },
+      apellidoEstudiante: {
+        label: 'Apellido',
+        meta: 'Apellido'
+      },
       titleUpdateSeccess: {
         label: 'Exito',
         meta: 'Exito'
@@ -777,12 +789,12 @@ export default {
         meta: 'Fecha'
       },
       messageUpdateSeccess: {
-        label: 'Semestre modificado exitosamente',
-        meta: 'Semestre modificado exitosamente'
+        label: 'Asistencia modificado exitosamente',
+        meta: 'Asistencia modificado exitosamente'
       },
       messageDeleteSeccess: {
-        label: 'Semestre eliminado exitosamente',
-        meta: 'Semestre eliminado exitosamente'
+        label: 'Asistencia eliminado exitosamente',
+        meta: 'Asistencia eliminado exitosamente'
       },
       tileErrorServices: {
         label: 'Error',
