@@ -72,6 +72,11 @@ export default {
               router: 'modalities'
             },
             {
+              icon: 'fas fa-calendar-alt',
+              text: 'semesters',
+              router: 'semesters'
+            },
+            {
               icon: 'fas fa-book',
               text: 'courses',
               router: 'courses'

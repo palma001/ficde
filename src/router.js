@@ -14,6 +14,7 @@ import Turn from './views/TurnView'
 import Notes from './views/NotesView'
 import Classrooms from './views/ClassroomsView'
 import Modalities from './views/ModalitiesView'
+import Semester from './views/SemesterView'
 Vue.use(Router)
 
 const router = new Router({
@@ -48,6 +49,11 @@ const router = new Router({
           path: 'classrooms',
           name: 'classrooms',
           component: Classrooms
+        },
+        {
+          path: 'semesters',
+          name: 'semesters',
+          component: Semester
         },
         {
           path: 'modalities',

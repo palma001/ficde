@@ -677,7 +677,69 @@ export default {
         meta: 'Información adicional'
       }
     },
+    semestres: {
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      semestersAdd: {
+        label: 'Agregar semestre',
+        meta: 'Agregar semestre'
+      },
+      updated_at: {
+        label: 'Fecha de modificación',
+        meta: 'Fecha de modificación'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
+      },
+      nombre: {
+        label: 'Nombre',
+        meta: 'Nombre'
+      },
+      fecha: {
+        label: 'Fecha',
+        meta: 'Fecha'
+      },
+      messageUpdateSeccess: {
+        label: 'Semestre modificado exitosamente',
+        meta: 'Semestre modificado exitosamente'
+      },
+      messageDeleteSeccess: {
+        label: 'Semestre eliminado exitosamente',
+        meta: 'Semestre eliminado exitosamente'
+      },
+      tileErrorServices: {
+        label: 'Error',
+        meta: 'Error'
+      },
+      errorServices: {
+        label: 'Error con el servidor',
+        meta: 'Error con el servidor'
+      },
+      infoUsers: {
+        label: 'Información general',
+        meta: 'Información general'
+      },
+      loading: {
+        label: 'Cargando...',
+        meta: 'Cargando...'
+      },
+      infoAdi: {
+        label: 'Información adicional',
+        meta: 'Información adicional'
+      }
+    },
     ROUTE: {
+      semesters: {
+        label: 'Semestres',
+        meta: 'Semestres'
+      },
       modalities: {
         label: 'Modalidades',
         meta: 'Modalidades'
