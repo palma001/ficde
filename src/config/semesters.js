@@ -119,7 +119,7 @@ export const semestersConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'text',
+              type: 'date',
               'prepend-icon': 'fas fa-calendar-alt'
             },
             directives: [
@@ -149,7 +149,7 @@ export const semestersConfig = [
           component: {
             name: 'v-text-field',
             props: {
-              type: 'text'
+              type: 'date'
             },
             directives: [
               {

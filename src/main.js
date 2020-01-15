@@ -35,7 +35,8 @@ import Vuetify, {
   VListTileTitle,
   VTextarea,
   VIcon,
-  VAutocomplete
+  VAutocomplete,
+  VDatePicker
 } from 'vuetify/lib'
 
 Vue.use(Vuetify, {
@@ -58,7 +59,8 @@ Vue.use(Vuetify, {
     VNavigationDrawer,
     VList,
     VListTileContent,
-    VListTileTitle
+    VListTileTitle,
+    VDatePicker
   }
 })
 
