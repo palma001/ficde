@@ -1,122 +1,8 @@
-export const notesConfig = [
+export const inscriptionsConfig = [
   {
     classTag: 'infoUsers',
     index: 0,
     children: [
-      /* cod_nota */
-      {
-        addible: {
-          propTag: 'cod_nota',
-          addible: false,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-autocomplete',
-            props: {
-              items: [],
-              'item-text': 'id_semestre',
-              'item-value': 'cod_em',
-              'prepend-icon': 'fas fa-book'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        },
-        tabulated: {
-          propTag: 'cod_nota',
-          sortable: true,
-          type: Number,
-          fixed: false,
-          visible: false,
-          align: 'left'
-        },
-        edition: {
-          propTag: 'cod_nota',
-          editable: false,
-          header: false,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-autocomplete',
-            props: {
-              items: [],
-              'item-text': 'id_semestre',
-              'item-value': 'cod_em'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        }
-      },
-      /* id_em */
-      {
-        addible: {
-          propTag: 'id_em',
-          addible: true,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-autocomplete',
-            props: {
-              items: [],
-              'item-text': 'nombreMateria',
-              'item-value': 'cod_em',
-              'prepend-icon': 'fas fa-book'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        },
-        tabulated: {
-          propTag: 'id_em',
-          sortable: true,
-          type: Number,
-          fixed: false,
-          visible: true,
-          align: 'left'
-        },
-        edition: {
-          propTag: 'id_em',
-          editable: true,
-          header: false,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-autocomplete',
-            props: {
-              items: [],
-              'item-text': 'nombreMateria',
-              'item-value': 'cod_em'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        }
-      },
       /* id_estudiante */
       {
         addible: {
@@ -130,7 +16,7 @@ export const notesConfig = [
               items: [],
               'item-text': 'dni',
               'item-value': 'cod_estudiante',
-              'prepend-icon': 'fas fa-user'
+              'prepend-icon': 'fas fa-address-card'
             },
             directives: [
               {
@@ -144,8 +30,8 @@ export const notesConfig = [
         },
         tabulated: {
           propTag: 'id_estudiante',
-          type: String,
           sortable: true,
+          type: Number,
           fixed: false,
           visible: false,
           align: 'left'
@@ -174,180 +60,20 @@ export const notesConfig = [
           }
         }
       },
-      /* dni */
+      /* id_semestre */
       {
         addible: {
-          propTag: 'dni',
-          addible: false,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-text-field',
-            props: {
-              type: 'text',
-              'prepend-icon': 'fas fa-sticky-note'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        },
-        tabulated: {
-          propTag: 'dni',
-          type: String,
-          sortable: true,
-          fixed: false,
-          visible: true,
-          align: 'left'
-        },
-        edition: {
-          propTag: 'dni',
-          editable: false,
-          header: true,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-text-field',
-            props: {
-              type: 'text',
-              disabled: true
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        }
-      },
-      /* nombre */
-      {
-        addible: {
-          propTag: 'nombre',
-          addible: false,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-text-field',
-            props: {
-              type: 'text',
-              'prepend-icon': 'fas fa-sticky-note'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        },
-        tabulated: {
-          propTag: 'nombre',
-          type: String,
-          sortable: true,
-          fixed: false,
-          visible: true,
-          align: 'left'
-        },
-        edition: {
-          propTag: 'nombre',
-          editable: false,
-          header: false,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-text-field',
-            props: {
-              type: 'text',
-              disabled: true
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        }
-      },
-      /* apellido */
-      {
-        addible: {
-          propTag: 'apellido',
-          addible: false,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-text-field',
-            props: {
-              type: 'text',
-              'prepend-icon': 'fas fa-sticky-note'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        },
-        tabulated: {
-          propTag: 'apellido',
-          type: String,
-          sortable: true,
-          fixed: false,
-          visible: true,
-          align: 'left'
-        },
-        edition: {
-          propTag: 'apellido',
-          editable: false,
-          header: false,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-text-field',
-            props: {
-              type: 'text',
-              disabled: true
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        }
-      },
-      /* nota */
-      {
-        addible: {
-          propTag: 'nota',
+          propTag: 'id_semestre',
           addible: true,
           type: 'String',
           visibleLabel: true,
           component: {
-            name: 'v-text-field',
+            name: 'v-autocomplete',
             props: {
-              type: 'text',
-              'prepend-icon': 'fas fa-sticky-note'
+              items: [],
+              'item-text': 'nombreMateria',
+              'item-value': 'cod_sm',
+              'prepend-icon': 'fas fa-book-reader'
             },
             directives: [
               {
@@ -360,23 +86,139 @@ export const notesConfig = [
           }
         },
         tabulated: {
-          propTag: 'nota',
+          propTag: 'id_semestre',
           type: String,
           sortable: true,
           fixed: false,
-          visible: true,
+          visible: false,
           align: 'left'
         },
         edition: {
-          propTag: 'nota',
+          propTag: 'id_semestre',
           editable: true,
           header: false,
           type: 'String',
           visibleLabel: true,
           component: {
-            name: 'v-text-field',
+            name: 'v-autocomplete',
             props: {
-              type: 'text'
+              items: [],
+              'item-text': 'nombreMateria',
+              'item-value': 'cod_sm'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* id_turno */
+      {
+        addible: {
+          propTag: 'id_turno',
+          addible: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [],
+              'item-text': 'turno',
+              'item-value': 'cod_turno',
+              'prepend-icon': 'fas fa-clock'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'id_turno',
+          type: String,
+          sortable: true,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'id_turno',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [],
+              'item-text': 'turno',
+              'item-value': 'cod_turno'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* id_modalidad */
+      {
+        addible: {
+          propTag: 'id_modalidad',
+          addible: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [],
+              'item-text': 'modalidad',
+              'item-value': 'cod_modalidad',
+              'prepend-icon': 'fas fa-universal-access'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'id_modalidad',
+          type: String,
+          sortable: true,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'id_modalidad',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [],
+              'item-text': 'modalidad',
+              'item-value': 'cod_modalidad'
             },
             directives: [
               {
@@ -431,6 +273,281 @@ export const notesConfig = [
             name: 'v-text-field',
             props: {
               type: 'text'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* dniEstudiante */
+      {
+        addible: {
+          propTag: 'dniEstudiante',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'dniEstudiante',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'dniEstudiante',
+          editable: false,
+          header: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* nombreEstudiante */
+      {
+        addible: {
+          propTag: 'nombreEstudiante',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'nombreEstudiante',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'nombreEstudiante',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* apellidoEstudiante */
+      {
+        addible: {
+          propTag: 'apellidoEstudiante',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'apellidoEstudiante',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'apellidoEstudiante',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* turno */
+      {
+        addible: {
+          propTag: 'turno',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'turno',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'turno',
+          editable: false,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* modalidad */
+      {
+        addible: {
+          propTag: 'modalidad',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'modalidad',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'modalidad',
+          editable: false,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
             },
             directives: [
               {
@@ -611,9 +728,8 @@ export const notesConfig = [
     ]
   }
 ]
-
-export const notesTabs = {
-  titleAdd: 'notesAdd',
+export const tabInscriptionCofig = {
+  titleAdd: 'inscriptionsAdd',
   buttons: [
     {
       name: 'cancel',
@@ -690,7 +806,6 @@ export const propsPanelEdition = {
     }
   ]
 }
-
 export const relationalDataConfiguration = [
   {
     targetPropTag: 'id_estudiante',
@@ -702,8 +817,26 @@ export const relationalDataConfiguration = [
     }
   },
   {
-    targetPropTag: 'id_em',
-    entity: 'estudiantes_materias',
+    targetPropTag: 'id_semestre',
+    entity: 'semestres_materias',
+    microservice: 'ficde',
+    propData: 'items',
+    petitionParams: {
+      paginate: false
+    }
+  },
+  {
+    targetPropTag: 'id_turno',
+    entity: 'turnos',
+    microservice: 'ficde',
+    propData: 'items',
+    petitionParams: {
+      paginate: false
+    }
+  },
+  {
+    targetPropTag: 'id_modalidad',
+    entity: 'modalidades',
     microservice: 'ficde',
     propData: 'items',
     petitionParams: {
@@ -711,9 +844,9 @@ export const relationalDataConfiguration = [
     }
   }
 ]
-export const notesServices = {
+export const inscriptionsServices = {
   props: propsPanelEdition,
-  config: notesConfig,
+  config: inscriptionsConfig,
   propData: 'items',
   relationalData: relationalDataConfiguration
 }

@@ -17,6 +17,7 @@ import Modalities from './views/ModalitiesView'
 import Semester from './views/SemesterView'
 import Assists from './views/AssistsView'
 import AssigCoursesClassrooms from './views/AssigCoursesClassroomsView'
+import Inscription from './views/InscriptionView'
 Vue.use(Router)
 
 const router = new Router({
@@ -42,6 +43,11 @@ const router = new Router({
         authenticate: true
       },
       children: [
+        {
+          path: 'inscription',
+          name: 'inscription',
+          component: Inscription
+        },
         {
           path: 'coursesclassrooms',
           name: 'coursesclassrooms',

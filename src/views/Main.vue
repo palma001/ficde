@@ -57,6 +57,21 @@ export default {
           model: false,
           children: [
             {
+              icon: 'fas fa-user-edit',
+              text: 'inscription',
+              router: 'inscription'
+            },
+            {
+              icon: 'fas fa-user',
+              text: 'students',
+              router: 'students'
+            },
+            {
+              icon: 'contacts',
+              text: 'users',
+              router: 'users'
+            },
+            {
               icon: 'fas fa-university',
               text: 'headquarters',
               router: 'headquarters'
@@ -65,11 +80,6 @@ export default {
               icon: 'fas fa-chalkboard-teacher',
               text: 'classrooms',
               router: 'classrooms'
-            },
-            {
-              icon: 'fas fa-universal-access',
-              text: 'modalities',
-              router: 'modalities'
             },
             {
               icon: 'fas fa-calendar-alt',
@@ -92,14 +102,9 @@ export default {
               router: 'subjects'
             },
             {
-              icon: 'far fa-user',
-              text: 'students',
-              router: 'students'
-            },
-            {
-              icon: 'contacts',
-              text: 'users',
-              router: 'users'
+              icon: 'fas fa-universal-access',
+              text: 'modalities',
+              router: 'modalities'
             },
             {
               icon: 'fas fa-clock',

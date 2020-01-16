@@ -171,9 +171,20 @@ export const usersConfig = [
           type: String,
           visibleLabel: true,
           component: {
-            name: 'v-text-field',
+            name: 'v-autocomplete',
             props: {
-              type: 'text',
+              items: [
+                {
+                  label: 'Administrador',
+                  value: 'admin'
+                },
+                {
+                  label: 'Profesor',
+                  value: 'teacher'
+                }
+              ],
+              'item-text': 'label',
+              'item-value': 'value',
               'prepend-icon': 'fas fa-user-cog'
             },
             directives: [
@@ -192,7 +203,16 @@ export const usersConfig = [
           type: String,
           fixed: false,
           visible: true,
-          align: 'left'
+          align: 'left',
+          tag: true,
+          functionValue: value => {
+            return value === 'teacher' ? 'Profesor (a)'
+              : 'Administrador'
+          },
+          functionClass: value => {
+            return value === 'teacher' ? 'primary'
+              : 'success'
+          }
         },
         edition: {
           propTag: 'rol',
@@ -201,9 +221,20 @@ export const usersConfig = [
           type: 'String',
           visibleLabel: true,
           component: {
-            name: 'v-text-field',
+            name: 'v-autocomplete',
             props: {
-              type: 'text'
+              items: [
+                {
+                  label: 'Administrador',
+                  value: 'admin'
+                },
+                {
+                  label: 'Profesor',
+                  value: 'teacher'
+                }
+              ],
+              'item-text': 'label',
+              'item-value': 'value'
             },
             directives: [
               {

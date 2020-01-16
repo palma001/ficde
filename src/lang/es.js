@@ -770,6 +770,93 @@ export default {
         meta: 'Información adicional'
       }
     },
+    estudiantes_materias: {
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      dniEstudiante: {
+        label: 'Dni del Estudiante',
+        meta: 'Dni del Estudiante'
+      },
+      nombreEstudiante: {
+        label: 'Nombre del Estudiante',
+        meta: 'Nombre del Estudiante'
+      },
+      apellidoEstudiante: {
+        label: 'Apellido del Estudiante',
+        meta: 'Apellido del Estudiante'
+      },
+      turno: {
+        label: 'Turno',
+        meta: 'Turno'
+      },
+      modalidad: {
+        label: 'Modalidad',
+        meta: 'Modalidad'
+      },
+      inscriptionsAdd: {
+        label: 'Inscribir estudiante',
+        meta: 'Inscribir estudiante'
+      },
+      updated_at: {
+        label: 'Fecha de modificación',
+        meta: 'Fecha de modificación'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
+      },
+      id_estudiante: {
+        label: 'Dni',
+        meta: 'Dni'
+      },
+      id_semestre: {
+        label: 'Asignatura',
+        meta: 'Asignatura'
+      },
+      id_turno: {
+        label: 'Turno',
+        meta: 'Turno'
+      },
+      id_modalidad: {
+        label: 'Modalidad',
+        meta: 'Modalidad'
+      },
+      messageUpdateSeccess: {
+        label: 'Modalidad modificado exitosamente',
+        meta: 'Modalidad modificado exitosamente'
+      },
+      messageDeleteSeccess: {
+        label: 'Modalidad eliminado exitosamente',
+        meta: 'Modalidad eliminado exitosamente'
+      },
+      tileErrorServices: {
+        label: 'Error',
+        meta: 'Error'
+      },
+      errorServices: {
+        label: 'Error con el servidor',
+        meta: 'Error con el servidor'
+      },
+      infoUsers: {
+        label: 'Información general',
+        meta: 'Información general'
+      },
+      loading: {
+        label: 'Cargando...',
+        meta: 'Cargando...'
+      },
+      infoAdi: {
+        label: 'Información adicional',
+        meta: 'Información adicional'
+      }
+
+    },
     semestres: {
       titleUpdateSeccess: {
         label: 'Exito',
@@ -911,6 +998,10 @@ export default {
       }
     },
     ROUTE: {
+      inscription: {
+        label: 'Inscripción',
+        meta: 'Inscripción'
+      },
       coursesclassrooms: {
         label: 'Asignar curso',
         meta: 'Asignar curso'
