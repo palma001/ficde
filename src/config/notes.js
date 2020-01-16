@@ -60,6 +60,60 @@ export const notesConfig = [
           }
         }
       },
+      /* materia */
+      {
+        addible: {
+          propTag: 'materia',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              'prepend-icon': 'fas fa-sticky-note'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'materia',
+          type: String,
+          sortable: true,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'materia',
+          editable: false,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      },
       /* id_em */
       {
         addible: {
@@ -90,7 +144,7 @@ export const notesConfig = [
           sortable: true,
           type: Number,
           fixed: false,
-          visible: true,
+          visible: false,
           align: 'left'
         },
         edition: {

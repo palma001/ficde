@@ -643,6 +643,10 @@ export default {
       }
     },
     notas: {
+      materia: {
+        label: 'Asignatura',
+        meta: 'Asignatura'
+      },
       titleUpdateSeccess: {
         label: 'Exito',
         meta: 'Exito'
@@ -916,6 +920,10 @@ export default {
       }
     },
     asistencias: {
+      materia: {
+        label: 'Asignatura',
+        meta: 'Asignatura'
+      },
       dni: {
         label: 'Dni',
         meta: 'Dni'

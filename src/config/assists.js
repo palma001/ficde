@@ -124,7 +124,7 @@ export const assistsConfig = [
             name: 'v-autocomplete',
             props: {
               items: [],
-              'item-text': 'id_semestre',
+              'item-text': 'nombreMateria',
               'item-value': 'cod_em',
               'prepend-icon': 'fas fa-book'
             },
@@ -143,7 +143,7 @@ export const assistsConfig = [
           sortable: true,
           type: Number,
           fixed: false,
-          visible: true,
+          visible: false,
           align: 'left'
         },
         edition: {
@@ -156,8 +156,62 @@ export const assistsConfig = [
             name: 'v-autocomplete',
             props: {
               items: [],
-              'item-text': 'id_semestre',
+              'item-text': 'nombreMateria',
               'item-value': 'cod_em'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* materia */
+      {
+        addible: {
+          propTag: 'materia',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              'prepend-icon': 'fas fa-sticky-note'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'materia',
+          type: String,
+          sortable: true,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'materia',
+          editable: false,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
             },
             directives: [
               {
