@@ -10,7 +10,17 @@ import { classRoomsConfig, classRoomsServices, tabsClassRoomsCofig } from '../co
 import { modalitiesConfig, modalitiesTabs } from './modalities'
 import { semestersConfig, tabsSemestersCofig } from './semesters'
 import { assistsConfig, tabsAssistsCofig, assistsServices } from './assists'
+import { courseClassRoomsConfig, tabsourseClassRoomsCofig, courseClassRoomsServices } from './courseClassrooms'
 export const configData = [
+  {
+    entity: 'coursesclassrooms',
+    entityMicroservices: 'semestres_materias',
+    microservices: 'ficde',
+    primaryKey: [''],
+    config: courseClassRoomsConfig,
+    tabsCofig: tabsourseClassRoomsCofig,
+    relationalData: courseClassRoomsServices
+  },
   {
     entity: 'classrooms',
     entityMicroservices: 'aulas',

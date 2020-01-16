@@ -16,6 +16,7 @@ import Classrooms from './views/ClassroomsView'
 import Modalities from './views/ModalitiesView'
 import Semester from './views/SemesterView'
 import Assists from './views/AssistsView'
+import AssigCoursesClassrooms from './views/AssigCoursesClassroomsView'
 Vue.use(Router)
 
 const router = new Router({
@@ -41,6 +42,11 @@ const router = new Router({
         authenticate: true
       },
       children: [
+        {
+          path: 'coursesclassrooms',
+          name: 'coursesclassrooms',
+          component: AssigCoursesClassrooms
+        },
         {
           path: 'users',
           name: 'users',

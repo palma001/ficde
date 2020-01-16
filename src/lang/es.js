@@ -431,6 +431,95 @@ export default {
         meta: 'telefono'
       }
     },
+    semestres_materias: {
+      titleUpdateSeccess: {
+        label: 'Exito',
+        meta: 'Exito'
+      },
+      coursesClassroomsAdd: {
+        label: 'Asignar materia',
+        meta: 'Asignar materia'
+      },
+      nombreAula: {
+        label: 'Aula',
+        meta: 'Aula'
+      },
+      nombreSemestre: {
+        label: 'Semestre',
+        meta: 'Semestre'
+      },
+      nombreMateria: {
+        label: 'Asignatura',
+        meta: 'Asignatura'
+      },
+      nombreProfesor: {
+        label: 'Nombre del profesor',
+        meta: 'Nombre del profesor'
+      },
+      apellidoProfesor: {
+        label: 'Apellido del profesor',
+        meta: 'Apellido del profesor'
+      },
+      dniProfesor: {
+        label: 'Dni del profesor',
+        meta: 'Dni del profesor'
+      },
+      updated_at: {
+        label: 'Fecha de modificacion'
+      },
+      created_at: {
+        label: 'Fecha de creación',
+        meta: 'Fecha de creación'
+      },
+      user_r: {
+        label: 'Agregado y modificado por:',
+        meta: 'Agregado y modificado por:'
+      },
+      messageUpdateSeccess: {
+        label: 'Curso modificado exitosamente',
+        meta: 'Curso modificado exitosamente'
+      },
+      messageDeleteSeccess: {
+        label: 'Curso eliminado exitosamente',
+        meta: 'Curso eliminado exitosamente'
+      },
+      tileErrorServices: {
+        label: 'Error',
+        meta: 'Error'
+      },
+      errorServices: {
+        label: 'Error con el servidor',
+        meta: 'Error con el servidor'
+      },
+      infoUsers: {
+        label: 'Información general',
+        meta: 'Información general'
+      },
+      loading: {
+        label: 'Cargando...',
+        meta: 'Cargando...'
+      },
+      infoAdi: {
+        label: 'Información adicional',
+        meta: 'Información adicional'
+      },
+      id_materia: {
+        label: 'Materia',
+        meta: 'Materia'
+      },
+      id_semestres: {
+        label: 'Semestre',
+        meta: 'Semestre'
+      },
+      id_usuario: {
+        label: 'Profesor',
+        meta: 'Profesor'
+      },
+      id_aula: {
+        label: 'Aula',
+        meta: 'Aula'
+      }
+    },
     turnos: {
       titleUpdateSeccess: {
         label: 'Exito',
@@ -822,6 +911,10 @@ export default {
       }
     },
     ROUTE: {
+      coursesclassrooms: {
+        label: 'Asignar curso',
+        meta: 'Asignar curso'
+      },
       assists: {
         label: 'Asistenacias',
         meta: 'Asistenacias'
