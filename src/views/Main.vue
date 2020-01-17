@@ -128,6 +128,11 @@ export default {
               icon: 'fas fa-users',
               text: 'assists',
               router: 'assists'
+            },
+            {
+              icon: 'fas fa-calendar-alt',
+              text: 'schedule',
+              router: 'schedule'
             }
           ]
         },

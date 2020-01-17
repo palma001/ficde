@@ -1006,6 +1006,10 @@ export default {
       }
     },
     ROUTE: {
+      schedule: {
+        label: 'Horarios',
+        meta: 'Horarios'
+      },
       inscription: {
         label: 'Inscripción',
         meta: 'Inscripción'

@@ -3,63 +3,6 @@ export const courseClassRoomsConfig = [
     classTag: 'infoUsers',
     index: 0,
     children: [
-      /* id_materia */
-      {
-        addible: {
-          propTag: 'id_materia',
-          addible: true,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-autocomplete',
-            props: {
-              items: [],
-              'item-text': 'materia',
-              'item-value': 'cod_materia',
-              'prepend-icon': 'fas fa-book-reader'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        },
-        tabulated: {
-          propTag: 'id_materia',
-          sortable: true,
-          type: Number,
-          fixed: false,
-          visible: false,
-          align: 'left'
-        },
-        edition: {
-          propTag: 'id_materia',
-          editable: true,
-          header: false,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-autocomplete',
-            props: {
-              items: [],
-              'item-text': 'materia',
-              'item-value': 'cod_materia'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        }
-      },
       /* id_aula */
       {
         addible: {
@@ -162,6 +105,63 @@ export const courseClassRoomsConfig = [
               items: [],
               'item-text': 'nombre',
               'item-value': 'cod_semestre'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* id_materia */
+      {
+        addible: {
+          propTag: 'id_materia',
+          addible: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [],
+              'item-text': 'materia',
+              'item-value': 'cod_materia',
+              'prepend-icon': 'fas fa-book-reader'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'id_materia',
+          sortable: true,
+          type: Number,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'id_materia',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [],
+              'item-text': 'materia',
+              'item-value': 'cod_materia'
             },
             directives: [
               {

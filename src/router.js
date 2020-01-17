@@ -18,6 +18,7 @@ import Semester from './views/SemesterView'
 import Assists from './views/AssistsView'
 import AssigCoursesClassrooms from './views/AssigCoursesClassroomsView'
 import Inscription from './views/InscriptionView'
+import ScheduleTeacher from './views/ScheduleTeacher'
 Vue.use(Router)
 
 const router = new Router({
@@ -43,6 +44,11 @@ const router = new Router({
         authenticate: true
       },
       children: [
+        {
+          path: 'schedule',
+          name: 'schedule',
+          component: ScheduleTeacher
+        },
         {
           path: 'inscription',
           name: 'inscription',
