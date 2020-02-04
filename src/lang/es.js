@@ -886,9 +886,13 @@ export default {
         label: 'Nombre',
         meta: 'Nombre'
       },
-      fecha: {
-        label: 'Fecha',
-        meta: 'Fecha'
+      fecha_inicio: {
+        label: 'Fecha de Inicio',
+        meta: 'Fecha de Inicio'
+      },
+      fecha_final: {
+        label: 'Fecha Final',
+        meta: 'Fecha Final'
       },
       messageUpdateSeccess: {
         label: 'Semestre modificado exitosamente',

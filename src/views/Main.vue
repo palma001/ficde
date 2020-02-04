@@ -87,14 +87,14 @@ export default {
               router: 'semesters'
             },
             {
-              icon: 'fas fa-atlas',
-              text: 'coursesclassrooms',
-              router: 'coursesclassrooms'
-            },
-            {
               icon: 'fas fa-book',
               text: 'courses',
               router: 'courses'
+            },
+            {
+              icon: 'fas fa-atlas',
+              text: 'coursesclassrooms',
+              router: 'coursesclassrooms'
             },
             {
               icon: 'fas fa-book-reader',

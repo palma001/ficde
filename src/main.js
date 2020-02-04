@@ -79,7 +79,8 @@ Vue.use(mockData, {
 })
 
 Vue.use(services, {
-  baseUrl: 'https://ficde.herokuapp.com'
+  // baseUrl: 'https://ficde.herokuapp.com',
+  baseUrl: 'http://localhost:8000/'
 })
 
 Vue.config.productionTip = false

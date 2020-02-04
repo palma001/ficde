@@ -109,10 +109,10 @@ export const semestersConfig = [
           }
         }
       },
-      /* fecha */
+      /* fecha_inicio */
       {
         addible: {
-          propTag: 'fecha',
+          propTag: 'fecha_inicio',
           addible: true,
           type: 'String',
           visibleLabel: true,
@@ -133,7 +133,7 @@ export const semestersConfig = [
           }
         },
         tabulated: {
-          propTag: 'fecha',
+          propTag: 'fecha_inicio',
           type: String,
           sortable: true,
           fixed: false,
@@ -141,7 +141,60 @@ export const semestersConfig = [
           align: 'left'
         },
         edition: {
-          propTag: 'fecha',
+          propTag: 'fecha_inicio',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'date'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* fecha_final */
+      {
+        addible: {
+          propTag: 'fecha_final',
+          addible: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'date',
+              'prepend-icon': 'fas fa-calendar-alt'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'fecha_final',
+          type: String,
+          sortable: true,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'fecha_final',
           editable: true,
           header: false,
           type: 'String',
