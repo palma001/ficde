@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from './store/'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import mockData from '../mockData/services'
@@ -79,8 +79,8 @@ Vue.use(mockData, {
 })
 
 Vue.use(services, {
-  // baseUrl: 'https://ficde.herokuapp.com',
-  baseUrl: 'http://localhost:8000/'
+  baseUrl: 'https://ficde.herokuapp.com'
+  // baseUrl: 'http://localhost:8000/'
 })
 
 Vue.config.productionTip = false

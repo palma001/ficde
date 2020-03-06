@@ -14,7 +14,9 @@ export const inscriptionsConfig = [
             name: 'v-autocomplete',
             props: {
               items: [],
-              'item-text': 'dni',
+              'item-text': value => {
+                return `${value['dni']} - ${value['nombre']} ${value['apellido']}`
+              },
               'item-value': 'cod_estudiante',
               'prepend-icon': 'fas fa-address-card'
             },
@@ -46,7 +48,9 @@ export const inscriptionsConfig = [
             name: 'v-autocomplete',
             props: {
               items: [],
-              'item-text': 'dni',
+              'item-text': value => {
+                return `${value['dni']} - ${value['nombre']} ${value['apellido']}`
+              },
               'item-value': 'cod_estudiante'
             },
             directives: [
@@ -71,7 +75,9 @@ export const inscriptionsConfig = [
             name: 'v-autocomplete',
             props: {
               items: [],
-              'item-text': 'nombreMateria',
+              'item-text': value => {
+                return `${value['curso']} - ${value['nombreMateria']}`
+              },
               'item-value': 'cod_sm',
               'prepend-icon': 'fas fa-book-reader'
             },

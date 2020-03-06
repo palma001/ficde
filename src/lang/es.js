@@ -436,6 +436,10 @@ export default {
         label: 'Exito',
         meta: 'Exito'
       },
+      curso: {
+        label: 'Curso',
+        meta: 'Curso'
+      },
       coursesClassroomsAdd: {
         label: 'Asignar materia',
         meta: 'Asignar materia'

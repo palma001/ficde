@@ -73,6 +73,8 @@
 
 <script>
 import { mixins } from '../mixins'
+import { mapActions } from 'vuex'
+import { ACTIONS } from '../store/module-login/name.js'
 export default {
   mixins: [mixins.containerMixin],
   name: 'Login',
@@ -99,7 +101,9 @@ export default {
           if (res) {
             this.loading = true
             this.dark = false
-            this.$store.dispatch('login', { this: this })
+            this[ACTIONS.LOGIN]({
+              self: this
+            })
               .then(res => {
                 this.$router.push({ name: 'users' })
                 this.loading = false
@@ -130,7 +134,9 @@ export default {
         .catch((err) => {
           console.log(err)
         })
-    }
+    },
+
+    ...mapActions([ACTIONS.LOGIN])
   }
 }
 </script>

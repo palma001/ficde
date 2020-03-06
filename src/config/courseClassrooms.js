@@ -14,7 +14,9 @@ export const courseClassRoomsConfig = [
             name: 'v-autocomplete',
             props: {
               items: [],
-              'item-text': 'nombre',
+              'item-text': value => {
+                return `${value['nombreSede']} - ${value['nombre']}`
+              },
               'item-value': 'cod_aula',
               'prepend-icon': 'fas fa-chalkboard-teacher'
             },
@@ -46,7 +48,9 @@ export const courseClassRoomsConfig = [
             name: 'v-autocomplete',
             props: {
               items: [],
-              'item-text': 'nombre',
+              'item-text': value => {
+                return `${value['nombreSede']} - ${value['nombre']}`
+              },
               'item-value': 'cod_aula'
             },
             directives: [
@@ -128,7 +132,9 @@ export const courseClassRoomsConfig = [
             name: 'v-autocomplete',
             props: {
               items: [],
-              'item-text': 'materia',
+              'item-text': value => {
+                return `${value['curso']} - ${value['materia']}`
+              },
               'item-value': 'cod_materia',
               'prepend-icon': 'fas fa-book-reader'
             },
@@ -160,7 +166,9 @@ export const courseClassRoomsConfig = [
             name: 'v-autocomplete',
             props: {
               items: [],
-              'item-text': 'materia',
+              'item-text': value => {
+                return `${value['curso']} - ${value['materia']}`
+              },
               'item-value': 'cod_materia'
             },
             directives: [
@@ -185,7 +193,9 @@ export const courseClassRoomsConfig = [
             name: 'v-autocomplete',
             props: {
               items: [],
-              'item-text': 'dni',
+              'item-text': value => {
+                return `${value['dni']} - ${value['nombre']} ${value['apellido']}`
+              },
               'item-value': 'cod_usuario',
               'prepend-icon': 'fas fa-university'
             },
@@ -217,7 +227,9 @@ export const courseClassRoomsConfig = [
             name: 'v-autocomplete',
             props: {
               items: [],
-              'item-text': 'dni',
+              'item-text': value => {
+                return `${value['dni']} - ${value['nombre']} ${value['apellido']}`
+              },
               'item-value': 'cod_usuario'
             },
             directives: [
@@ -340,6 +352,61 @@ export const courseClassRoomsConfig = [
           }
         }
       },
+      /* Nombre curso */
+      {
+        addible: {
+          propTag: 'curso',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'curso',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'curso',
+          editable: false,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
       /* nombreMateria */
       {
         addible: {
@@ -374,61 +441,6 @@ export const courseClassRoomsConfig = [
         },
         edition: {
           propTag: 'nombreMateria',
-          editable: false,
-          header: false,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-text-field',
-            props: {
-              type: 'text',
-              disabled: true
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: false
-                }
-              }
-            ]
-          }
-        }
-      },
-      /* dniProfesor */
-      {
-        addible: {
-          propTag: 'dniProfesor',
-          addible: false,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-text-field',
-            props: {
-              type: 'map',
-              'prepend-icon': 'map',
-              defaultValue: 'Y'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        },
-        tabulated: {
-          propTag: 'dniProfesor',
-          sortable: true,
-          type: String,
-          fixed: false,
-          visible: true,
-          align: 'left'
-        },
-        edition: {
-          propTag: 'dniProfesor',
           editable: false,
           header: false,
           type: 'String',
@@ -485,6 +497,61 @@ export const courseClassRoomsConfig = [
         edition: {
           propTag: 'nombreProfesor',
           editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* dniProfesor */
+      {
+        addible: {
+          propTag: 'dniProfesor',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'dniProfesor',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'dniProfesor',
+          editable: false,
           header: false,
           type: 'String',
           visibleLabel: true,
