@@ -18,7 +18,13 @@ export const actions = {
           if (res.status) {
             let token = res.res.data.api_token
             resolve(res.res)
-            localStorage.setItem('access_token', token)
+            localStorage.setItem('TOKEN', token)
+            // commit(MUTATIONS.SET_TOKEN, res.res.data.access_token)
+            // commit(MUTATIONS.SET_REFRESH_TOKEN, res.res.data.refresh_token)
+            // commit(MUTATIONS.SET_EMAIL, res.res.data.user.email)
+            // commit(MUTATIONS.SET_ROLES, JSON.stringify(res.res.data.user.roles))
+            // commit(MUTATIONS.SET_EXPIRE_IN, Number(res.res.data.expires_in))
+            // dispatch(ACTIONS.AUTO_LOGOUT, Number(res.res.data.expires_in))
           } else {
             reject(res)
           }
@@ -27,12 +33,6 @@ export const actions = {
           reject(error)
         })
     })
-    // commit(MUTATIONS.SET_TOKEN, login.access_token)
-    // commit(MUTATIONS.SET_REFRESH_TOKEN, login.refresh_token)
-    // commit(MUTATIONS.SET_EMAIL, login.user.email)
-    // commit(MUTATIONS.SET_ROLES, JSON.stringify(login.user.roles))
-    // commit(MUTATIONS.SET_EXPIRE_IN, Number(login.expires_in))
-    // dispatch(ACTIONS.AUTO_LOGOUT, Number(login.expires_in))
   },
   /**
    * Logout of the app
@@ -46,7 +46,7 @@ export const actions = {
    * Valiad session active
    */
   [ACTIONS.VALID_SESSION]: ({ commit, dispatch }) => {
-    let token = localStorage.getItem('access_token')
+    let token = localStorage.getItem('TOKEN')
     // let expireIn = new Date(localStorage.getItem('expires_in'))
     // let now = new Date()
     // let email = localStorage.getItem('email')

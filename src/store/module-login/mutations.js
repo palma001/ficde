@@ -2,17 +2,17 @@ import { MUTATIONS } from './name'
 export const mutations = {
 
   [MUTATIONS.CLEAR_ACCOUNT_STATE]: (state, payload) => {
-    state.email = null
-    state.roles = null
+    // state.email = null
+    // state.roles = null
     state.TOKEN = null
-    state.REFRESH_TOKEN = null
-    state.expires_in = null
-    state.token_type = null
-    localStorage.setItem('roles', null)
+    // state.REFRESH_TOKEN = null
+    // state.expires_in = null
+    // state.token_type = null
+    // localStorage.setItem('roles', null)
     localStorage.setItem('TOKEN', null)
-    localStorage.setItem('REFRESH_TOKEN', null)
-    localStorage.setItem('expires_in', null)
-    localStorage.setItem('email', null)
+    // localStorage.setItem('REFRESH_TOKEN', null)
+    // localStorage.setItem('expires_in', null)
+    // localStorage.setItem('email', null)
   },
 
   [MUTATIONS.SET_TOKEN]: (state, token) => {

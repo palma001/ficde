@@ -32,6 +32,8 @@
 <script>
 import AdminMain from '../components/AdminMain'
 import { mixins } from '../mixins'
+import { mapActions } from 'vuex'
+import { ACTIONS } from '../store/module-login/name.js'
 export default {
   mixins: [mixins.containerMixin],
   name: 'Main',
@@ -223,12 +225,10 @@ export default {
         this.links(this.$route.path.split('/'))
         this.$emit('routeChange', { route: data })
       } else {
-        this.$store.dispatch('logout')
-          .then(() => {
-            this.$router.push({ path: '/login' })
-          })
+        this[ACTIONS.LOGOUT]({ self: this })
       }
-    }
+    },
+    ...mapActions([ACTIONS.LOGOUT])
   }
 }
 </script>
