@@ -962,7 +962,12 @@ export const relationalDataConfiguration = [
     microservice: 'ficde',
     propData: 'items',
     petitionParams: {
-      paginate: false
+      paginate: false,
+      dataSearch: {
+        rol: 'teacher'
+      },
+      sortField: 'cod_usuario',
+      sortOrder: 'desc'
     }
   }
 ]
