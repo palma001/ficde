@@ -5,7 +5,7 @@ import Users from './views/Users'
 import About from './views/About'
 import Login from './views/Login'
 import AddDynamic from './views/AddDynamic'
-import store from './store'
+import { Store } from './store/'
 import Subjects from './views/SubjectsView.vue'
 import Students from './views/StudentsView'
 import Courses from './views/CoursesView'
@@ -19,6 +19,7 @@ import Assists from './views/AssistsView'
 import AssigCoursesClassrooms from './views/AssigCoursesClassroomsView'
 import Inscription from './views/InscriptionView'
 import ScheduleTeacher from './views/ScheduleTeacher'
+import { ACTIONS } from './store/module-login/name'
 Vue.use(Router)
 
 const router = new Router({
@@ -129,9 +130,10 @@ const router = new Router({
   ]
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   let autorization = to.matched.some(record => record.meta.authenticate)
-  let usuario = store.state.token
+  let usuario = await Store.dispatch(ACTIONS.VALID_SESSION)
+  console.log(usuario)
   if (autorization && !usuario) {
     next('login')
   } else if (!autorization && usuario) {

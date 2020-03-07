@@ -105,6 +105,7 @@ export default {
               self: this
             })
               .then(res => {
+                console.log(res)
                 this.$router.push({ name: 'users' })
                 this.loading = false
                 this.dark = true

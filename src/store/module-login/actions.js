@@ -17,9 +17,8 @@ export const actions = {
         .then(res => {
           if (res.status) {
             let token = res.res.data.api_token
-            localStorage.setItem('access_token', token)
-            commit('retrieveToken', token)
             resolve(res.res)
+            localStorage.setItem('access_token', token)
           } else {
             reject(res)
           }
@@ -47,25 +46,25 @@ export const actions = {
    * Valiad session active
    */
   [ACTIONS.VALID_SESSION]: ({ commit, dispatch }) => {
-    let token = localStorage.getItem('TOKEN')
-    let expireIn = new Date(localStorage.getItem('expires_in'))
-    let now = new Date()
-    let email = localStorage.getItem('email')
-    let refreshToken = localStorage.getItem('REFRESH_TOKEN')
+    let token = localStorage.getItem('access_token')
+    // let expireIn = new Date(localStorage.getItem('expires_in'))
+    // let now = new Date()
+    // let email = localStorage.getItem('email')
+    // let refreshToken = localStorage.getItem('REFRESH_TOKEN')
     let invalidToken = !token || token === 'null'
-    let invalidRefreshToken = !refreshToken || refreshToken === 'null'
-    let invalidDate = !expireIn || expireIn === 'null' || now.getTime() >= expireIn.getTime()
-    let invalidUser = !email || email === 'null'
-    if (invalidToken || invalidDate || invalidUser || invalidRefreshToken) {
-      commit(MUTATIONS.CLEAR_ACCOUNT_STATE)
+    // let invalidRefreshToken = !refreshToken || refreshToken === 'null'
+    // let invalidDate = !expireIn || expireIn === 'null' || now.getTime() >= expireIn.getTime()
+    // let invalidUser = !email || email === 'null'
+    if (invalidToken /* || invalidDate || invalidUser || invalidRefreshToken */) {
+      // commit(MUTATIONS.CLEAR_ACCOUNT_STATE)
       return false
     }
-    const roles = localStorage.getItem('roles')
-    commit(MUTATIONS.SET_TOKEN, token)
-    commit(MUTATIONS.SET_REFRESH_TOKEN, refreshToken)
-    commit(MUTATIONS.SET_EMAIL, email)
-    commit(MUTATIONS.SET_ROLES, roles)
-    commit(MUTATIONS.SET_EXPIRE_IN, expireIn)
+    // const roles = localStorage.getItem('roles')
+    // commit(MUTATIONS.SET_TOKEN, token)
+    // commit(MUTATIONS.SET_REFRESH_TOKEN, refreshToken)
+    // commit(MUTATIONS.SET_EMAIL, email)
+    // commit(MUTATIONS.SET_ROLES, roles)
+    // commit(MUTATIONS.SET_EXPIRE_IN, expireIn)
     return true
   },
   /**
