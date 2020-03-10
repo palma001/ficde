@@ -23,7 +23,7 @@
 <script>
 import Metadata from './Metadata.vue'
 import panelEdition from './Edition.vue'
-import { studentsConfig, propsPanelEdition } from '../config/studentsConfig'
+import { studentsConfig, propsPanelEdition, studentServices } from '../config/studentsConfig'
 import { mixins } from '../mixins'
 export default {
   mixins: [mixins.containerMixin],
@@ -34,6 +34,7 @@ export default {
   },
   data () {
     return {
+      studentServices,
       /**
        * Entity students
        * @type {String}
@@ -117,6 +118,9 @@ export default {
        */
       selected: {}
     }
+  },
+  created () {
+    this.setRelationalData(this.studentServices, [], this)
   },
   methods: {
     /**

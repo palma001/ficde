@@ -1,6 +1,6 @@
 import { usersConfig, tabsCofig } from './../config/usersConfig.js'
 import { aboutConfig, aboutTabsCofig } from '../config/aboutConfig'
-import { studentsConfig, tabsCofigStudents } from '../config/studentsConfig'
+import { studentsConfig, tabsCofigStudents, studentServices } from '../config/studentsConfig'
 import { subjectsConfig, tabsSubjectsCofig, subjectsServices } from '../config/subjectsConfig'
 import { courseConfig, tabsCourseCofig } from '../config/courseConfig'
 import { headquartersConfig, tabsHeadquartersConfig, headquartersServices } from '../config/headquartersConfig'
@@ -100,7 +100,7 @@ export const configData = [
     primaryKey: ['dni'],
     config: studentsConfig,
     tabsCofig: tabsCofigStudents,
-    relationalData: null
+    relationalData: studentServices
   },
   {
     entity: 'subjects',

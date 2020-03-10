@@ -82,7 +82,7 @@ export const assistsConfig = [
           }
         },
         tabulated: {
-          propTag: 'id_estudiante',
+          propTag: 'nombre',
           type: String,
           sortable: true,
           fixed: false,

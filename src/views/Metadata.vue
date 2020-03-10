@@ -10,11 +10,14 @@
       :loading="loadingTable"
       :border="false"
       :circle="true"
+      :filterSelect="filterSelect"
+      :dataOptionsFilter="dataOptionsFilter"
       :entity="entity"
       :options="[5, 20, 50, 100]"
       @on-load-data="getData"
       @search-data="eventSearch"
       @selectRow="selectRow"
+      @on-filter-data="filterData"
     />
     <v-dialog
       v-model="loadingDialog"
@@ -80,6 +83,21 @@ export default {
     search: {
       type: Object,
       requered: true
+    },
+    /**
+     * [filterSelect description]
+     * @type {Object}
+     */
+    filterSelect: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * [dataOptionsFilter description]
+     * @type {Object}
+     */
+    dataOptionsFilter: {
+      type: Array
     }
   },
   created () {
@@ -135,6 +153,7 @@ export default {
         sortOrder: data.sortOrder,
         dataSearch: data.search
       }
+      console.log(params)
       this.loadingTable = true
       this.$services.getData([this.microservices, this.entity], params)
         .then((response) => {
@@ -174,6 +193,18 @@ export default {
      */
     selectRow (data) {
       this.$emit('selectRow', data)
+    },
+
+    /**
+     * Filter Asissts
+     * @param  {Integer} data
+     */
+    async filterData (data) {
+      let search = {}
+      this.params.filter.map(element => {
+        search[`${element}`] = data
+      })
+      this.getData({ search })
     },
     /**
      * Route add dynamic

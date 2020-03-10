@@ -7,6 +7,8 @@
       :entity="entity"
       :search="search"
       :loading="loadingTable"
+      :filterSelect="true"
+      :dataOptionsFilter="dataStudent"
       @selectRow="selectRow"
       @selectedData="selectedData"
       @dataSelected="dataSelected"/>
@@ -72,7 +74,8 @@ export default {
          * Search data of microservices
          * @type {Object}
          */
-        search: {}
+        search: {},
+        filter: ['cod_sm']
       },
       /**
        * Configurations table
@@ -111,13 +114,35 @@ export default {
        * Data selected
        * @type {Object}
        */
-      selected: {}
+      selected: {},
+      /**
+       * Data Student
+       * @type {Array}
+       */
+      dataStudent: []
     }
   },
   created () {
     this.setRelationalData(this.assistsServices, [], this)
+    this.dataFilter()
   },
   methods: {
+    async dataFilter () {
+      let { res } = await this.$services.getData(['ficde', 'semestres_materias'], {
+        paginate: false,
+        dataSearch: {
+          'id_usuario': 3
+        },
+        sortField: 'cod_sm',
+        sortOrder: 'desc'
+      })
+      this.dataStudent = res['data'].data.map(element => {
+        return {
+          label: `${element.nombreAula}-${element.curso}-${element.nombreMateria}`,
+          value: element['cod_sm']
+        }
+      })
+    },
     /**
      * Select data
      * @param  {[type]} data [description]

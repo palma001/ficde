@@ -10,6 +10,19 @@
           :label="item"
           :value="item"/>
       </el-select>
+      <div class="filter"
+        style="margin-left: 10px;"
+        v-if="filterSelect">
+        <el-select
+          v-model="valueFilter"
+          @change="filterSelectEvent">
+          <el-option
+            v-for="item in dataOptionsFilter"
+            :key="item.id"
+            :label="item.label"
+            :value="item.value"/>
+        </el-select>
+      </div>
       <v-spacer/>
       <el-row class="demo-autocomplete">
         <el-col :span="32">
@@ -174,6 +187,21 @@ export default {
       type: Number,
       default: 0,
       require: true
+    },
+    /**
+     * Filter Select
+     * @type {Object}
+     */
+    filterSelect: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Filter Select data
+     * @type {Object}
+     */
+    dataOptionsFilter: {
+      type: Array
     }
   },
   data () {
@@ -218,7 +246,8 @@ export default {
        * headersData content the headers
        * @type {Array}
        */
-      headersData: []
+      headersData: [],
+      valueFilter: 'Selecte Items'
     }
   },
   computed: {
@@ -289,6 +318,13 @@ export default {
       this.pagination.page = 1
       this.pages = 1
       this.$emit('on-load-data', this.pagination)
+    },
+    /**
+     * filter Select
+     * @param  {Object} data filter
+     */
+    filterSelectEvent (data) {
+      this.$emit('on-filter-data', data)
     },
     handleCurrentChange (val) {
       this.currentRow = val
