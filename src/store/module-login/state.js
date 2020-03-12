@@ -24,7 +24,19 @@ export const state = {
    * @type{String}
    */
   token_type: null,
+  /**
+   * [name description]
+   * @type {[type]}
+   */
   name: null,
+  /**
+   * [lastName description]
+   * @type {[type]}
+   */
   lastName: null,
+  /**
+   * [email description]
+   * @type {[type]}
+   */
   email: null
 }

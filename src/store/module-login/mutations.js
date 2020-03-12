@@ -8,7 +8,6 @@ export const mutations = {
     state.TOKEN = null
     state.REFRESH_TOKEN = null
     state.expires_in = null
-    // localStorage.setItem('roles', null)
     localStorage.setItem('TOKEN', null)
     localStorage.setItem('REFRESH_TOKEN', null)
     localStorage.setItem('expires_in', null)

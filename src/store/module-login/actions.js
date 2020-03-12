@@ -58,7 +58,6 @@ export const actions = {
       commit(MUTATIONS.CLEAR_ACCOUNT_STATE)
       return false
     }
-    // const roles = localStorage.getItem('roles')
     commit(MUTATIONS.SET_TOKEN, token)
     commit(MUTATIONS.SET_REFRESH_TOKEN, refreshToken)
     commit(MUTATIONS.SET_EMAIL, email)
