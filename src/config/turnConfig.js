@@ -3,7 +3,76 @@ export const turnConfig = [
     classTag: 'infoUsers',
     index: 0,
     children: [
-      /* curso */
+      /* dia */
+      {
+        addible: {
+          propTag: 'dia',
+          addible: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [
+                'Lunes',
+                'Martes', 
+                'Miercoles',
+                'Jueves',
+                'Viernes',
+                'Sabado',
+                'Domingo'
+              ],
+              'prepend-icon': 'fas fa-calend'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'dia',
+          sortable: true,
+          type: Number,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'dia',
+          editable: true,
+          header: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [
+                'Lunes',
+                'Martes', 
+                'Miercoles',
+                'Jueves',
+                'Viernes',
+                'Sabado',
+                'Domingo'
+              ]
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* turno */
       {
         addible: {
           propTag: 'turno',
@@ -37,7 +106,7 @@ export const turnConfig = [
         edition: {
           propTag: 'turno',
           editable: true,
-          header: false,
+          header: true,
           type: 'String',
           visibleLabel: true,
           component: {
@@ -56,10 +125,10 @@ export const turnConfig = [
           }
         }
       },
-      /* hora */
+      /* hora_e */
       {
         addible: {
-          propTag: 'hora',
+          propTag: 'hora_e',
           addible: true,
           type: 'String',
           visibleLabel: true,
@@ -80,7 +149,7 @@ export const turnConfig = [
           }
         },
         tabulated: {
-          propTag: 'hora',
+          propTag: 'hora_e',
           type: String,
           sortable: true,
           fixed: false,
@@ -88,9 +157,62 @@ export const turnConfig = [
           align: 'left'
         },
         edition: {
-          propTag: 'hora',
+          propTag: 'hora_e',
           editable: true,
-          header: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'time'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* hora_s */ 
+      {
+        addible: {
+          propTag: 'hora_s', 
+          addible: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'time',
+              'prepend-icon': 'fas fa-clock'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'hora_s', 
+          type: String,
+          sortable: true,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'hora_s',
+          editable: true,
+          header: false,
           type: 'String',
           visibleLabel: true,
           component: {

@@ -440,6 +440,18 @@ export default {
         label: 'Exito',
         meta: 'Exito'
       },
+      id_modalidad: {
+        label: 'Modalidad',
+        meta: 'Modalidad'
+      },
+      modalidad: {
+        label: 'Modalidad',
+        meta: 'Modalidad'
+      },
+      id_turno: {
+        label: 'Turno',
+        meta: 'Turno'
+      },
       curso: {
         label: 'Curso',
         meta: 'Curso'
@@ -580,9 +592,17 @@ export default {
         label: 'Turno',
         meta: 'Turno'
       },
-      hora: {
-        label: 'Hora',
-        meta: 'Hora'
+      hora_e: {
+        label: 'Hora de entrada',
+        meta: 'Hora de entrada'
+      },
+      dia: {
+        label: 'Dia',
+        meta: 'Dia'
+      },
+      hora_s: {
+        label: 'Hora de salida',
+        meta: 'Hora de salida'
       }
     },
     aulas: {

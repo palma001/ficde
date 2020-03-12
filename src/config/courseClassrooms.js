@@ -243,6 +243,124 @@ export const courseClassRoomsConfig = [
           }
         }
       },
+      /* id_turno */
+      {
+        addible: {
+          propTag: 'id_turno',
+          addible: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [],
+              'item-text': value => {
+                return `${value['turno']} - De ${value['hora_e']} Hasta ${value['hora_s']}`
+              },
+              'item-value': 'cod_turno',
+              'prepend-icon': 'fas fa-clock'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'id_turno',
+          type: String,
+          sortable: true,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'id_turno',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [],
+              'item-text': value => {
+                return `${value['turno']} - De ${value['hora_e']} Hasta ${value['hora_s']}`
+              },
+              'item-value': 'cod_turno'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      },
+      /* id_modalidad */
+      {
+        addible: {
+          propTag: 'id_modalidad',
+          addible: true,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [],
+              'item-text': 'modalidad',
+              'item-value': 'cod_modalidad',
+              'prepend-icon': 'fas fa-clock'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'id_modalidad',
+          type: String,
+          sortable: true,
+          fixed: false,
+          visible: false,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'id_modalidad',
+          editable: true,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-autocomplete',
+            props: {
+              items: [],
+              'item-text': 'modalidad',
+              'item-value': 'cod_modalidad'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        }
+      },
       /* status */
       {
         addible: {
@@ -682,6 +800,61 @@ export const courseClassRoomsConfig = [
           }
         }
       },
+      /* modalidad */
+      {
+        addible: {
+          propTag: 'modalidad',
+          addible: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'map',
+              'prepend-icon': 'map',
+              defaultValue: 'Y'
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: true
+                }
+              }
+            ]
+          }
+        },
+        tabulated: {
+          propTag: 'modalidad',
+          sortable: true,
+          type: String,
+          fixed: false,
+          visible: true,
+          align: 'left'
+        },
+        edition: {
+          propTag: 'modalidad',
+          editable: false,
+          header: false,
+          type: 'String',
+          visibleLabel: true,
+          component: {
+            name: 'v-text-field',
+            props: {
+              type: 'text',
+              disabled: true
+            },
+            directives: [
+              {
+                name: 'validate',
+                value: {
+                  required: false
+                }
+              }
+            ]
+          }
+        }
+      },
       /* user_r */
       {
         addible: {
@@ -968,6 +1141,24 @@ export const relationalDataConfiguration = [
       },
       sortField: 'cod_usuario',
       sortOrder: 'desc'
+    }
+  },
+  {
+    targetPropTag: 'id_turno',
+    entity: 'turnos',
+    microservice: 'ficde',
+    propData: 'items',
+    petitionParams: {
+      paginate: false
+    }
+  },
+  {
+    targetPropTag: 'id_modalidad',
+    entity: 'modalidades',
+    microservice: 'ficde',
+    propData: 'items',
+    petitionParams: {
+      paginate: false
     }
   }
 ]
