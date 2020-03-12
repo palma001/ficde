@@ -25,6 +25,41 @@
             </v-layout>
           </v-container>
       </v-content>
+      <v-dialog
+        v-model="GET_TOKEN"
+        max-width="390"
+        persistent 
+        >
+          <v-card>
+            <v-card-title class="headline">Mensaje de Sistema</v-card-title>
+
+            <v-card-title>
+              <h3>
+                Su sesion a expirado, ¿desea continuar con la sesion?
+              </h3>
+            </v-card-title>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+
+              <v-btn
+                color="primary darken-1"
+                text
+                @click="changeRoute('logout')"
+              >
+                Salir
+              </v-btn>
+
+              <v-btn
+                color="primary darken-1"
+                text
+                @click="refreshToken"
+              >
+                Continuar
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
     </v-app>
   </div>
 </template>
@@ -32,8 +67,8 @@
 <script>
 import AdminMain from '../components/AdminMain'
 import { mixins } from '../mixins'
-import { mapActions } from 'vuex'
-import { ACTIONS } from '../store/module-login/name.js'
+import { mapActions, mapGetters } from 'vuex'
+import { ACTIONS, GETTERS } from '../store/module-login/name.js'
 export default {
   mixins: [mixins.containerMixin],
   name: 'Main',
@@ -46,7 +81,7 @@ export default {
        * status of form
        * @type {Boolean}
        */
-      dialog: false,
+      dialog: true,
       /**
        * items of menu
        * @type {Array}
@@ -193,8 +228,13 @@ export default {
        * Name microservices
        * @type {String}
        */
-      microservices: 'condominiums'
+      microservices: 'ficde'
     }
+  },
+  computed: {
+    ...mapGetters([
+      GETTERS.GET_TOKEN
+    ])
   },
   created () {
     this.changeRoute(this.$route.name)
@@ -228,7 +268,12 @@ export default {
         this[ACTIONS.LOGOUT]({ self: this })
       }
     },
-    ...mapActions([ACTIONS.LOGOUT])
+
+    refreshToken () {
+      this[ACTIONS.REFRESH_TOKEN]({ self: this})
+    },
+
+    ...mapActions([ACTIONS.LOGOUT, ACTIONS.REFRESH_TOKEN])
   }
 }
 </script>

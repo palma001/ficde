@@ -133,7 +133,6 @@ const router = new Router({
 router.beforeEach(async (to, from, next) => {
   let autorization = to.matched.some(record => record.meta.authenticate)
   let usuario = await Store.dispatch(ACTIONS.VALID_SESSION)
-  console.log(usuario)
   if (autorization && !usuario) {
     next('login')
   } else if (!autorization && usuario) {

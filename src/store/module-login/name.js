@@ -16,12 +16,17 @@ const SET_EMAIL = 'SET_EMAIL'
 const SET_ROLES = 'SET_ROLES'
 const SET_EXPIRE_IN = 'SET_EXPIRE_IN'
 const CLEAR_ACCOUNT_STATE = 'CLEAR_ACCOUNT_STORE'
+const SET_LAST_NAME = 'LAST_NAME'
+const SET_NAME = 'NAME'
 
 /**
  * Getters
  */
 
 const GET_TOKEN = 'GET_TOKEN'
+const GET_LAST_NAME = 'GET_LAST_NAME'
+const GET_NAME = 'GET_NAME'
+const GET_EMAIL = 'GET_EMAIL'
 /**
  * Actions Login
  * @type {Object}
@@ -44,9 +49,14 @@ export const MUTATIONS = {
   SET_REFRESH_TOKEN,
   SET_EMAIL,
   SET_ROLES,
-  SET_EXPIRE_IN
+  SET_EXPIRE_IN,
+  SET_LAST_NAME,
+  SET_NAME
 }
 
 export const GETTERS = {
-  GET_TOKEN
+  GET_TOKEN,
+  GET_NAME,
+  GET_LAST_NAME,
+  GET_EMAIL
 }

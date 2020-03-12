@@ -2,17 +2,19 @@ import { MUTATIONS } from './name'
 export const mutations = {
 
   [MUTATIONS.CLEAR_ACCOUNT_STATE]: (state, payload) => {
-    // state.email = null
-    // state.roles = null
+    state.email = null
+    state.name = null
+    state.lastName = null
     state.TOKEN = null
-    // state.REFRESH_TOKEN = null
-    // state.expires_in = null
-    // state.token_type = null
+    state.REFRESH_TOKEN = null
+    state.expires_in = null
     // localStorage.setItem('roles', null)
     localStorage.setItem('TOKEN', null)
-    // localStorage.setItem('REFRESH_TOKEN', null)
-    // localStorage.setItem('expires_in', null)
-    // localStorage.setItem('email', null)
+    localStorage.setItem('REFRESH_TOKEN', null)
+    localStorage.setItem('expires_in', null)
+    localStorage.setItem('email', null)
+    localStorage.setItem('name', null)
+    localStorage.setItem('lastName', null)
   },
 
   [MUTATIONS.SET_TOKEN]: (state, token) => {
@@ -30,6 +32,16 @@ export const mutations = {
     localStorage.setItem('email', email)
   },
 
+  [MUTATIONS.SET_NAME]: (state, name) => {
+    state.name = name
+    localStorage.setItem('name', name)
+  },
+
+  [MUTATIONS.SET_LAST_NAME]: (state, lastName) => {
+    state.lastName = lastName
+    localStorage.setItem('lastName', lastName)
+  },
+
   [MUTATIONS.SET_ROLES]: (state, roles) => {
     state.roles = roles
     localStorage.setItem('roles', roles)
@@ -45,6 +57,7 @@ export const mutations = {
       default:
         state.expires_in = expiresIn
     }
+    console.log(state.expires_in)
     localStorage.setItem('expires_in', state.expires_in)
   }
 }

@@ -16,15 +16,14 @@ export const actions = {
       )
         .then(res => {
           if (res.status) {
-            let token = res.res.data.api_token
             resolve(res.res)
-            localStorage.setItem('TOKEN', token)
-            // commit(MUTATIONS.SET_TOKEN, res.res.data.access_token)
-            // commit(MUTATIONS.SET_REFRESH_TOKEN, res.res.data.refresh_token)
-            // commit(MUTATIONS.SET_EMAIL, res.res.data.user.email)
-            // commit(MUTATIONS.SET_ROLES, JSON.stringify(res.res.data.user.roles))
-            // commit(MUTATIONS.SET_EXPIRE_IN, Number(res.res.data.expires_in))
-            // dispatch(ACTIONS.AUTO_LOGOUT, Number(res.res.data.expires_in))
+            commit(MUTATIONS.SET_TOKEN, res.res.data.api_token)
+            commit(MUTATIONS.SET_REFRESH_TOKEN, res.res.data.refresh_token)
+            commit(MUTATIONS.SET_EMAIL, res.res.data.user.email)
+            commit(MUTATIONS.SET_NAME, res.res.data.user.nombre)
+            commit(MUTATIONS.SET_LAST_NAME, res.res.data.user.apellido)
+            commit(MUTATIONS.SET_EXPIRE_IN, Number(res.res.data.expires_in))
+            dispatch(ACTIONS.AUTO_LOGOUT, Number(res.res.data.expires_in))
           } else {
             reject(res)
           }
@@ -47,53 +46,46 @@ export const actions = {
    */
   [ACTIONS.VALID_SESSION]: ({ commit, dispatch }) => {
     let token = localStorage.getItem('TOKEN')
-    // let expireIn = new Date(localStorage.getItem('expires_in'))
-    // let now = new Date()
-    // let email = localStorage.getItem('email')
-    // let refreshToken = localStorage.getItem('REFRESH_TOKEN')
+    let expireIn = new Date(localStorage.getItem('expires_in'))
+    let now = new Date()
+    let email = localStorage.getItem('email')
+    let refreshToken = localStorage.getItem('REFRESH_TOKEN')
     let invalidToken = !token || token === 'null'
-    // let invalidRefreshToken = !refreshToken || refreshToken === 'null'
-    // let invalidDate = !expireIn || expireIn === 'null' || now.getTime() >= expireIn.getTime()
-    // let invalidUser = !email || email === 'null'
-    if (invalidToken /* || invalidDate || invalidUser || invalidRefreshToken */) {
-      // commit(MUTATIONS.CLEAR_ACCOUNT_STATE)
+    let invalidRefreshToken = !refreshToken || refreshToken === 'null'
+    let invalidDate = !expireIn || expireIn === 'null' || now.getTime() >= expireIn.getTime()
+    let invalidUser = !email || email === 'null'
+    console.log(invalidDate)
+    if (invalidToken || invalidDate || invalidRefreshToken || invalidUser) {
+      commit(MUTATIONS.CLEAR_ACCOUNT_STATE)
       return false
     }
     // const roles = localStorage.getItem('roles')
-    // commit(MUTATIONS.SET_TOKEN, token)
-    // commit(MUTATIONS.SET_REFRESH_TOKEN, refreshToken)
+    commit(MUTATIONS.SET_TOKEN, token)
+    commit(MUTATIONS.SET_REFRESH_TOKEN, refreshToken)
     // commit(MUTATIONS.SET_EMAIL, email)
     // commit(MUTATIONS.SET_ROLES, roles)
-    // commit(MUTATIONS.SET_EXPIRE_IN, expireIn)
+    commit(MUTATIONS.SET_EXPIRE_IN, expireIn)
     return true
   },
   /**
    * Refresh user token
    * @param {Object} context
    */
-  [ACTIONS.REFRESH_TOKEN]: ({ commit, dispatch }, { self }) => {
-    // self.$apollo.mutate({
-    //   mutation: gql`mutation ($refresh_token: String!) {
-    //   refreshToken(input: {
-    //     refresh_token: $refresh_token
-    //   })
-    //   {
-    //     access_token
-    //     refresh_token
-    //     expires_in
-    //     token_type
-    //   }
-    // }`,
-    //   variables: {
-    //     refresh_token: localStorage.getItem('REFRESH_TOKEN')
-    //   },
-    //   update: (store, { data: { refreshToken } }) => {
-    //     commit(MUTATIONS.SET_TOKEN, refreshToken.access_token)
-    //     commit(MUTATIONS.SET_REFRESH_TOKEN, refreshToken.refresh_token)
-    //     commit(MUTATIONS.SET_EXPIRE_IN, Number(refreshToken.expires_in))
-    //     dispatch(ACTIONS.AUTO_LOGOUT, Number(refreshToken.expires_in))
-    //   }
-    // })
+  [ACTIONS.REFRESH_TOKEN]: async ({ commit, dispatch }, { self }) => {
+      let { res } = await self.$services.postData([self.microservices, 'refreshToken'],
+          {
+            refresh_token: localStorage.getItem('REFRESH_TOKEN'),
+          }
+      )
+      if (res.status && res.status === 200) {  
+        commit(MUTATIONS.SET_TOKEN, res.data.api_token)
+        commit(MUTATIONS.SET_REFRESH_TOKEN, res.data.refresh_token)
+        commit(MUTATIONS.SET_EMAIL, res.data.user.email)
+        commit(MUTATIONS.SET_NAME, res.data.user.nombre)
+        commit(MUTATIONS.SET_LAST_NAME, res.data.user.apellido)
+        commit(MUTATIONS.SET_EXPIRE_IN, Number(res.data.expires_in))
+        dispatch(ACTIONS.AUTO_LOGOUT, Number(res.data.expires_in))
+      }
   },
   /**
    * Starts user time session

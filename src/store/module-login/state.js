@@ -23,5 +23,8 @@ export const state = {
    * token type session
    * @type{String}
    */
-  token_type: null
+  token_type: null,
+  name: null,
+  lastName: null,
+  email: null
 }
