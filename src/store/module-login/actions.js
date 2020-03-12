@@ -54,7 +54,6 @@ export const actions = {
     let invalidRefreshToken = !refreshToken || refreshToken === 'null'
     let invalidDate = !expireIn || expireIn === 'null' || now.getTime() >= expireIn.getTime()
     let invalidUser = !email || email === 'null'
-    console.log(invalidDate)
     if (invalidToken || invalidDate || invalidRefreshToken || invalidUser) {
       commit(MUTATIONS.CLEAR_ACCOUNT_STATE)
       return false
@@ -62,8 +61,7 @@ export const actions = {
     // const roles = localStorage.getItem('roles')
     commit(MUTATIONS.SET_TOKEN, token)
     commit(MUTATIONS.SET_REFRESH_TOKEN, refreshToken)
-    // commit(MUTATIONS.SET_EMAIL, email)
-    // commit(MUTATIONS.SET_ROLES, roles)
+    commit(MUTATIONS.SET_EMAIL, email)
     commit(MUTATIONS.SET_EXPIRE_IN, expireIn)
     return true
   },
