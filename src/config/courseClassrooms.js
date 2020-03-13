@@ -255,7 +255,7 @@ export const courseClassRoomsConfig = [
             props: {
               items: [],
               'item-text': value => {
-                return `${value['turno']} - De ${value['hora_e']} Hasta ${value['hora_s']}`
+                return `${value['dia']} - ${value['turno']} - De ${value['hora_e']} Hasta ${value['hora_s']}`
               },
               'item-value': 'cod_turno',
               'prepend-icon': 'fas fa-clock'

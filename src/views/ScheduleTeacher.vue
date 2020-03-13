@@ -1,24 +1,40 @@
 <template>
   <v-layout>
     <vue-cal selected-date="2018-11-19"
-      :time-from="7 * 60"
-      :time-to="22 * 60"
+      :time-from="1 * 60"
+      :time-to="24 * 60"
       :disable-views="['years', 'year', 'month']"
       :events="events"
       :on-event-click="onEventClick">
     </vue-cal>
 
     <!-- Using Vuetify -->
-    <v-dialog v-model="showDialog">
+    <v-dialog v-model="showDialog" max-width="390" persistent>
       <v-card>
-        <v-card-title>
-          <v-icon>{{ selectedEvent.icon }}</v-icon>
+        <v-card-title class="headline">
           <h3>{{ selectedEvent.title }}</h3>
-          <v-spacer/>
         </v-card-title>
         <v-card-text>
           <p v-html="selectedEvent.contentFull"/>
         </v-card-text>
+         <v-card-actions>
+            <v-spacer></v-spacer>
+
+            <v-btn
+              color="primary darken-1"
+              text
+              @click="showDialog = false"
+            >
+              Salir
+            </v-btn>
+
+            <v-btn
+              color="primary darken-1"
+              text
+            >
+             Inscribir
+            </v-btn>
+          </v-card-actions>
       </v-card>
     </v-dialog>
   </v-layout>
@@ -69,9 +85,18 @@ export default {
       switch (day) {
         case 'Lunes':
           return `2018-11-20 ${hours}`
+        case 'Martes':
+          return `2018-11-21 ${hours}`
         case 'Miercoles':
           return `2018-11-22 ${hours}`
+        case 'Jueves':
+          return `2018-11-23 ${hours}`
+        case 'Viernes':
+          return `2018-11-24 ${hours}`
+        case 'Sabado':
+          return `2018-11-25 ${hours}`
         default:
+          return `2018-11-19 ${hours}`
           // statements_def
           break;
       }
