@@ -13,9 +13,8 @@
       <v-card>
         <v-card-title>
           <v-icon>{{ selectedEvent.icon }}</v-icon>
-          <h1>{{ selectedEvent.title }}</h1>
+          <h3>{{ selectedEvent.title }}</h3>
           <v-spacer/>
-          <strong>{{ selectedEvent.startDate && selectedEvent.startDate.format('DD/MM/YYYY') }}</strong>
         </v-card-title>
         <v-card-text>
           <p v-html="selectedEvent.contentFull"/>
@@ -40,28 +39,42 @@ export default {
   methods: {
     async getHorarios () {
       let { res } = await this.$services.getData(['ficde', 'semestres_materias'], {
-        paginate: true,
-        perPage: 1
+        paginate: false
       })
       this.getInfo(res.data.data)
     },
     getInfo (data) {
       this.events = data.map(element => {
         return {
-          start: `2018-11-22 ${element.hora_e}`,
-          end: `2018-11-22 ${element.hora_s}`,
+          start: this.getDate(element.dia, element.hora_e),
+          end: this.getDate(element.dia, element.hora_s),
           title: `${element.nombreMateria} - ${element.nombreProfesor}`,
           contentFull: `
             Nombre del Aula - <strong>${element.nombreAula}</strong>
             <br>
             <ul>
-              <li>Nombre del Profesor: ${element.nombreProfesor}</li>
+              <li>Deni del Profesor: ${element.dniProfesor}</li>
+              <li>Nombre del Profesor: ${element.nombreProfesor} ${element.apellidoProfesor}</li>
+              <li>Modalidad: ${element.modalidad}</li>
+              
             </ul>
           `,
           class: 'sport'
         }
       })
       console.log(this.events)
+    },
+    getDate(day, hours) {
+      console.log(day, hours)
+      switch (day) {
+        case 'Lunes':
+          return `2018-11-20 ${hours}`
+        case 'Miercoles':
+          return `2018-11-22 ${hours}`
+        default:
+          // statements_def
+          break;
+      }
     },
     onEventClick (event, e) {
       this.selectedEvent = event
