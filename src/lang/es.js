@@ -4,6 +4,18 @@ export default {
       label: 'Paginación',
       meta: 'Paginación'
     },
+    'message-success-inscription': {
+      label: 'Inscripción realizada correctamente',
+      meta: 'Inscripción realizada correctamente'
+    },
+    'selecte-studnet': {
+      label: 'Seleeccione un estudiante',
+      meta: 'Seleeccione un estudiante'
+    },
+    close: {
+      label: 'Salir',
+      meta: 'Salir'
+    },
     delete: {
       label: 'Eliminar',
       meta: 'Eliminar'
@@ -807,6 +819,10 @@ export default {
         label: 'Exito',
         meta: 'Exito'
       },
+      'btn-inscription': {
+        label: 'Inscribir',
+        meta: 'Inscribir'
+      },
       dniEstudiante: {
         label: 'Dni del Estudiante',
         meta: 'Dni del Estudiante'
@@ -887,7 +903,6 @@ export default {
         label: 'Información adicional',
         meta: 'Información adicional'
       }
-
     },
     semestres: {
       titleUpdateSeccess: {
@@ -1051,8 +1066,8 @@ export default {
         meta: 'Asignar curso'
       },
       assists: {
-        label: 'Asistenacias',
-        meta: 'Asistenacias'
+        label: 'Asistencias',
+        meta: 'Asistencias'
       },
       semesters: {
         label: 'Semestres',

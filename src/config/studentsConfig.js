@@ -112,7 +112,6 @@ export const studentsConfig = [
           }
         }
       },
-
       /* apellido */
       {
         addible: {
@@ -265,63 +264,6 @@ export const studentsConfig = [
             props: {
               type: 'text',
               'prepend-icon': ''
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: true
-                }
-              }
-            ]
-          }
-        }
-      },
-      /* id_curso */
-      {
-        addible: {
-          propTag: 'id_curso',
-          addible: true,
-          type: 'String',
-          visibleLabel: true,
-          component: {
-            name: 'v-autocomplete',
-            props: {
-              items: [],
-              'item-text': 'curso',
-              'item-value': 'cod_curso',
-              'prepend-icon': 'fas fa-book'
-            },
-            directives: [
-              {
-                name: 'validate',
-                value: {
-                  required: false
-                }
-              }
-            ]
-          }
-        },
-        tabulated: {
-          propTag: 'id_curso',
-          sortable: true,
-          type: String,
-          fixed: false,
-          visible: false,
-          align: 'left'
-        },
-        edition: {
-          propTag: 'id_curso',
-          editable: true,
-          type: 'String',
-          header: false,
-          visibleLabel: true,
-          component: {
-            name: 'v-autocomplete',
-            props: {
-              items: [],
-              'item-text': 'curso',
-              'item-value': 'cod_curso'
             },
             directives: [
               {

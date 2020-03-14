@@ -16,23 +16,29 @@
         :on-event-click="onEventClick">
       </vue-cal>
       <!-- Using Vuetify -->
-      <v-dialog v-model="showDialog" max-width="390" persistent>
+      <v-dialog v-model="showDialog" max-width="550" persistent>
+        <v-alert
+          v-model="alert"
+          :type="tipeAlert">
+          {{
+            translateLabel(messageAlert)
+          }}
+        </v-alert>
         <v-card>
           <v-card-title class="headline">
-            <h3>{{ selectedEvent.title }}</h3>
+            <h4>{{ selectedEvent.title }}</h4>
           </v-card-title>
           <v-card-text>
             <p v-html="selectedEvent.contentFull"/>
           </v-card-text>
            <v-card-actions>
               <v-spacer></v-spacer>
-
               <v-btn
                 color="primary darken-1"
                 text
-                @click="showDialog = false"
+                @click="activeAlert(null, null, true)"
               >
-                Salir
+                {{ translateLabel('close') }}
               </v-btn>
 
               <v-btn
@@ -40,7 +46,7 @@
                 text
                 @click="register(selectedEvent.data)"
               >
-               Inscribir
+               {{ translateEntity('estudiantes_materias', 'btn-inscription')}}
               </v-btn>
             </v-card-actions>
         </v-card>
@@ -50,20 +56,62 @@
 <script>
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
+import { mixins } from '../mixins'
 export default {
+  mixins: [mixins.containerMixin],
   components: { VueCal },
   data: () => ({
+    /**
+     * [selectedEvent description]
+     * @type {Object}
+     */
     selectedEvent: {},
+    /**
+     * [showDialog description]
+     * @type {Boolean}
+     */
     showDialog: false,
+    /**
+     * [events description]
+     * @type {Array}
+     */
     events: [],
+    /**
+     * [studentAll description]
+     * @type {Array}
+     */
     studentAll: [],
-    selectedEstudent: null
+    /**
+     * [selectedEstudent description]
+     * @type {[type]}
+     */
+    selectedEstudent: null,
+    /**
+     * [alert description]
+     * @type {Boolean}
+     */
+    alert: false,
+    /**
+     * [tipeAlert description]
+     * @type {String}
+     */
+    tipeAlert: 'error',
+    /**
+     * [messageAlert description]
+     * @type {String}
+     */
+    messageAlert: 'selecte-studnet'
   }),
   created () {
     this.getHorarios()
     this.getStudent()
   },
   methods: {
+    /**
+     * [labelStudent description]
+     * @param  {[type]} data [description]
+     * @return {[type]}      [description]
+     */
     labelStudent (data) {
       return `${data.dni} - ${data.nombre} ${data.apellido}`
     },
@@ -89,12 +137,19 @@ export default {
           end: this.getDate(element.dia, element.hora_s),
           title: `${element.nombreMateria} - ${element.nombreProfesor}  ${element.apellidoProfesor}`,
           contentFull: `
-            Nombre del Aula - <strong>${element.nombreAula}</strong>
-            <ul>
-              <li>Deni del Profesor: ${element.dniProfesor}</li>
-              <li>Nombre del Profesor: ${element.nombreProfesor} ${element.apellidoProfesor}</li>
-              <li>Modalidad: ${element.modalidad}</li>
-            </ul>
+            <div class="details-info">
+              <h4><strong>Datos del Profesor</strong></h4>
+              <ul>
+                <li>Dni: <strong>${element.dniProfesor}</strong></li>
+                <li>Nombre: <strong>${element.nombreProfesor} ${element.apellidoProfesor}</strong></li>
+              </ul>
+              <h4 style="margin-top: 20px;"><strong>Detalles de la Asignatura</strong></h4>
+              <ul>
+                <li>Aula - <strong>${element.nombreAula}</strong></li>
+                <li>${element.nombreMateria} - <strong>${element.nombreSemestre}</strong></li>
+                <li>Modalidad: <strong>${element.modalidad}</strong></li>
+              </ul>
+            </div>
           `,
           data: element,
           class: this.getClassRandom()
@@ -107,17 +162,37 @@ export default {
      * @return {[type]}      [description]
      */
     async register (data) {
-      if (this.selectedEstudent) {
+      if (!this.selectedEstudent) {
+        this.activeAlert('selecte-studnet', 'error', false)
+      } else {
         let { res } = await this.$services.postData(['ficde', 'estudiantes_materias'], {
           id_semestre: data.cod_sm,
           id_estudiante: this.selectedEstudent,
           user_r: 'Luis Palma'
         })
-
-        if (res.data.status === 201) {
-          console.log('hola')
-          this.showDialog = false
+        if (res.status === 201) {
+          this.activeAlert('message-success-inscription', 'success', true)
         }
+      }
+    },
+    /**
+     * [activeAlert description]
+     * @param  {[type]} message     [description]
+     * @param  {[type]} typeAlert   [description]
+     * @param  {[type]} closeDialog [description]
+     * @return {[type]}             [description]
+     */
+    activeAlert (message, typeAlert, closeDialog) {
+      if (message && typeAlert) {
+        this.alert = true
+        this.messageAlert = message
+        this.tipeAlert = typeAlert
+      }
+      if (closeDialog) {
+        setTimeout(() => {
+          this.showDialog = false
+          this.alert = false
+        }, 1000)
       }
     },
     /**
@@ -171,7 +246,6 @@ export default {
         paginate: false
       })
       this.studentAll = res.data.data
-      console.log(res)
     },
     /**
      * [onEventClick description]
@@ -264,5 +338,9 @@ export default {
 
 .vuecal__event-content {
   font-style: italic;
+}
+
+.details-info {
+  font-size: 20px;
 }
 </style>
