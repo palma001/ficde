@@ -15,14 +15,14 @@ export const turnConfig = [
             props: {
               items: [
                 'Lunes',
-                'Martes', 
+                'Martes',
                 'Miercoles',
                 'Jueves',
                 'Viernes',
                 'Sabado',
                 'Domingo'
               ],
-              'prepend-icon': 'fas fa-calend'
+              'prepend-icon': 'fas fa-calendar-alt'
             },
             directives: [
               {
@@ -53,7 +53,7 @@ export const turnConfig = [
             props: {
               items: [
                 'Lunes',
-                'Martes', 
+                'Martes',
                 'Miercoles',
                 'Jueves',
                 'Viernes',
@@ -80,9 +80,13 @@ export const turnConfig = [
           type: 'String',
           visibleLabel: true,
           component: {
-            name: 'v-text-field',
+            name: 'v-autocomplete',
             props: {
-              type: 'text',
+              items: [
+                'Mañana',
+                'Tarde',
+                'Noche'
+              ],
               'prepend-icon': 'fas fa-book'
             },
             directives: [
@@ -110,9 +114,13 @@ export const turnConfig = [
           type: 'String',
           visibleLabel: true,
           component: {
-            name: 'v-text-field',
+            name: 'v-autocomplete',
             props: {
-              type: 'text'
+              items: [
+                'Mañana',
+                'Tarde',
+                'Noche'
+              ]
             },
             directives: [
               {
@@ -178,10 +186,10 @@ export const turnConfig = [
           }
         }
       },
-      /* hora_s */ 
+      /* hora_s */
       {
         addible: {
-          propTag: 'hora_s', 
+          propTag: 'hora_s',
           addible: true,
           type: 'String',
           visibleLabel: true,
@@ -202,7 +210,7 @@ export const turnConfig = [
           }
         },
         tabulated: {
-          propTag: 'hora_s', 
+          propTag: 'hora_s',
           type: String,
           sortable: true,
           fixed: false,
