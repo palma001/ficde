@@ -12,6 +12,10 @@ export default {
       label: 'Seleeccione un estudiante',
       meta: 'Seleeccione un estudiante'
     },
+    'message-subject-error': {
+      label: 'Asignatura Inscrita',
+      meta: 'Asignatura Inscrita'
+    },
     close: {
       label: 'Salir',
       meta: 'Salir'

@@ -174,19 +174,24 @@ export default {
      * @param  {[type]} data [description]
      * @return {[type]}      [description]
      */
-    async register (data) {
+    register (data) {
       if (!this.selectedEstudent) {
-        this.activeAlert('selecte-studnet', 'error', false)
-      } else {
-        let { res } = await this.$services.postData(['ficde', 'estudiantes_materias'], {
-          id_semestre: data.cod_sm,
-          id_estudiante: this.selectedEstudent,
-          user_r: 'Luis Palma'
-        })
-        if (res.status === 201) {
-          this.activeAlert('message-success-inscription', 'success', true)
+          this.activeAlert('selecte-studnet', 'error', false)
+        } else {
+          this.$services.postData(['ficde', 'estudiantes_materias'], {
+            id_semestre: data.cod_sm,
+            id_estudiante: this.selectedEstudent,
+            user_r: 'Luis Palma'
+          })
+          .then(response => {
+            if (response.res.status === 201) {
+              this.activeAlert('message-success-inscription', 'success', true)
+            }
+          })
+          .catch(err => {
+            this.activeAlert('message-subject-error', 'error', false)
+          })
         }
-      }
     },
     /**
      * [activeAlert description]
@@ -253,7 +258,10 @@ export default {
       ]
       return className[Math.floor(Math.random() * className.length)]
     },
-
+    /**
+     * [getStudent description]
+     * @return {[type]} [description]
+     */
     async getStudent () {
       let { res } = await this.$services.getData(['ficde', 'estudiantes'], {
         paginate: false
