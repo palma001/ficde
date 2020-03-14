@@ -185,7 +185,7 @@ export default {
           })
           .then(response => {
             if (response.res.status === 201) {
-              this.activeAlert('message-success-inscription', 'success', true)
+              this.activeAlert('message-success-inscription', 'success', 1000)
             }
           })
           .catch(err => {
@@ -200,7 +200,7 @@ export default {
      * @param  {[type]} closeDialog [description]
      * @return {[type]}             [description]
      */
-    activeAlert (message, typeAlert, closeDialog) {
+    activeAlert (message, typeAlert, closeDialog, timeClosing = 0) {
       if (message && typeAlert) {
         this.alert = true
         this.messageAlert = message
@@ -210,7 +210,7 @@ export default {
         setTimeout(() => {
           this.showDialog = false
           this.alert = false
-        }, 1000)
+        }, timeClosing)
       }
     },
     /**
