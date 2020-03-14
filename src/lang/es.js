@@ -203,9 +203,9 @@ export default {
       }
     },
     estudiantes: {
-      id_curso: {
-        label: 'Curso',
-        meta: 'Curso'
+      cursos: {
+        label: 'cursoss',
+        meta: 'Cursos'
       },
       updated_at: {
         label: 'Fecha de modificacion'

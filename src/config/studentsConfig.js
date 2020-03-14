@@ -277,10 +277,10 @@ export const studentsConfig = [
           }
         }
       },
-      /* id_curso */
+      /* cursos */
       {
         addible: {
-          propTag: 'id_curso',
+          propTag: 'cursos',
           addible: true,
           type: 'String',
           visibleLabel: true,
@@ -308,7 +308,7 @@ export const studentsConfig = [
           }
         },
         tabulated: {
-          propTag: 'id_curso',
+          propTag: 'cursos',
           sortable: true,
           type: String,
           fixed: false,
@@ -316,7 +316,7 @@ export const studentsConfig = [
           align: 'left'
         },
         edition: {
-          propTag: 'id_curso',
+          propTag: 'cursos',
           editable: true,
           type: 'String',
           header: false,
@@ -326,7 +326,11 @@ export const studentsConfig = [
             props: {
               items: [],
               'item-text': 'curso',
-              'item-value': 'cod_curso'
+              'item-value': 'cod_curso',
+              outlined: true,
+              chips: true,
+              'small-chips': true,
+              multiple: true
             },
             directives: [
               {
@@ -642,7 +646,7 @@ export const propsPanelEdition = {
 }
 export const relationalDataConfiguration = [
   {
-    targetPropTag: 'id_curso',
+    targetPropTag: 'cursos',
     entity: 'cursos',
     microservice: 'ficde',
     propData: 'items',
