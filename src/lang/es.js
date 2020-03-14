@@ -204,7 +204,7 @@ export default {
     },
     estudiantes: {
       cursos: {
-        label: 'cursoss',
+        label: 'Cursos',
         meta: 'Cursos'
       },
       updated_at: {

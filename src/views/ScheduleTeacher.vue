@@ -25,9 +25,14 @@
           }}
         </v-alert>
         <v-card>
-          <v-card-title class="headline">
-            <h4>{{ selectedEvent.title }}</h4>
-          </v-card-title>
+          <v-toolbar
+            color="primary"
+            dark
+          >
+            <v-card-title class="headline">
+              <h4>{{ selectedEvent.title }}</h4>
+            </v-card-title>
+          </v-toolbar>
           <v-card-text>
             <p v-html="selectedEvent.contentFull"/>
           </v-card-text>
@@ -143,11 +148,19 @@ export default {
                 <li>Dni: <strong>${element.dniProfesor}</strong></li>
                 <li>Nombre: <strong>${element.nombreProfesor} ${element.apellidoProfesor}</strong></li>
               </ul>
-              <h4 style="margin-top: 20px;"><strong>Detalles de la Asignatura</strong></h4>
+              <hr>
+              <h4><strong>Detalles de la Asignatura</strong></h4>
               <ul>
                 <li>Aula - <strong>${element.nombreAula}</strong></li>
                 <li>${element.nombreMateria} - <strong>${element.nombreSemestre}</strong></li>
                 <li>Modalidad: <strong>${element.modalidad}</strong></li>
+              </ul>
+              <hr>
+              <h4><strong>Horario</strong></h4>
+              <ul>
+                <li>Dia: <strong>${element.dia}</strong></li>
+                <li>Hora de Entrada: <strong>${element.hora_e}</strong></li>
+                <li>Hora de Salida: <strong>${element.hora_s}</strong></li>
               </ul>
             </div>
           `,
