@@ -62,6 +62,7 @@ export const actions = {
     commit(MUTATIONS.SET_REFRESH_TOKEN, refreshToken)
     commit(MUTATIONS.SET_EMAIL, email)
     commit(MUTATIONS.SET_EXPIRE_IN, expireIn)
+    dispatch(ACTIONS.GET_DATA_USER, { self: self, token: token })
     return true
   },
   /**
@@ -93,5 +94,12 @@ export const actions = {
       commit(MUTATIONS.SET_TOKEN, null)
       commit(MUTATIONS.SET_EXPIRE_IN, null)
     }, expiresIn)
+  },
+  /** 
+   * Gets data users
+   */
+
+  [ACTIONS.GET_DATA_USER]: ({ commit }, { self, token }) => {
+    console(self, token)
   }
 }

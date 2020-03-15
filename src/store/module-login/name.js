@@ -6,6 +6,7 @@ const LOGOUT = 'LOGOUT'
 const VALID_SESSION = 'VALID_SESION'
 const REFRESH_TOKEN = 'REFRESH_TOKEN'
 const AUTO_LOGOUT = 'AUTO_LOGOUT'
+const GET_DATA_USER = 'GET_DATA_USER'
 
 /**
  * Mutations
@@ -36,7 +37,8 @@ export const ACTIONS = {
   LOGOUT,
   VALID_SESSION,
   REFRESH_TOKEN,
-  AUTO_LOGOUT
+  AUTO_LOGOUT,
+  GET_DATA_USER
 }
 
 /**
