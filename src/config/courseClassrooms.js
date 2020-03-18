@@ -246,7 +246,7 @@ export const courseClassRoomsConfig = [
       /* id_turno */
       {
         addible: {
-          propTag: 'id_turno',
+          propTag: 'turnos',
           addible: true,
           type: 'String',
           visibleLabel: true,
@@ -280,7 +280,7 @@ export const courseClassRoomsConfig = [
           align: 'left'
         },
         edition: {
-          propTag: 'id_turno',
+          propTag: 'turnos',
           editable: true,
           header: false,
           type: 'String',
