@@ -1146,7 +1146,7 @@ export const relationalDataConfiguration = [
     }
   },
   {
-    targetPropTag: 'id_turno',
+    targetPropTag: 'turnos',
     entity: 'turnos',
     microservice: 'ficde',
     propData: 'items',
