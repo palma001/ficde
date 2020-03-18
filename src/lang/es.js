@@ -468,6 +468,10 @@ export default {
         label: 'Turno',
         meta: 'Turno'
       },
+      turnos: {
+        label: 'Turnos',
+        meta: 'Turnos'
+      },
       curso: {
         label: 'Curso',
         meta: 'Curso'
