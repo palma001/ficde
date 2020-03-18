@@ -336,7 +336,7 @@ export const studentsConfig = [
               {
                 name: 'validate',
                 value: {
-                  required: true
+                  required: false
                 }
               }
             ]
