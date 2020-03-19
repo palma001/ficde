@@ -1,214 +1,368 @@
 <template>
-  <div>
-    <Metadata
-      route="inscription"
-      :config="inscriptionsConfig"
-      :params="params"
-      :entity="entity"
-      :search="search"
-      :loading="loadingTable"
-      @selectRow="selectRow"
-      @selectedData="selectedData"
-      @dataSelected="dataSelected"/>
-    <panelEdition
-      :config="inscriptionsConfig"
-      :propsPanelEdition="propsPanelEdition"
-      :loading="loading"
-      :drawer="drawer"
-      :entity="entity"
-      @deleteData="deleteData"
-      @update="updateNotes"
-      @eventPanel="eventPanel">
-    </panelEdition>
-  </div>
+    <v-app id="inspire">
+      <v-autocomplete
+        :items="studentAll"
+        :item-text="labelStudent"
+        item-value="cod_estudiante"
+        dense
+        v-model="selectedEstudent"
+        label="Seleccione un estudiante"/>
+      <vue-cal
+        selected-date="2018-11-19"
+        :time-from="1 * 60"
+        :time-to="24 * 60"
+        :disable-views="['years', 'year', 'month']"
+        :events="events"
+        :on-event-click="onEventClick">
+      </vue-cal>
+      <!-- Using Vuetify -->
+      <v-dialog v-model="showDialog" max-width="550" persistent>
+        <v-alert
+          v-model="alert"
+          :type="tipeAlert">
+          {{
+            translateLabel(messageAlert)
+          }}
+        </v-alert>
+        <v-card>
+          <v-toolbar
+            color="primary"
+            dark
+          >
+            <v-card-title class="headline">
+              <h4>{{ selectedEvent.title }}</h4>
+            </v-card-title>
+          </v-toolbar>
+          <v-card-text>
+            <p v-html="selectedEvent.contentFull"/>
+          </v-card-text>
+           <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                color="primary darken-1"
+                text
+                @click="activeAlert(null, null, true)"
+              >
+                {{ translateLabel('close') }}
+              </v-btn>
+
+              <v-btn
+                color="primary darken-1"
+                text
+                @click="register(selectedEvent.data)"
+              >
+               {{ translateEntity('estudiantes_materias', 'btn-inscription')}}
+              </v-btn>
+            </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-app>
 </template>
 <script>
-import Metadata from './Metadata.vue'
-import panelEdition from './Edition.vue'
-import { inscriptionsConfig, propsPanelEdition, inscriptionsServices } from '../config/inscriptions'
+import VueCal from 'vue-cal'
+import 'vue-cal/dist/vuecal.css'
 import { mixins } from '../mixins'
 export default {
   mixins: [mixins.containerMixin],
-  name: 'Inscriptions',
-  components: {
-    Metadata,
-    panelEdition
-  },
-  data () {
-    return {
-      inscriptionsServices,
-      entity: 'estudiantes_materias',
-      /***
-       * parameters of micreoservices request
-       * @type {Object} parameters request
-       */
-      params: {
-        /**
-         * number page
-         * @type {Number} number page
-         */
-        page: 0,
-        /**
-         * size paginate
-         * @type {Number} size paginate
-         */
-        perPage: 20,
-        /**
-         * name of field order
-         * @type {String} name field
-         */
-        sortField: 'id_estudiante',
-        /**
-         * type of order
-         * @type {String} type order
-         */
-        sortOrder: 'desc',
-        /**
-         * Number total of field
-         * @type {Number} total field
-         */
-        totalField: 0,
-        /**
-         * Search data of microservices
-         * @type {Object}
-         */
-        search: {}
-      },
-      /**
-       * Configurations table
-       * @type {Object}
-       */
-      inscriptionsConfig,
-      /**
-       * Paramaters for search
-       * @type {Array}
-       */
-      search: {
-        id_materia: '',
-        id_estudiante: ''
-      },
-      /**
-       * status panel
-       * @type {Boolean}
-       */
-      drawer: false,
-      /**
-       * Props panel
-       * @type {Object}
-       */
-      propsPanelEdition,
-      /**
-       * loadding panel
-       * @type {Boolean}
-       */
-      loading: false,
-      /**
-       * [loadingTable description]
-       * @type {Boolean}
-       */
-      loadingTable: false,
-      /**
-       * Data selected
-       * @type {Object}
-       */
-      selected: {}
-    }
-  },
+  components: { VueCal },
+  data: () => ({
+    /**
+     * [selectedEvent description]
+     * @type {Object}
+     */
+    selectedEvent: {},
+    /**
+     * [showDialog description]
+     * @type {Boolean}
+     */
+    showDialog: false,
+    /**
+     * [events description]
+     * @type {Array}
+     */
+    events: [],
+    /**
+     * [studentAll description]
+     * @type {Array}
+     */
+    studentAll: [],
+    /**
+     * [selectedEstudent description]
+     * @type {[type]}
+     */
+    selectedEstudent: null,
+    /**
+     * [alert description]
+     * @type {Boolean}
+     */
+    alert: false,
+    /**
+     * [tipeAlert description]
+     * @type {String}
+     */
+    tipeAlert: 'error',
+    /**
+     * [messageAlert description]
+     * @type {String}
+     */
+    messageAlert: 'selecte-studnet'
+  }),
   created () {
-    this.setRelationalData(this.inscriptionsServices, [], this)
+    this.getHorarios()
+    this.getStudent()
   },
   methods: {
     /**
-     * Select data
+     * [labelStudent description]
      * @param  {[type]} data [description]
      * @return {[type]}      [description]
      */
-    selectRow (data) {
-      this.loading = true
-      this.drawer = true
-      setTimeout(() => {
-        this.propsPanelEdition.data = data
-        this.loading = false
-      }, 500)
+    labelStudent (data) {
+      return `${data.dni} - ${data.nombre} ${data.apellido}`
     },
     /**
-     * Selected default
-     * @param  {Array} data selected
+     * [getHorarios description]
+     * @return {[type]} [description]
      */
-    selectedData (data) {
-      this.propsPanelEdition.data = data[0]
+    async getHorarios () {
+      let { res } = await this.$services.getData(['ficde', 'semestres_materias'], {
+        paginate: false
+      })
+      this.getInfo(res.data.data)
     },
     /**
-     * data selected panel
-     * @param  {Object} data selected
+     * [getInfo description]
+     * @param  {[type]} data [description]
+     * @return {[type]}      [description]
      */
-    dataSelected (data) {
-      this.propsPanelEdition.data = data
+    getInfo (data) {
+      data.map(element => {
+        this.events = element.turnos.map(turno => {
+          return {
+            start: this.getDate(turno.dia, turno.hora_e),
+            end: this.getDate(turno.dia, turno.hora_s),
+            title: `${element.nombreMateria} - ${element.nombreProfesor}  ${element.apellidoProfesor}`,
+            contentFull: `
+              <div class="details-info">
+                <h4><strong>Datos del Profesor</strong></h4>
+                <ul>
+                  <li>Dni: <strong>${element.dniProfesor}</strong></li>
+                  <li>Nombre: <strong>${element.nombreProfesor} ${element.apellidoProfesor}</strong></li>
+                </ul>
+                <hr>
+                <h4><strong>Detalles de la Asignatura</strong></h4>
+                <ul>
+                  <li>Aula - <strong>${element.nombreAula}</strong></li>
+                  <li>${element.nombreMateria} - <strong>${element.nombreSemestre}</strong></li>
+                  <li>Modalidad: <strong>${element.modalidad}</strong></li>
+                </ul>
+                <hr>
+                <h4><strong>Horario</strong></h4>
+                <ul>
+                  <li>Dia: <strong>${turno.dia}</strong></li>
+                  <li>Hora de Entrada: <strong>${turno.hora_e}</strong></li>
+                  <li>Hora de Salida: <strong>${turno.hora_s}</strong></li>
+                </ul>
+              </div>
+            `,
+            data: element,
+            class: this.getClassRandom()
+          }
+        })
+      })
+      console.log(this.events)
     },
     /**
-     * event panel
-     * @param  {Boolean} status panel
+     * [register description]
+     * @param  {[type]} data [description]
+     * @return {[type]}      [description]
      */
-    eventPanel (status) {
-      this.drawer = status
-    },
-    /**
-     * update user
-     * @param  {Object} data user
-     */
-    async updateNotes (data) {
-      try {
-        this.loading = true
-        this.loadingTable = true
-        let response = await this.$services.putData(['ficde', this.entity, data.cod_em], data)
-        if (response.res.data === 1) {
-          this.$notify({
-            title: this.translateEntity(this.entity, 'titleUpdateSeccess'),
-            message: this.translateEntity(this.entity, 'messageUpdateSeccess'),
-            type: 'success',
-            duration: 1000
+    register (data) {
+      if (!this.selectedEstudent) {
+          this.activeAlert('selecte-studnet', 'error', false)
+        } else {
+          this.$services.postData(['ficde', 'estudiantes_materias'], {
+            id_semestre: data.cod_sm,
+            id_estudiante: this.selectedEstudent,
+            user_r: 'Luis Palma'
           })
-          this.loading = false
-          this.loadingTable = false
-        }
-      } catch (e) {
-        this.$notify({
-          title: this.translateEntity(this.entity, 'tileErrorServices'),
-          message: this.translateEntity(this.entity, 'errorServices'),
-          type: 'error',
-          duration: 1000
-        })
+          .then(response => {
+            if (response.res.status === 201) {
+              this.activeAlert('message-success-inscription', 'success', 1000)
+            }
+          })
+          .catch((err) => {
+            this.activeAlert('message-subject-error', 'error', false)
+          })
       }
     },
     /**
-     * update user
-     * @param  {Object} data user
+     * [activeAlert description]
+     * @param  {[type]} message     [description]
+     * @param  {[type]} typeAlert   [description]
+     * @param  {[type]} closeDialog [description]
+     * @return {[type]}             [description]
      */
-    async deleteData (data) {
-      try {
-        this.loading = true
-        this.loadingTable = true
-        let res = await this.$services.deleteData(['ficde', this.entity, data.cod_em])
-        if (!res.status) throw new Error(res['response']['response']['data']['message'])
-        this.$notify({
-          title: this.translateEntity(this.entity, 'titleUpdateSeccess'),
-          message: this.translateEntity(this.entity, 'messageDeleteSeccess'),
-          type: 'success',
-          duration: 1000
-        })
-        this.loading = false
-        this.loadingTable = false
-      } catch (e) {
-        this.$notify({
-          title: this.translateEntity(this.entity, 'tileErrorServices'),
-          message: this.translateEntity('message', e.message),
-          type: 'error',
-          duration: 1000
-        })
-        this.loading = false
-        this.loadingTable = false
+    activeAlert (message, typeAlert, closeDialog, timeClosing = 0) {
+      if (message && typeAlert) {
+        this.alert = true
+        this.messageAlert = message
+        this.tipeAlert = typeAlert
       }
+      if (closeDialog) {
+        setTimeout(() => {
+          this.showDialog = false
+          this.alert = false
+        }, timeClosing)
+      }
+    },
+    /**
+     * [getDate description]
+     * @param  {[type]} day   [description]
+     * @param  {[type]} hours [description]
+     * @return {[type]}       [description]
+     */
+    getDate (day, hours) {
+      switch (day) {
+        case 'Lunes':
+          return `2018-11-20 ${hours}`
+        case 'Martes':
+          return `2018-11-21 ${hours}`
+        case 'Miercoles':
+          return `2018-11-22 ${hours}`
+        case 'Jueves':
+          return `2018-11-23 ${hours}`
+        case 'Viernes':
+          return `2018-11-24 ${hours}`
+        case 'Sabado':
+          return `2018-11-25 ${hours}`
+        default:
+          return `2018-11-19 ${hours}`
+      }
+    },
+    /**
+     * [getClassRandom description]
+     * @return {[type]} [description]
+     */
+    getClassRandom () {
+      let className = [
+        'default',
+        'danger',
+        'primary',
+        'success',
+        'yellow',
+        'dad',
+        'mom',
+        'kid1',
+        'kid2',
+        'kid3'
+      ]
+      return className[Math.floor(Math.random() * className.length)]
+    },
+    /**
+     * [getStudent description]
+     * @return {[type]} [description]
+     */
+    async getStudent () {
+      let { res } = await this.$services.getData(['ficde', 'estudiantes'], {
+        paginate: false
+      })
+      this.studentAll = res.data.data
+    },
+    /**
+     * [onEventClick description]
+     * @param  {[type]} event [description]
+     * @param  {[type]} e     [description]
+     * @return {[type]}       [description]
+     */
+    onEventClick (event, e) {
+      this.selectedEvent = event
+      this.showDialog = true
+
+      // Prevent navigating to narrower view (default vue-cal behavior).
+      e.stopPropagation()
     }
   }
 }
 </script>
+<style>
+
+.vuecal__event-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 4px 0 8px;
+}
+
+.vuecal__event-time {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.vuecal__flex .weekday-label span:last-child{
+  display: none;
+}
+.vuecal__title-bar {
+  display: none;
+}
+.vuecal__menu {
+  color: #ffffff;
+  background: #4a8ff3;
+}
+
+.vuecal__now-line {
+  background: #f5a416;
+}
+.vuecal__event.primary {
+  background: #4a8ff3;
+  border: 2px solid #4a8ff3;
+  color: #fff;
+}
+.vuecal__event.danger {
+  background-color: rgba(255, 102, 102, 0.9);
+  border: 2px solid rgba(255, 102, 102, 1);
+  color: #fff;
+}
+.vuecal__event.dad {
+  background-color: rgba(221, 238, 255, 0.5);
+  border: 2px solid rgba(221, 238, 255, 0.6);
+  color: black;
+}
+.vuecal__event.mom {
+  background-color: rgba(255, 232, 251, 0.5);
+  border: 2px solid rgba(255, 232, 251, 0.6);
+  color: black;
+}
+.vuecal__event.kid1 {
+  background-color: rgba(221, 255, 239, 0.5);
+  border: 2px solid rgba(221, 255, 239, 0.7);
+  color: black;
+}
+.vuecal__event.kid2 {
+  background-color: rgba(255, 250, 196, 0.5);
+  border: 2px solid rgba(255, 250, 196, 0.7);
+  color: black;
+}
+.vuecal__event.kid3 {
+  background-color: rgba(255, 206, 178, 0.5);
+  border: 2px solid rgba(255, 206, 178, 0.7);
+  color: black;
+}
+.vuecal__event.success {
+  background-color: rgba(164, 230, 210, 0.9);
+  border: 2px solid #4a8ff3;
+  color: #fff;
+}
+
+.vuecal__event {
+  cursor: pointer;
+}
+
+.vuecal__event-content {
+  font-style: italic;
+}
+
+.details-info {
+  font-size: 20px;
+}
+</style>

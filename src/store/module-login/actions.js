@@ -100,6 +100,6 @@ export const actions = {
    */
 
   [ACTIONS.GET_DATA_USER]: ({ commit }, { self, token }) => {
-    console(self, token)
+    console.log(self, token)
   }
 }
