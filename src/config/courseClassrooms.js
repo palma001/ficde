@@ -246,7 +246,7 @@ export const courseClassRoomsConfig = [
       /* id_turno */
       {
         addible: {
-          propTag: 'id_turno',
+          propTag: 'turnos',
           addible: true,
           type: 'String',
           visibleLabel: true,
@@ -258,13 +258,14 @@ export const courseClassRoomsConfig = [
                 return `${value['dia']} - ${value['turno']} - De ${value['hora_e']} Hasta ${value['hora_s']}`
               },
               'item-value': 'cod_turno',
-              'prepend-icon': 'fas fa-clock'
+              'prepend-icon': 'fas fa-clock',
+              multiple: true
             },
             directives: [
               {
                 name: 'validate',
                 value: {
-                  required: true
+                  required: false
                 }
               }
             ]
@@ -279,7 +280,7 @@ export const courseClassRoomsConfig = [
           align: 'left'
         },
         edition: {
-          propTag: 'id_turno',
+          propTag: 'turnos',
           editable: true,
           header: false,
           type: 'String',
@@ -291,13 +292,14 @@ export const courseClassRoomsConfig = [
               'item-text': value => {
                 return `${value['turno']} - De ${value['hora_e']} Hasta ${value['hora_s']}`
               },
-              'item-value': 'cod_turno'
+              'item-value': 'cod_turno',
+              multiple: true
             },
             directives: [
               {
                 name: 'validate',
                 value: {
-                  required: true
+                  required: false
                 }
               }
             ]
@@ -1144,7 +1146,7 @@ export const relationalDataConfiguration = [
     }
   },
   {
-    targetPropTag: 'id_turno',
+    targetPropTag: 'turnos',
     entity: 'turnos',
     microservice: 'ficde',
     propData: 'items',

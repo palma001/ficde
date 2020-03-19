@@ -151,7 +151,7 @@ export default {
       this.loading = true
       this.loadingTable = true
       try {
-        let response = await this.$services.putData(['ficde', 'estudiantes', data.dni], data)
+        let response = await this.$services.putData(['ficde', 'estudiantes', data.id], data)
         if (response.res.data === 1) {
           this.$notify({
             title: this.translateEntity('estudiantes', 'titleUpdateSeccess'),
