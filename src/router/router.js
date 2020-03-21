@@ -1,25 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Main from './views/Main'
-import Users from './views/Users'
-import About from './views/About'
-import Login from './views/Login'
-import AddDynamic from './views/AddDynamic'
-import { Store } from './store/'
-import Subjects from './views/SubjectsView.vue'
-import Students from './views/StudentsView'
-import Courses from './views/CoursesView'
-import Headquarters from './views/HeadquartersView'
-import Turn from './views/TurnView'
-import Notes from './views/NotesView'
-import Classrooms from './views/ClassroomsView'
-import Modalities from './views/ModalitiesView'
-import Semester from './views/SemesterView'
-import Assists from './views/AssistsView'
-import AssigCoursesClassrooms from './views/AssigCoursesClassroomsView'
-import Inscription from './views/InscriptionView'
-import ScheduleTeacher from './views/ScheduleTeacher'
-import { ACTIONS } from './store/module-login/name'
+import Main from '../views/Main'
+import Users from '../views/Users'
+import About from '../views/About'
+import Login from '../views/Login'
+import AddDynamic from '../views/AddDynamic'
+import Subjects from '../views/SubjectsView.vue'
+import Students from '../views/StudentsView'
+import Courses from '../views/CoursesView'
+import Headquarters from '../views/HeadquartersView'
+import Turn from '../views/TurnView'
+import Notes from '../views/NotesView'
+import Classrooms from '../views/ClassroomsView'
+import Modalities from '../views/ModalitiesView'
+import Semester from '../views/SemesterView'
+import Assists from '../views/AssistsView'
+import AssigCoursesClassrooms from '../views/AssigCoursesClassroomsView'
+import Inscription from '../views/InscriptionView'
+import ScheduleTeacher from '../views/ScheduleTeacher'
+import { validateAll } from './router-permissions'
 Vue.use(Router)
 
 const router = new Router({
@@ -41,14 +40,12 @@ const router = new Router({
       path: '/dashboard',
       name: 'Main',
       component: Main,
-      meta: {
-        authenticate: true
-      },
+      beforeEnter: validateAll,
       children: [
         {
           path: 'schedule',
           name: 'schedule',
-          component: ScheduleTeacher
+          component: ScheduleTeacher,
         },
         {
           path: 'inscription',
@@ -128,18 +125,6 @@ const router = new Router({
       ]
     }
   ]
-})
-
-router.beforeEach(async (to, from, next) => {
-  let autorization = to.matched.some(record => record.meta.authenticate)
-  let usuario = await Store.dispatch(ACTIONS.VALID_SESSION)
-  if (autorization && !usuario) {
-    next('login')
-  } else if (!autorization && usuario) {
-    next('dashboard')
-  } else {
-    next()
-  }
 })
 
 export default router
