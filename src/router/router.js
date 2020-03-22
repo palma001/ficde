@@ -18,7 +18,7 @@ import Assists from '../views/AssistsView'
 import AssigCoursesClassrooms from '../views/AssigCoursesClassroomsView'
 import Inscription from '../views/InscriptionView'
 import ScheduleTeacher from '../views/ScheduleTeacher'
-import { validateAll } from './router-permissions'
+import { validationSession, validationNotSession } from './router-permissions'
 Vue.use(Router)
 
 const router = new Router({
@@ -34,93 +34,109 @@ const router = new Router({
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: Login,
+      beforeEnter: validationNotSession
     },
     {
       path: '/dashboard',
       name: 'Main',
       component: Main,
-      beforeEnter: validateAll,
       children: [
         {
           path: 'schedule',
           name: 'schedule',
           component: ScheduleTeacher,
+          beforeEnter: validationSession
         },
         {
           path: 'inscription',
           name: 'inscription',
-          component: Inscription
+          component: Inscription,
+          beforeEnter: validationSession
         },
         {
           path: 'coursesclassrooms',
           name: 'coursesclassrooms',
-          component: AssigCoursesClassrooms
+          component: AssigCoursesClassrooms,
+          beforeEnter: validationSession
         },
         {
           path: 'users',
           name: 'users',
-          component: Users
+          component: Users,
+          beforeEnter: validationSession
         },
         {
           path: 'classrooms',
           name: 'classrooms',
-          component: Classrooms
+          component: Classrooms,
+          beforeEnter: validationSession
         },
         {
           path: 'assists',
           name: 'assists',
-          component: Assists
+          component: Assists,
+          beforeEnter: validationSession
         },
         {
           path: 'semesters',
           name: 'semesters',
-          component: Semester
+          component: Semester,
+          beforeEnter: validationSession
         },
         {
           path: 'modalities',
           name: 'modalities',
-          component: Modalities
+          component: Modalities,
+          beforeEnter: validationSession
         },
         {
           path: 'notes',
           name: 'notes',
-          component: Notes
+          component: Notes,
+          beforeEnter: validationSession
         },
         {
           path: 'students',
           name: 'students',
-          component: Students
+          component: Students,
+          beforeEnter: validationSession
         },
         {
           path: 'headquarters',
           name: 'headquarters',
-          component: Headquarters
+          component: Headquarters,
+          beforeEnter: validationSession
         },
         {
           path: 'courses',
           name: 'courses',
-          component: Courses
+          component: Courses,
+          beforeEnter: validationSession
         },
         {
           path: 'turn',
           name: 'turn',
-          component: Turn
+          component: Turn,
+          beforeEnter: validationSession
         },
         {
           path: 'subjects',
           name: 'subjects',
-          component: Subjects
+          component: Subjects,
+          beforeEnter: validationSession
         },
         {
           path: 'about',
           name: 'about',
-          component: About
+          component: About,
+          beforeEnter: validationSession
         },
         {
           path: 'add/:entity',
           name: 'addDynamic',
-          component: AddDynamic
+          component: AddDynamic,
+          beforeEnter: validationSession
         }
       ]
     }
