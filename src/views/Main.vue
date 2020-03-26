@@ -28,7 +28,7 @@
       <v-dialog
         v-model="GET_TOKEN"
         max-width="390"
-        persistent 
+        persistent
         >
           <v-card>
             <v-card-title class="headline">Mensaje de Sistema</v-card-title>
@@ -90,7 +90,7 @@ export default {
         {
           icon: 'keyboard_arrow_up',
           'icon-alt': 'keyboard_arrow_down',
-          text: 'metadata',
+          text: 'admin',
           model: false,
           children: [
             {
@@ -239,6 +239,7 @@ export default {
   created () {
     this.changeRoute(this.$route.name)
     this.links(this.$route.path.split('/'))
+    this.itemsMenu()
   },
   methods: {
     links (router) {
@@ -270,7 +271,27 @@ export default {
     },
 
     refreshToken () {
-      this[ACTIONS.REFRESH_TOKEN]({ self: this})
+      this[ACTIONS.REFRESH_TOKEN]({ self: this })
+    },
+
+    async itemsMenu () {
+      let { response } = await this.$mockData.getData('permissions')
+      response.data.content.map(permissions => {
+        this.items = this.items.filter(item => {
+          for (let rols in permissions) {
+            if (rols === item.text) {
+              item.children = item.children.filter(children => {
+                for (let modules in permissions[rols]) {
+                  if (children.text === modules && permissions[rols][modules]['viewAny']) {
+                    return true
+                  }
+                }
+              })
+              return true
+            }
+          }
+        })
+      })
     },
 
     ...mapActions([ACTIONS.LOGOUT, ACTIONS.REFRESH_TOKEN])

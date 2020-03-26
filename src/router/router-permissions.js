@@ -43,7 +43,7 @@ const hasPermissions = async (appModule, from, next) => {
 /**
  * Description
  */
-const validateRoute = async(appModule, permissions) => {
+const validateRoute = async (appModule, permissions) => {
   let result = false
   permissions.map(element => {
     for (const rol in element) {
@@ -57,4 +57,4 @@ const validateRoute = async(appModule, permissions) => {
     }
   })
   return result
-} 
+}

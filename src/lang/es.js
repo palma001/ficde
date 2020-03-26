@@ -1109,7 +1109,7 @@ export default {
         label: 'Sedes',
         meta: 'Sedes'
       },
-      metadata: {
+      admin: {
         label: 'Administración',
         meta: 'Administración'
       },
