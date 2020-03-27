@@ -91,7 +91,7 @@ export default {
           icon: 'keyboard_arrow_up',
           'icon-alt': 'keyboard_arrow_down',
           text: 'admin',
-          model: false,
+          model: true,
           children: [
             {
               icon: 'fas fa-user-edit',
@@ -154,7 +154,7 @@ export default {
           icon: 'keyboard_arrow_up',
           'icon-alt': 'keyboard_arrow_down',
           text: 'teachers',
-          model: false,
+          model: true,
           children: [
             {
               icon: 'fas fa-sticky-note',
@@ -279,6 +279,9 @@ export default {
       response.data.content.map(permissions => {
         this.items = this.items.filter(item => {
           for (let rols in permissions) {
+            if (item.text === 'logout') {
+              return true
+            }
             if (rols === item.text) {
               item.children = item.children.filter(children => {
                 for (let modules in permissions[rols]) {
