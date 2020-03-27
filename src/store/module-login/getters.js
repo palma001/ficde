@@ -35,5 +35,10 @@ export const getters = {
    */
   [GETTERS.GET_EMAIL]: (state) => {
     return state.email
+  },
+
+  [GETTERS.GET_DATA_USER_GETTER]: (state) => {
+    console.log(state.dataUser)
+    return state.dataUser
   }
 }

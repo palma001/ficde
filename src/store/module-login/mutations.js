@@ -56,7 +56,10 @@ export const mutations = {
       default:
         state.expires_in = expiresIn
     }
-    console.log(state.expires_in)
     localStorage.setItem('expires_in', state.expires_in)
+  },
+
+  [MUTATIONS.SET_DATA_USER]: (state, dataUser) => {
+    state.dataUser = dataUser
   }
 }

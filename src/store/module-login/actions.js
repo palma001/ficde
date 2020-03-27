@@ -1,4 +1,6 @@
 import { ACTIONS, MUTATIONS } from './name'
+import Vue from 'vue'
+let vm = new Vue()
 /**
  * Login
  * @param {Object} context
@@ -99,7 +101,19 @@ export const actions = {
    * Gets data users
    */
 
-  [ACTIONS.GET_DATA_USER]: ({ commit }, { self, token }) => {
-    console.log(self, token)
+  [ACTIONS.GET_DATA_USER]: async ({ commit }, { self, token }) => {
+    let { res } = await vm.$services.getData(
+      ['ficde', 'usuarios'],
+      {
+        paginate: false,
+        sortField: 'api_token',
+        sortOrder: 'desc',
+        dataSearch: {
+          api_token: token
+        }
+      }
+    )
+    commit(MUTATIONS.SET_DATA_USER, res.data.data[0])
+    return res.data.data[0]
   }
 }

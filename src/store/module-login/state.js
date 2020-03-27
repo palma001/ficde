@@ -38,5 +38,10 @@ export const state = {
    * [email description]
    * @type {[type]}
    */
-  email: null
+  email: null,
+
+  /** 
+   * 
+   */
+  dataUser: null
 }

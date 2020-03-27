@@ -1,8 +1,8 @@
-import vue from 'vue'
+import Vue from 'vue'
 import { Store } from '../store/'
-import { ACTIONS } from '../store/module-login/name'
-import router from './router'
-const self = new vue()
+import { ACTIONS, GETTERS } from '../store/module-login/name'
+import { storage } from 'firebase';
+const self = new Vue()
 
 /**
  * Description
@@ -37,6 +37,11 @@ export const validationNotSession = async (to, from, next) => {
  */
 const hasPermissions = async (appModule, from, next) => {
   let { response } = await self.$mockData.getData('permissions')
+  let data = await Store.dispatch(ACTIONS.GET_DATA_USER, {
+    token: localStorage.getItem('TOKEN'),
+    self: self
+  })
+  console.log(data)
   let hasPermission = await validateRoute(appModule, response.data.content)
   return hasPermission
 }
