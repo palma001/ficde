@@ -282,7 +282,7 @@ export default {
             if (item.text === 'logout') {
               return true
             }
-            if (rols === item.text) {
+            if (rols === item.text && permissions[rols]['viewAny']) {
               item.children = item.children.filter(children => {
                 for (let modules in permissions[rols]) {
                   if (children.text === modules && permissions[rols][modules]['viewAny']) {

@@ -1,6 +1,7 @@
 export const permissions = [
   {
     admin: {
+      viewAny: true,
       inscription: {
         viewAny: true,
         read: true,
@@ -96,6 +97,12 @@ export const permissions = [
         edit: true,
         delete: true,
         restore: true
+      }
+    },
+    teachers: {
+      viewAny: true,
+      notes: {
+        viewAny: false
       }
     }
   }
