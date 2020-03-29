@@ -10,7 +10,6 @@ export const validationSession = async (to, from, next) => {
   let validation = await Store.dispatch(ACTIONS.VALID_SESSION)
   const appModule = to.path.split('/').slice(2)
   const hasPermission = await hasPermissions(appModule, from, next)
-  console.log(hasPermission)
   if (validation && !hasPermission) {
     return next({ name: 'Main' })
   }
