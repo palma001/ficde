@@ -100,7 +100,7 @@ export const permissions = [
       }
     },
     teachers: {
-      viewAny: true,
+      viewAny: false,
       notes: {
         viewAny: false
       }

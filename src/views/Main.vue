@@ -275,8 +275,12 @@ export default {
     },
 
     async itemsMenu () {
-      let { response } = await this.$mockData.getData('permissions')
-      response.data.content.map(permissions => {
+      let res = await this[ACTIONS.GET_DATA_USER]({
+        token: localStorage.getItem('TOKEN'),
+        self: this
+      })
+      let permissions = JSON.parse(res.roles[0].permissions)
+      permissions.map(permissions => {
         this.items = this.items.filter(item => {
           for (let rols in permissions) {
             if (item.text === 'logout') {
@@ -297,7 +301,7 @@ export default {
       })
     },
 
-    ...mapActions([ACTIONS.LOGOUT, ACTIONS.REFRESH_TOKEN])
+    ...mapActions([ACTIONS.LOGOUT, ACTIONS.REFRESH_TOKEN, ACTIONS.GET_DATA_USER])
   }
 }
 </script>

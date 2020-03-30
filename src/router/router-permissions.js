@@ -34,12 +34,12 @@ export const validationNotSession = async (to, from, next) => {
  * Description
  */
 const hasPermissions = async (appModule, from, next) => {
-  let { response } = await self.$mockData.getData('permissions')
-  // await Store.dispatch(ACTIONS.GET_DATA_USER, {
-  //   token: localStorage.getItem('TOKEN'),
-  //   self: self
-  // })
-  let hasPermission = await validateRoute(appModule, response.data.content)
+  let res = await Store.dispatch(ACTIONS.GET_DATA_USER, {
+    token: localStorage.getItem('TOKEN'),
+    self: self
+  })
+  let permissions = JSON.parse(res.roles[0].permissions)
+  let hasPermission = await validateRoute(appModule, permissions)
   return hasPermission
 }
 /**
