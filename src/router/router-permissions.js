@@ -9,12 +9,12 @@ const self = new Vue()
 export const validationSession = async (to, from, next) => {
   let validation = await Store.dispatch(ACTIONS.VALID_SESSION)
   const appModule = to.path.split('/').slice(2)
-  const hasPermission = await hasPermissions(appModule, from, next)
-  if (validation && !hasPermission) {
+  // const hasPermission = await hasPermissions(appModule, from, next)
+  if (validation) {
     return next({ name: 'Main' })
   }
 
-  if (!validation && !hasPermission) {
+  if (!validation) {
     return next({ name: 'login' })
   }
 
