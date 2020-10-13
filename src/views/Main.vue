@@ -279,26 +279,26 @@ export default {
         token: localStorage.getItem('TOKEN'),
         self: this
       })
-      let permissions = JSON.parse(res.roles[0].permissions)
-      permissions.map(permissions => {
-        this.items = this.items.filter(item => {
-          for (let rols in permissions) {
-            if (item.text === 'logout') {
-              return true
-            }
-            if (rols === item.text && permissions[rols]['viewAny']) {
-              item.children = item.children.filter(children => {
-                for (let modules in permissions[rols]) {
-                  if (children.text === modules && permissions[rols][modules]['viewAny']) {
-                    return true
-                  }
-                }
-              })
-              return true
-            }
-          }
-        })
-      })
+      // let permissions = JSON.parse(res.roles[0].permissions)
+      // permissions.map(permissions => {
+      //   this.items = this.items.filter(item => {
+      //     for (let rols in permissions) {
+      //       if (item.text === 'logout') {
+      //         return true
+      //       }
+      //       if (rols === item.text && permissions[rols]['viewAny']) {
+      //         item.children = item.children.filter(children => {
+      //           for (let modules in permissions[rols]) {
+      //             if (children.text === modules && permissions[rols][modules]['viewAny']) {
+      //               return true
+      //             }
+      //           }
+      //         })
+      //         return true
+      //       }
+      //     }
+      //   })
+      // })
     },
 
     ...mapActions([ACTIONS.LOGOUT, ACTIONS.REFRESH_TOKEN, ACTIONS.GET_DATA_USER])

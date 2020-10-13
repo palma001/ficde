@@ -11,9 +11,8 @@ export const validationSession = async (to, from, next) => {
   const appModule = to.path.split('/').slice(2)
   // const hasPermission = await hasPermissions(appModule, from, next)
   if (validation) {
-    return next({ name: 'Main' })
+    return next()
   }
-
   if (!validation) {
     return next({ name: 'login' })
   }
